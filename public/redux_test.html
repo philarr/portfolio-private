@@ -1,0 +1,73 @@
+<script src="./vendors/redux.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+	function reducer(state, action) {
+		if (state === undefined) state = [];
+
+
+		switch(action.type) {
+			case 'PING': state.push('yo');
+			default: return state;
+		}
+
+
+
+	}
+
+
+	var store = Redux.createStore(reducer);
+
+store.subscribe(function() {
+
+	console.log(store.getState())
+
+})
+
+store.dispatch({type: 'PING'})
+	
+
+store.dispatch({type: 'PING'})
+	
+store.dispatch({type: 'PING'})
+	
+store.dispatch({type: 'PING'})
+	
+store.dispatch({type: 'PING'})
+	
+
+ 
+
+
+
+
+
+</script>
+
+
+
+<body>
+
+<div id="container"></div>
+
+</body>
