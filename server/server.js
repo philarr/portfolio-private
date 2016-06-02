@@ -7,6 +7,7 @@
 import configureStore from '../common/store/configureStore' /* ReduxDevTools import */
 
 import Express from 'express'
+import Compression from 'compression'
 import { join } from 'path'
 import React from 'react'
 import DOM from 'react-dom/server'
@@ -17,6 +18,7 @@ import Routes from '../common/routes'
 
  
 const $ = Express();
+
 
 
 /* Dev imports */
@@ -34,6 +36,9 @@ if (process.env.NODE_ENV !== 'production') {
 
   $.use(require('webpack-hot-middleware')(compiler));
 }
+else {
+  $.use(Compression());
+}
 
 
 
@@ -47,7 +52,7 @@ $.use((req, res, next) => {
  
  
 
-$.use('/static/', Express.static(__dirname + '/dist/'));
+$.use('/static', Express.static(__dirname + '/../dist'));
  
  
 $.get('*', (req, res) => {
