@@ -1,0 +1,97 @@
+*::selection {
+  color: #ffffff;
+  background: #111111; 
+}
+*::-moz-selection {
+  color: #ffffff;
+  background: #111111;
+}
+
+ body {
+  font-size: 16px;
+  @media #{$Xsmall} {   font-size: 16px; } 
+  @media #{$Small}  {   font-size: 17px; } 
+  @media #{$Medium} {   font-size: 18px; } 
+  @media #{$Large}  {   font-size: 19px; }
+  @media #{$XLarge} {   font-size: 20px; }
+  @media #{$m4k} { }
+  font-family: $font-content;
+  background-color: #252525;
+  color: #202020;
+  font-weight: 300;
+  line-height: 1.6em;
+  overflow-x: hidden;
+ 
+}
+
+
+a { 
+  cursor: pointer; /* react eventhandler fix */
+  transition: color 500ms, border-color 500ms; 
+  &:link, &:visited, &:hover, &:active { 
+    text-decoration: none;
+    color: #A0A0A0; 
+  } 
+  &.active {
+    color: #ffffff;
+    border-bottom: 3px solid rgba(255,255,255,0.1);
+  }
+}
+
+ 
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h1,h2,h3,h4,h5 {
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6em;
+}
+p {
+  font-weight: 300; 
+  margin: 0 0 2em;
+  padding: 0;   
+}
+.label {
+  color: #ffffff;
+}
+
+.icon-png {
+  width: 32px;
+  height: auto;
+}
+.profile-list {
+  width: 25%;
+  margin: 0 0 2em;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: 300;
+
+}
+hr {
+  vertical-align: middle;
+  border: 1px solid rgba(255,255,255,0.1);
+  height: 0;
+ 
+}
+  .hr-thick {
+    position: relative;
+    top: 0.5em;
+    border: 2px solid rgba(255,255,255,0.1);
+
+  }
+
+  .hr-thick-black {
+    position: relative;
+    top: 0.5em;
+    border: 2px solid rgba(0,0,0,0.1);
+  }
+em {
+  text-decoration: none;
+  font-style: normal;
+  border-bottom: 3px solid #5a6273;
+} 
