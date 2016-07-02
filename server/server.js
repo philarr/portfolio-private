@@ -2,10 +2,7 @@
  * PMHC.co Portfolio 2015 
  * server.js
  */
- 
-
 import configureStore from '../common/store/configureStore' /* ReduxDevTools import */
-
 import Express from 'express'
 import Compression from 'compression'
 import { join } from 'path'
@@ -13,85 +10,85 @@ import React from 'react'
 import DOM from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import Routes from '../common/routes'
+import routes from '../common/routes'
+import { ReduxAsyncConnect, loadOnServer } from 'redux-connect'
 
- 
+
 const $ = Express();
 
-
-
 /* Dev imports */
- 
 if (process.env.NODE_ENV !== 'production') {  
-    console.log('Development mode => Load HMR')
-    let webpack = require('webpack'),
-    webpackConfig = require('../webpack.dev.config.js'),
-    compiler = webpack(webpackConfig);
-
+  console.log('Development mode => Load HMR')
+  let webpack = require('webpack'),
+  webpackConfig = require('../webpack.dev.config.js'),
+  compiler = webpack(webpackConfig);
   $.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath
   }));
-
   $.use(require('webpack-hot-middleware')(compiler));
 }
 else {
+  /* gzip */
   $.use(Compression());
 }
 
-
-
-//middlware
+/* middlware */
 //var middleware = require('./middlewares')(app);
- 
 $.use((req, res, next) => {
   console.log(req.method + ' -> ' + req.url);
   next();
 })
- 
- 
-
+/* serve any request for /static from /dist folder */
 $.use('/static', Express.static(__dirname + '/../dist'));
- 
- 
+/* catch any other requests */
 $.get('*', (req, res) => {
 
-  /* Route match */
-  match({ routes: Routes, location: req.url }, (err, redirect, props) => {
-    if (err) { 
-      res.status(500).send(err.message)
-    }
-    else if (redirect) {
-      res.redirect(redirect.pathname + redirect.search)
-    }
-    else if (props) {
-
-      const store = configureStore({'Test': 'TestTestTest'});
-      const ReactDOM = DOM.renderToString(
-        <Provider store={store}>
-         <RouterContext {...props} />
-        </Provider>
-      );
-      res.send(renderHTML(ReactDOM, JSON.stringify(store.getState())));
-
-    }
-    else {
-      res.status(404).send('Not found');
-    }
-  })
-});
+  /* combine redux-connect reducer with our mine to get LOADING states */
  
 
+  match({ routes, location: req.url }, (err, redirect, renderProps) => {
+    /* bad/not found requests */
+    if (err) res.status(500).send(err.message)
+    else if (redirect) res.redirect(redirect.pathname + redirect.search)
+    else if (!renderProps) res.status(404).send('Not found');
 
-const renderHTML = (app, store) => (`
+    /* success (200) */
+    else {
+      const store = configureStore();
+      /* Get async props before rendering */
+      loadOnServer({ ...renderProps, store }).then(() => {
+
+        const ReactDOM = DOM.renderToString(
+          <Provider store={store} key="provider">
+            <ReduxAsyncConnect { ...renderProps } />
+          </Provider>
+        );
+
+
+        res
+        .status(200)
+        .send(renderHTML(ReactDOM, JSON.stringify(store.getState())));
+
+      })
+
+    }
+
+  })
+});
+
+
+const renderHTML = (app, store) => (`<!--
+Check out my github to see the unbundled code! => github.com/philarr/portfolio
+-->
 <!doctype html>
 <html>
   <head>
-    <title>PMHC.co</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Philip Chung">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <title>Philip Chung</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/styles.css" />
     <script src="https://use.typekit.net/ivy1pbs.js"></script>
     <script>try{Typekit.load({async:true});}catch(e){}</script> 
@@ -104,8 +101,7 @@ const renderHTML = (app, store) => (`
     </script>
     <script src="/static/bundle.js"></script>
   </body>
-</html>
-`);
+</html>`);
 
 
 

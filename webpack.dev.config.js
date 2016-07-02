@@ -14,13 +14,15 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+
+ 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     /* Checking if code is ran on client */
     new webpack.DefinePlugin({
       "process.env": {
-        BROWSER: JSON.stringify(true),
+        CanUseDom: JSON.stringify(true),
         NODE_ENV: JSON.stringify("development") 
       }
     }),
@@ -37,11 +39,14 @@ module.exports = {
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]__[local]___[hash:base64:5]!sass'), 
+        loader: 'style!css?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
         exclude: [/node_modules/]
-      }
-
-
+      },
+      { test: /\.png$/, loader: "file-loader" },
+      { test: /\.jpg$/, loader: "file-loader" },
+      { test: /\.woff$/, loader: "file-loader" },
+      { test: /\.otf$/, loader: "file-loader" },
+      { test: /\.svg/,  loader: 'svg-url-loader'}
     ]
   },
  resolve: {
