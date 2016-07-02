@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import Navigation from './Navigation'
 import Background from './Background'
 import { asyncConnect } from 'redux-connect'
- 
+import fetch from 'isomorphic-fetch'
 
 /* Load client assets */
 if ( process.env.CanUseDom ) {

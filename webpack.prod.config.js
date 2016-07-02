@@ -6,10 +6,10 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './client/client.js'
+    './src/client.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, './build/dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
@@ -27,7 +27,7 @@ module.exports = {
         NODE_ENV: JSON.stringify("production") 
       }
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("styles.css"), 
   ],
 
   module: {

@@ -3,8 +3,8 @@ import React from 'react'
 import { match, Router, browserHistory as history } from 'react-router'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import routes from '../common/routes'
-import configureStore from '../common/store/configureStore'
+import routes from './common/routes'
+import configureStore from './common/store/configureStore'
 import { ReduxAsyncConnect } from 'redux-connect'
 
 
