@@ -83,6 +83,10 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
   }
 }
 .hero {
+  /* optimizations to remove scroll jankiness */
+  will-change: transform;
+ -webkit-transform: translate3d(0,0,0);
+
   background-color: #ffffff;
   background-image: url('../img/mountain_night.jpg');
   background-size: cover;
@@ -92,6 +96,7 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
   top: 0;
   bottom: 0;
   height: 100%;
+
   display: table; 
   .hero-vwrapper {
      display: table-cell; 
@@ -104,13 +109,15 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
    font-size: 1.2em;  
     @media #{$Small}  {    font-size: 1.5em;  } 
     @media #{$Medium} {   font-size: 1.75em;  } 
-    @media #{$Large}  {   font-size: 2em; }
+    @media #{$Large}  {   font-size: 1.85em; }
     line-height: 1.6em;
     font-weight: 300;
-    color: #c0c0c0;
     margin-bottom: 0.5em;
+
+ 
     span {
-     display: inline;
+      color: #f0f0f0;
+      display: inline;
       &:after {
         content: ' ';
       }
@@ -119,6 +126,7 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
         &:after {
           content: '';
         }
+
         overflow: hidden;
         display: block; 
         span {
@@ -150,10 +158,11 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
  
 .animated-before {
   opacity: 0;
+  transition: opacity 1.5s;
 }
 
 .wrapper-animated {
-    margin-top:  97vh;
+    margin-top:  90vh;
 }
 
  
@@ -233,10 +242,9 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
 
 .project-ss {
   z-index: 1;
-   height: 12em;
+  height: 300px;
+  position: relative;
 }
-
- 
 
 .project-bottom {
   background-color: rgba(0,0,0,0.25);
@@ -244,12 +252,14 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
   margin-bottom: -2em;
 }
 
+/* 
+For some reason, animate.css' animation-duration + opacity only keyframes 
+causes jank (even with translateZ(0) technique), resorting to transitions instead.
+*/
 
-
-
-
-
-
+.fadeInto {
+  opacity: 1;
+}
 
 
 
@@ -261,15 +271,16 @@ $Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
 
 
 
-
-
 .icon-wave {
  
   display: inline-block;
   background-image: url('../img/wave.svg');
   width: 2em;
   height: 2em;
-
+  @media #{$Medium} { 
+    width: 4em;
+    height: 4em; 
+  }
   margin-top: -0.5em;
   /*
   -webkit-animation-duration: 1s;

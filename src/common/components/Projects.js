@@ -1,10 +1,10 @@
 import React from 'react'
-import { Reveal, scroller } from 'react-scroll'
+import { Reveal, scroller } from 'react-scrollkit'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from '../actions'
 import { Link } from 'react-router'
-if ( process.env.BROWSER ) {
+if ( process.env.CanUseDom ) {
  
  
  	var projectImage = require('../assets/img/1.png')

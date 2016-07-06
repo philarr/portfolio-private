@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
 import ProjectList from './ProjectList'
-import { Reveal, scroller } from 'react-scroll'
+import { Element } from 'react-scrollkit'
 
 /* client assets  
 if ( process.env.CanUseDom ) {
@@ -20,7 +20,12 @@ class Home extends React.Component {
 			return ( 
 			<section className="content">
 	 			<Hero />
-	 			<ProjectList />
+		 		<div className="wrapper-animated">
+					<Element name="topper" className="content-bg">
+		 				<ProjectList />
+			 		</Element>
+		 		</div>
+
 	 		</section>
  
 		);

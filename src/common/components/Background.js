@@ -1,7 +1,7 @@
 import React from 'react'
 
 if ( process.env.BROWSER ) {
-	require('particles-js/particles.js');
+	require('particles.js/particles.js');
 }
 
 

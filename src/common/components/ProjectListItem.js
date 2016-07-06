@@ -1,15 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { Reveal, scroller } from 'react-scroll'
+import { LazyImage, scroller } from 'react-scrollkit'
 
  
 let Trianglify;
-let projectImage = {};
-
-/* client assets */
-if ( process.env.CanUseDom ) {
- 	projectImage = {
+let projectImage = {
  		'1': require('../assets/img/3.png'),
  		'2': require('../assets/img/pmhc.png'),
  		'3': require('../assets/img/1.png'),
@@ -17,6 +13,10 @@ if ( process.env.CanUseDom ) {
  		'5': require('../assets/img/tankwars.png'),
  		'6': require('../assets/img/magister.png'),
  	}
+
+/* client assets */
+if ( process.env.CanUseDom ) {
+ 
  	Trianglify = require('trianglify');
 }
 
@@ -31,6 +31,7 @@ class ProjectListItem extends React.Component {
 		        height: thisRef.offsetHeight
 		  		});
 	    //thisRef.appendChild(pattern.canvas());
+
 	}
 
 	render() {
@@ -40,7 +41,7 @@ class ProjectListItem extends React.Component {
 
 		return (
  			<div ref={ projectItem.name } className="row projects">
-				<Reveal name="profile-expanded-1" once={ true } activeClass="animated fadeInLeft" className="wrapper-expanded animated-before wrapper-project-item"> 
+				<div className="wrapper-expande wrapper-project-item"> 
 					<div  className="col-xs-offset-1 col-sm-offset-2 col-md-offset-1 col-lg-offset-4 col-xs-1 col-sm-3 col-md-1">
 						<h1>
 							{ projectNum }
@@ -55,30 +56,37 @@ class ProjectListItem extends React.Component {
 					<div className="col-lg-2">
 						<h2 className="pull-right"><div className="expand"></div></h2>
 					</div>
-				</Reveal>
-
-				<div className="row project-details">
-					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-						<div className="label">{ projectItem.type }</div>
-						<p>
-						Desc
-						</p>
-						 <div className="label">Tech</div>
-						<p>
-							{ projectTech }
-						</p>
-					</div>
-					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
-						<div className="browser-mockup project-ss">
-							<img src={ projectImage[projectItem.id] } className="shadow-2" />
-						</div>
-					</div>
-					<div className="col-lg-24 project-bottom">
-						<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-							<div className="icon arrowright">View Case Study</div>  
-						</div>
-					</div>
 				</div>
+				{(() => {
+			 	 		if (projectNum == 1)
+						return(
+							<div className="row project-details">
+								<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
+									<div className="label">{ projectItem.type }</div>
+									<p>
+									{ projectItem.desc }
+									</p>
+									 <div className="label">Tech</div>
+									<p>
+										{ projectTech }
+									</p>
+								</div>
+								<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1 col-xs-22 col-md-20 col-lg-11 project-ss">
+									
+									<LazyImage src={ projectImage[projectItem.id] } className="browser-mockup shadow-2 animated-before" activeClass="fadeInto" />
+
+								</div>
+								<div className="col-lg-24 project-bottom">
+									<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
+										<div className="icon arrowright">View Case Study</div>  
+									</div>
+								</div>
+							</div>
+						);
+
+					})()
+				}
+ 
  			</div>
 		);
 	}

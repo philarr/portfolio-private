@@ -6,9 +6,9 @@ import { asyncConnect } from 'redux-connect'
 import fetch from 'isomorphic-fetch'
 
 /* Load client assets */
-if ( process.env.CanUseDom ) {
+ 
 	require('../assets/css/style.scss');
-}
+ 
 
 
 const mapAsyncToProps =  [{
@@ -17,11 +17,14 @@ const mapAsyncToProps =  [{
       .then(response => response.json())
       .then(json => Promise.resolve(json))
       )
+}];
 
+
+function mapStateToProps(state /*, ownProps */) {
+  return {
+    loading: state.reduxAsyncConnect.loaded,
+  }
 }
-
-];
-
  
 class App extends React.Component {
 
@@ -34,7 +37,7 @@ class App extends React.Component {
 		return (
 			<div className="main">
 				<Navigation />
-				{this.props.children && React.cloneElement(this.props.children /* { ...this.props } if spread, it will overwrite all, so must specify. */)}
+				{  !this.props.loading ? 'Loading!' : (this.props.children && React.cloneElement(this.props.children /* { ...this.props } if spread, it will overwrite all, so must specify. */))  }
 			</div>
 
 			);	
@@ -43,4 +46,4 @@ class App extends React.Component {
 
 
  
-export default asyncConnect(mapAsyncToProps)(App)
+export default asyncConnect(mapAsyncToProps, mapStateToProps)(App)

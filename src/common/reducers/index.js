@@ -6,6 +6,7 @@
       name: 'Flora', 
       year: 'Ongoing',
       type: 'Web Application',
+      desc: 'Game data collection and analysis tool. A project consisting of multiple components across different platforms.',
       tech: ['HTML', 'CSS', 'React.js']
     },
     { 
@@ -13,6 +14,7 @@
       name: 'PMHC', 
       year: '2016',
       type: 'Web Application',
+      desc: 'The newest iteration of my personal portfolio using universal/isomorphic React.',
       tech: ['HTML', 'CSS', 'React.js', 'Node.js']
     },
     { 
@@ -20,6 +22,7 @@
       name: 'XIVDPS.com', 
       year: '2015',
       type: 'Web Application',
+      desc: 'Game data collection and analysis tool. A project consisting of multiple components across different platforms.',
       tech: ['PHP', 'MySQL', 'Redis', 'C#', 'Node.js, Javascript']
     },
     { 
@@ -27,6 +30,7 @@
       name: 'Eterna', 
       year: '2014',
       type: 'Web Application',
+      desc: 'Website for a small gaming community with a lightweight C# plugin and phpBB skin.',
       tech: ['PHP', 'MySQL', 'C#', 'Javascript']
     },
     { 
@@ -34,6 +38,7 @@
       name: 'Tank Wars', 
       year: '2013',
       type: 'Game',
+      desc: '2D Top-down shooter written for an academic project on object-oriented programming and visualisation techniques.',
       tech: ['Processing']
     },
     { 
@@ -41,6 +46,7 @@
       name: 'Magister Crabs', 
       year: '2011',
       type: 'Microsite',
+      desc: 'A digital brochure for a business based in Richmond, BC.',
       tech: ['HTML', 'CSS']
     },
  

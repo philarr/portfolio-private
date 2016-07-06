@@ -1,24 +1,34 @@
 var path = require('path')
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var nodeExternals = require('webpack-node-externals');
+
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'webpack-hot-middleware/client',
-    './src/client.js'
+    'webpack/hot/poll?1000',
+    './src/server.js'
   ],
   output: {
     path: path.join(__dirname, '/src/dist'),
-    filename: 'bundle.js',
+    filename: '../server.dev.js',
     publicPath: '/static/'
+  },
+  externals: [nodeExternals({
+    whitelist: ['webpack/hot/poll?1000', 'parse',]
+  })],
+  target: 'node',
+  node: {
+    __dirname: false,
+    __filename: false,
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
-        CanUseDom: JSON.stringify(true),
+        CanUseDom: JSON.stringify(false),
         NODE_ENV: JSON.stringify("development") 
       }
     }),
@@ -34,7 +44,7 @@ module.exports = {
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: 'style!css?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
+        loader: 'css?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },
