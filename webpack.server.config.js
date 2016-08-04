@@ -51,12 +51,7 @@ module.exports = {
       { test: /\.svg/,  loader: "svg-url-loader"},
       { test: /\.json$/, loader: "json"},
     ],
-    postLoaders: [
-      {
-        include: path.resolve(__dirname, '../node_modules/pixi.js'),
-        loader: 'transform?brfs'
-      }
-    ] 
+ 
   },
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
