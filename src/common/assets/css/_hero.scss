@@ -1,0 +1,267 @@
+/* Hero Component */
+
+ 
+.hero {
+  /* optimizations to remove scroll jankiness */
+ 
+  background-color: #262930;
+ 
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: table;
+overflow: hidden;
+ 
+  #hero-canvas {
+    position: absolute;
+    
+    top: -50px;
+    left: -50px;
+ 
+  transition: width 350ms, height 350ms;
+ 
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;  
+ 
+  }
+
+  .hero-wrapper {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    display: table-cell; 
+   vertical-align: middle;
+   text-align: center;
+
+ 
+  }
+
+  .hero-big-msg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-size: 57vw;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: rgba(255,255,255,0.1);
+  }
+
+  .hero-icon {
+    background-image: url('../img/wave.svg');
+    background-size: contain;
+ 
+    background-repeat: no-repeat;
+    height: tick(0.5);
+    width: tick(0.5);
+
+        @include mq($from: md) {
+          height: tick(1);
+          width: tick(1);
+        }
+
+     vertical-align: bottom;
+    display: inline-block;
+
+  }
+
+ 
+ 
+  .hero-msg {
+    display: inline-block;
+    color: #f0f0f0;
+    vertical-align: bottom;
+    z-index: 1;
+            text-align: center;
+    span {
+ 
+      line-height: 1.6em;
+      font-weight: 300;
+      color: #f0f0f0;
+      font-size: 1.75rem; 
+        @include mq($from: md) {
+          font-size: 3rem;
+        }
+        overflow: hidden;
+        display: block; 
+   
+        span {  
+          animation-duration: 1.5s;
+          animation-name: fadeInUpHidden;
+        }
+    }
+  }
+  a {
+    font-size: 1.25rem;
+    color: #c0c0c0; 
+  }
+}
+ 
+ 
+
+.hero-right {
+  text-align: right;
+
+}
+
+
+
+.tech {
+  border: 2px solid rgba(255,255,255,0.1);
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 0 5px;
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+ .hero-bg {
+    background-image: url('../img/mountain_night.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+ }
+
+  .hero-extra {
+ 
+    background-image: url('../img/trees_night.png');
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat; 
+    position: absolute !important;
+    width: 100%;
+    top: auto !important; 
+
+    bottom: -100px;
+    height: 60%;
+   
+   
+  }
+ 
+ #scene {
+  height: 100%;
+ width: 100%;
+  
+ }
+
+
+
+  #hero-particle {
+ 
+    width: 100%;
+    height: 33%;
+    canvas {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+    }
+  }
+ 
+ 
+ .hero-grid {
+  position: absolute !important;
+  top: 50px !important;
+  left: 50px !important;
+   background-size: tick() tick();
+   background-color: rgba(38,41,48,0.25);
+ 
+   background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), 
+  linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+   height: 100%;
+   width: 100%;
+ }
+
+ .layer {
+  pointer-events: none;
+  position: absolute;
+ }
+
+
+ .hero-text-left {  
+  @extend %vm;
+  font-weight: 400;
+   letter-spacing: -1vw;
+      font-size: 57vw;
+  text-align: center;
+ 
+  color: rgba(222,222,222,0.04);
+ }
+
+  .hero-text-right {
+  @extend %vm;
+ 
+  font-weight: 400;
+  margin-top: 100px;
+  margin-right: -10%;
+  font-size: 50vw;
+    text-align: right;
+  color: rgba(222,222,222,0.04);
+ }
+
+
+ .hero-text {
+ 
+ 
+  height: 100%;
+  width: 100%;
+  
+ }
+
+
+ .hero-bottom {
+
+
+
+   span {
+    transition: opacity 350ms, transform 350ms;
+    pointer-events: none;
+    display: block;
+    opacity: 0;
+  }
+
+  &:hover {
+    span {
+      transform: translateY(12px);
+      opacity: 1;
+    }
+  }
+ 
+
+
+  a {
+    text-align: center;
+    transition: transform 350ms;
+    font-size: 3rem;
+
+    &:hover {
+ 
+      transform: translateY(-12px);
+      
+    }
+  }
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  color: #ffffff;
+ }
+
+
+ .hero-test {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  height: 100%;
+  background-color: #262930;
+
+}
+

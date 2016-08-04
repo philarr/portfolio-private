@@ -79,13 +79,13 @@ class Contact extends React.Component {
 						</div>
 						<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
 							<p className="pull-left profile-list">
-								<a href="http://www.github.com/philarr" target="_blank"><img src={ githubIcon } className="icon-png" /> &nbsp; Github</a>
+								<a href="http://www.github.com/philarr" target="_blank"><img  className="icon-png" /> &nbsp; Github</a>
 							</p>
 							<p className="pull-left profile-list">
-								<a href="http://www.twitter.com/pmhc_" target="_blank"><img src={ twitterDataURI } className="icon-png" /> &nbsp; Twitter</a>
+								<a href="http://www.twitter.com/pmhc_" target="_blank"><img  className="icon-png" /> &nbsp; Twitter</a>
 							</p>	
 							<p className="pull-left">
-								<a href="http://www.instagram.com/pmhc_" target="_blank"><img src={ instagramIcon } className="icon-png" /> &nbsp; Instagram</a>
+								<a href="http://www.instagram.com/pmhc_" target="_blank"><img   className="icon-png" /> &nbsp; Instagram</a>
 							</p>		
 
 						</div>

@@ -7,8 +7,14 @@ import { ScrollLink, Element } from 'react-scrollkit'
 function mapStateToProps(state /*, ownProps */) {
   return {
     project: state.Reducer.project,
+    toggle: state.Reducer.environment.toggle
   }
 }
+
+function mapDispatchToProps(props) {
+
+}
+
 
 
 class ProjectList extends React.Component {
@@ -17,23 +23,18 @@ class ProjectList extends React.Component {
 
 		let projectNum = this.props.project.length + 1;
 		return (
- 			<div>
-					<div className="row">
-						<div className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-						   <ScrollLink activeClass="active" className="icon-black arrowdown label" to="topper" spy={true} smooth={true}>Selected Projects</ScrollLink> 
-						</div>
-					</div>
 
-						{ this.props.project.map( 
-			 				item => {
-			 					projectNum--;
-			 					return (<ProjectListItem key={ projectNum } projectItem={ item } />);
-			 					}
-			 				) 
-			 			}
-		 
-		  
- 			</div>
+			<div className="push-bottom">
+					{ this.props.project.map( 
+		 				item => {
+		 					projectNum--;
+		 					return (<ProjectListItem key={ projectNum } projectItem={ item }  />);
+		 					}
+		 				) 
+		 			}
+	 		</div>
+
+ 		 
 		);
 
 	}

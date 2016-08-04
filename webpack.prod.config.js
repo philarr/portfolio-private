@@ -18,16 +18,17 @@ var loaders = [
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.woff$/, loader: "file-loader" },
       { test: /\.otf$/, loader: "file-loader" },
-      { test: /\.svg/,  loader: 'svg-url-loader'}
+      { test: /\.svg/,  loader: 'svg-url-loader'},
+      { test: /\.json$/, loader: 'json'},
     ];
 
 /* Multiple config build */
 
-module.exports = [
+module.exports = [  
 /*********** Bundle client *************/
 {
   name: 'Client',
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   entry: [
     './src/client.js'
   ],
@@ -49,7 +50,14 @@ module.exports = [
     new ExtractTextPlugin("styles.css"), 
   ],
   module: {
-    loaders: loaders
+    loaders: loaders,
+    postLoaders: [
+      {
+        include: path.resolve(__dirname, '../node_modules/pixi.js'),
+        loader: 'transform?brfs'
+      }
+    ] 
+    
   },
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
@@ -58,7 +66,7 @@ module.exports = [
 /*********** Bundle server for universal *************/
 {
   name: 'Server',
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   entry: [
     './src/server.js'
   ],
@@ -90,7 +98,14 @@ module.exports = [
   ],
 
   module: {
-    loaders: loaders
+    loaders: loaders,
+    postLoaders: [
+      {
+        include: path.resolve(__dirname, '../node_modules/pixi.js'),
+        loader: 'transform?brfs'
+      }
+    ] 
+
   },
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']

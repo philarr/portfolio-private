@@ -45,7 +45,7 @@ $.use('/static', Express.static(path.join(__dirname, 'dist')));
 /* catch any other requests */
 $.get('*', (req, res) => {
 
-  /* combine redux-connect reducer with our mine to get LOADING states */
+  /* combine redux-connect reducer with ours to get LOADING states */
  
 
   match({ routes, location: req.url }, (err, redirect, renderProps) => {

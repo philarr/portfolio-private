@@ -1,0 +1,56 @@
+/* Header Component */
+
+nav.nav-primary {
+ height: tick(1);
+ 
+ @extend %inner;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+ 
+  margin: auto;
+   .nav-logo {      
+    @extend %xs-4;
+    a {
+      display: block;
+      font-size: 2rem;
+      width: tick();
+      height: tick();
+      line-height: tick();
+      font-weight: 400;
+      letter-spacing: -1px;
+      color: #ffffff;
+      text-align: center;
+      background-color: rgba(255,255,255,0.15);
+      //  background-color: rgba(0,0,0,0.75);
+    }
+  }
+  /* right navigation */
+  .nav-links {
+    
+    @extend %xs-19;
+    @extend %lg-20;
+ 
+    text-align: right;
+    font-size: 1.2rem;
+    .nav-menu {
+      font-size: 1.5rem;
+      display: block;
+      @include mq($from: md) {
+        display: none;
+      }
+    }
+    a { 
+      @include mq($until: md) {
+        display: none;
+      }
+      margin-left: 2em;
+      line-height:95px;
+       &:hover {
+        color: #ffffff;
+       }
+    }
+  }
+}

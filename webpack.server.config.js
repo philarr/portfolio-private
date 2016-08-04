@@ -5,9 +5,8 @@ var nodeExternals = require('webpack-node-externals');
 
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: [
-    'webpack/hot/poll?1000',
     './src/server.js'
   ],
   output: {
@@ -15,9 +14,7 @@ module.exports = {
     filename: '../server.dev.js',
     publicPath: '/static/'
   },
-  externals: [nodeExternals({
-    whitelist: ['webpack/hot/poll?1000', 'parse',]
-  })],
+  externals: [nodeExternals()],
   target: 'node',
   node: {
     __dirname: false,
@@ -40,7 +37,7 @@ module.exports = {
         test: /\.js$/, 
         loader: 'babel', 
         exclude: [/node_modules/], 
-        query: { presets: [ 'react-hmre' ] }
+       // query: { presets: [ 'react-hmre' ] }
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
@@ -51,8 +48,15 @@ module.exports = {
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.woff$/, loader: "file-loader" },
       { test: /\.otf$/, loader: "file-loader" },
-      { test: /\.svg/,  loader: 'svg-url-loader'}
-    ]
+      { test: /\.svg/,  loader: "svg-url-loader"},
+      { test: /\.json$/, loader: "json"},
+    ],
+    postLoaders: [
+      {
+        include: path.resolve(__dirname, '../node_modules/pixi.js'),
+        loader: 'transform?brfs'
+      }
+    ] 
   },
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']

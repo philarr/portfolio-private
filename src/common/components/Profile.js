@@ -1,9 +1,16 @@
 import React from 'react'
 import { Reveal, scroller } from 'react-scrollkit'
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import * as Actions from '../actions'
 import { Link } from 'react-router'
+
+
+import { asyncConnect } from 'redux-connect'
+import fetch from 'isomorphic-fetch'
+
+
+
+
 
  /*
 if ( process.env.CanUseDom ) {
@@ -15,11 +22,41 @@ if ( process.env.CanUseDom ) {
 }
 */
 
+
+
+
+
+
+const mapAsyncToProps =  [{
+	key: 'lunch',
+	promise: ({ params, helpers, store }) =>  {
+
+ 
+		if (store.getState().reduxAsyncConnect.loadState['lunch']) {
+			console.log('already have...');
+			return null;
+		}
+		else {
+			/* possibility set spinner state here */	
+		}
+
+		return (fetch('http://www.mocky.io/v2/5756b3070f0000f6192f000e')
+	      .then(response => {
+	      	console.log('fetching data.');
+	      	return response.json();
+	      })
+	      .then(json => Promise.resolve(json))
+	      )
+	}
+}];
+
+
 function mapStateToProps(state /*, ownProps */) {
   return {
-    Test2: state.Test2,
+    loading: state.reduxAsyncConnect.loaded,
   }
 }
+ 
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(Actions, dispatch);
@@ -27,9 +64,6 @@ function mapDispatchToProps(dispatch) {
 
 class Profile extends React.Component {
 
-	static _fetchData() {
-		return "hello"
-	}
 
 	componentDidMount() {
 		if (this.props.location.hash == "#expanded") {
@@ -53,7 +87,7 @@ class Profile extends React.Component {
  
 				<div className="content-bg">
 
- <Reveal name="profile-expanded-1" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before page-header"> 
+ 					<Reveal name="profile-expanded-1" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before page-header"> 
 					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
 					 	<hr className="hr-thick-black" />
 
@@ -166,13 +200,13 @@ class Profile extends React.Component {
 							</div>
 							<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
 								<p className="pull-left profile-list">
-									<a href="http://www.github.com/philarr" target="_blank"><img src={ githubIcon } className="icon-png" /> &nbsp; Github</a>
+									<a href="http://www.github.com/philarr" target="_blank"><img className="icon-png" /> &nbsp; Github</a>
 								</p>
 								<p className="pull-left profile-list">
-									<a href="http://www.twitter.com/pmhc_" target="_blank"><img src={ twitterDataURI } className="icon-png" /> &nbsp; Twitter</a>
+									<a href="http://www.twitter.com/pmhc_" target="_blank"><img  className="icon-png" /> &nbsp; Twitter</a>
 								</p>	
 								<p className="pull-left">
-									<a href="http://www.instagram.com/pmhc_" target="_blank"><img src={ instagramIcon } className="icon-png" /> &nbsp; Instagram</a>
+									<a href="http://www.instagram.com/pmhc_" target="_blank"><img className="icon-png" /> &nbsp; Instagram</a>
 								</p>		
 
 							</div>
@@ -190,5 +224,4 @@ class Profile extends React.Component {
 }
  
  
- 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default asyncConnect(mapAsyncToProps, mapStateToProps, mapDispatchToProps)(Profile)

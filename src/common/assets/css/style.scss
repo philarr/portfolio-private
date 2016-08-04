@@ -1,267 +1,124 @@
-$font-primary: "futura-pt",sans-serif;
-$font-extra: "nimbus-sans", sans-serif;
-$font-content: "nimbus-sans", sans-serif;
-$Mobile: 'only screen and (min-width : 320px)';
-$Xsmall: 'only screen and (min-width : 560px)';
-$Small: 'only screen and (min-width : 768px)';
-$Medium: 'only screen and (min-width : 992px)';
-$Large: 'only screen and (min-width : 1200px)';
-$XLarge: 'only screen and (min-width : 1400px)';
-$m4k:  'only screen and (min-width :2060px)';
-$Fs: 'only screen and (min-height : 220px) and (min-width :168px)';
-
-@import "partials/grid";
-@import 'partials/mixin';
-@import 'partials/animate';
-@import 'partials/global';
-
-
- 
-
 /*!
  * PMHC.co default stylesheet
  */
-
  
-/* Header */
-.header {
-  z-index: 3;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+$font-primary: "futura-pt",sans-serif;
+$font-extra: "hack", sans-serif;
+$font-content: "nimbus-sans", sans-serif;
 
-  .logo {      
-   font-size: 1.9em;
-   line-height: 2.5em;
-   font-weight: 400;
-   letter-spacing: -1px;
-    color: #ffffff;
-    /* logo block */
-    div {
-      width: 2.5em;
-      text-align: center;
-      height: 2.5em;
-      line-height: 2.5em;
-      background-color: rgba(255,255,255,0.15);
-     //  background-color: rgba(0,0,0,0.75);
-      font-weight: 400;
-  
+/* 
+ * Bootstrap config
+ */
+
+$bootstrap-col-name: '';
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 544px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+) !default;
+
+$grid-columns:               24 !default;
+$grid-gutter-width:          0 !default; // 30px
+
+/* 
+ * mq config
+ */
+$mq-responsive: true;
+$mq-breakpoints: (
+    sm: map-get($grid-breakpoints, sm),
+    md: map-get($grid-breakpoints, md),
+    lg: map-get($grid-breakpoints, lg),
+    xl: map-get($grid-breakpoints, xl),
+
+    // Tweakpoints
+    layout: 1360px
+);
  
-    }
-  }
-  /* right navigation */
-  nav {
-    font-size: 1.1em;
-    .header-menu {
-      font-size: 1.35em;
 
-    }
-    a { 
-      margin-left: 2em;
-      line-height:95px;
-       &:hover {
-        color: #ffffff;
-       }
+//$mq-show-breakpoints: (sm, md, lg, xl);
 
- 
-    }
-  }
+
+/*
+ * Common extends
+ */
+
+@function tick($unit: 1){
+  @return $unit*5rem;
 }
 
-/* Hero */
-#hero-particle {
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 33%;
-  canvas {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-  }
-}
-.hero {
-  /* optimizations to remove scroll jankiness */
-  will-change: transform;
- -webkit-transform: translate3d(0,0,0);
-
-  background-color: #ffffff;
-  background-image: url('../img/mountain_night.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; 
-  position: fixed;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-
-  display: table; 
-  .hero-vwrapper {
-     display: table-cell; 
-     vertical-align: middle;
-     a {
-        margin-right: 5%;
-     }
-  }
-  .hero-msg {
-   font-size: 1.2em;  
-    @media #{$Small}  {    font-size: 1.5em;  } 
-    @media #{$Medium} {   font-size: 1.75em;  } 
-    @media #{$Large}  {   font-size: 1.85em; }
-    line-height: 1.6em;
-    font-weight: 300;
-    margin-bottom: 0.5em;
-
+@mixin left-column-offset() {
  
-    span {
-      color: #f0f0f0;
-      display: inline;
-      &:after {
-        content: ' ';
-      }
-      //add a bit more fun for large devices
-      @media #{$Large}  { 
-        &:after {
-          content: '';
-        }
+}
+@mixin bridge-column-offset() {
+ 
+}
+@mixin right-column-offset() {
+  @extend %md-offset-1;
 
-        overflow: hidden;
-        display: block; 
-        span {
-          animation-duration: 1.5s;
-          animation-name: fadeInUpHidden;
-        }
-      }
-    }
-  }
 }
 
-
-
-
-
-  .wrapper-project-item {
+@mixin left-column-content() {
+  @extend %xs-4; 
  
-    sup {
-      top: -1em;
-      font-size: 0.35em;
-    }
-  }
-  a {
-    &:hover {
-      color: #ffffff;
-    }
-  }
  
+}
+
+@mixin left-column-block() {
+  @extend %xs-5;
+  @extend %sm-3;
+  @extend %md-2;  
+}
+@mixin bridge-column-block() {
+  @extend %xs-15;
+  @extend %sm-17;
+  @extend %md-3;
+  @extend %lg-3;
+  @extend %xl-4;
+}
+@mixin right-column-block() {
+  @extend %xs-24;
+  @extend %sm-24;
+  @extend %md-11;
+  @extend %lg-17;
+}
+
+/* 
+ * Library
+ */
+@import 'mq';
+@import "bootstrap/bootstrap-reboot";
+@import "bootstrap/bootstrap-grid";
+@import 'partials/mixin';
+ @import 'partials/animate';
+
+/* 
+ * Component styles
+ */
+@import 'partials/global';
+@import 'navigation';
+@import 'hero';
+@import 'projects';
+@import 'project-list-item';
+
+
+
+
  
 .animated-before {
   opacity: 0;
   transition: opacity 1.5s;
 }
 
-.wrapper-animated {
-    margin-top:  90vh;
-}
-
- 
-.content-bg {
-  position: relative;
-  .row {
-    padding: 1.5em 0;
-  }
-  z-index: 2;
-  min-height: 100vh;
-  .label {
-    color: #555555;
-  }
- 
-  color: #555555;
-  background-color: #F8F8F8;
-}
-
-.content-bg-black {
-  .label {
-    color: #f8f8f8;
-  }
-  background-color: #202020;
-  color: #ffffff;
-}
- 
-
-
-
-/* project, project-viewer, project-list, etc. */
-
-
-.projects {
-  padding: 3em 0 !important;
-  background-color: #262930;
-  color: #c0c0c0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
- 
-}
-
- 
-.project-title {
-  color: #e0e0e0;
-}
-
-.project-item-link {
-  margin: 0;
-  padding: 0;
-  line-height: 1.6em;
-  font-size: 2em;
-}
-
-.project-item {
-  padding-right: 2em;
-  padding-bottom: 2em;
-  font-weight: 300;
-  .project-name {
-    font-size: 1.25em;
-  }
-  .project-desc {
-    font-size: 1.15em;
-    color: #A0A0A0;
-  }
-
-}   
-
-
-.project-details {
-  margin-top: 3em;
-  width: 100%;
- overflow: hidden;
- 
- margin-bottom: -3em;
- 
-}
-
-
-.project-ss {
-  z-index: 1;
-  height: 300px;
-  position: relative;
-}
-
-.project-bottom {
-  background-color: rgba(0,0,0,0.25);
-  padding: 3em 0;
-  margin-bottom: -2em;
-}
-
-/* 
-For some reason, animate.css' animation-duration + opacity only keyframes 
-causes jank (even with translateZ(0) technique), resorting to transitions instead.
-*/
-
 .fadeInto {
   opacity: 1;
 }
-
-
 
 
 
@@ -277,7 +134,7 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
   background-image: url('../img/wave.svg');
   width: 2em;
   height: 2em;
-  @media #{$Medium} { 
+  @include mq($from: md) { 
     width: 4em;
     height: 4em; 
   }
@@ -294,17 +151,13 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
   */
 }
 
- 
-.icon:hover {
-  &:before {
-    border: 2px solid rgba(255,255,255,1);
-    transition: border 500ms;
-  }
-}
+.icon, .icon-dark {
+  display: inline-block;
+} 
 
 
-.icon:before {
-    direction: ltr;
+.icon:before, .icon-dark:before {
+     direction: ltr;
     font-family: 'Material Icons';
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -312,45 +165,54 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
     font-feature-settings: 'liga';
     transition: border 500ms;
     display: inline-block;
-    border: 2px solid rgba(255,255,255,0.1);
-    color: #FFFFFF;
     border-radius: 50%;
     line-height: 1.6em;
     width: 1.75em;
     height: 1.75em;
-    vertical-align: bottom;
     text-align: center;
-    margin-right: 0.5em;
+    margin-right: 0.25rem;
 }
 
-
-.icon-black:hover {
+.icon:hover {
+  &:before {
+ 
+    transition: border 500ms;
+  }
+}
+.icon:before {
+  
+    color: #FFFFFF;
+}
+.icon-dark:hover {
   &:before {
     border: 2px solid rgba(0,0,0,0.6);
     transition: border 500ms;
   }
 }
-
-
-.icon-black:before {
-    direction: ltr;
-    font-family: 'Material Icons';
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-    transition: border 500ms;
-    display: inline-block;
+.icon-dark:before {
     border: 2px solid rgba(0,0,0,0.1);
     color: #666666;
-    border-radius: 50%;
-    line-height: 1.6em;
-    width: 1.75em;
-    height: 1.75em;
-    vertical-align: bottom;
-    text-align: center;
-    margin-right: 0.5em;
 }
+
+
+.rect {
+  padding: 0.5rem;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  border: 1px solid rgba(255,255,255,0.1); 
+  border-left-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  @include shadow(1);
+  transition: color 350ms, background-color 350ms, transform 350ms, box-shadow 350ms;
+  &:hover {
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.15);
+    transition: color 350ms, background-color 350ms, transform 350ms, box-shadow 350ms;
+    transform: translateY(-5px);
+    @include shadow(2);
+  }  
+}
+
 
 .icon-block:before {
     direction: ltr;
@@ -371,7 +233,7 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
     margin-right: 0.5em;
 }
 
-.arrowdown:before {
+.down:before {
   content: 'keyboard_arrow_down';
 }
 .arrowright:before {
@@ -396,6 +258,28 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
 .person:before {
   content: 'person_pin';
 }
+.eye:before {
+  content: 'remove_red_eye';
+}
+.web:before {
+  content: 'layers';
+}
+ .linknew:before {
+  content: 'open_in_new';
+}
+ 
+.tooltip:after {
+  content: 'keyboard_arrow_down';
+}
+
+
+
+
+
+
+
+
+
 
 
 .expand:before {
@@ -406,12 +290,12 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
 
-  transition: border 500ms, transform 500ms;
-  display: inline-block;
-  border: 2px solid rgba(255,255,255,0.1);
-  color: #FFFFFF;
-  border-radius: 50%;
-  line-height: 1.6em;
+    transition: border 500ms, transform 500ms;
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,0.1);
+    color: #FFFFFF;
+    border-radius: 50%;
+    line-height: 1.6em;
     width: 1.75em;
     height: 1.75em;
     vertical-align: bottom;
@@ -423,7 +307,6 @@ causes jank (even with translateZ(0) technique), resorting to transitions instea
 .expand {
   &:hover {
     &:before {
-      transform: rotate(45deg);
       border: 2px solid rgba(255,255,255,1);
       transition: border 500ms, transform 500ms;
     }
@@ -503,12 +386,13 @@ ul.spec {
 }
  
 
-.vm {
+%vm {
   @include vertical-align();
 }
 
 .browser-mockup {
-  border-top: 1em solid rgba(240,240,240,0.75);
+ 
+  border-top: 1rem solid rgba(240,240,240,0.7);
   background-color: transparent;
   position: relative;
   border-radius: 3px 3px 0 0;
@@ -518,6 +402,7 @@ ul.spec {
 }
 
 .browser-mockup:before {
+ 
   display: block;
   position: absolute;
   content: '';

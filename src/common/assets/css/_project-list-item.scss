@@ -1,0 +1,174 @@
+.projects {
+  @extend %row;
+ 
+  border-top: 1px solid rgba(255,255,255,0.05);
+  overflow: hidden;
+  position: relative; 
+      height: tick(6);
+    @include mq($until: md) {
+   height: tick(6);
+    }
+ 
+    background-size: tick() tick();
+   background-position: top center;
+   background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), 
+  linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  
+  .projects-title {
+ 
+    white-space: nowrap;
+    font-size: 2rem;
+ 
+    color: #e0e0e0;
+
+    sup {
+      margin-left: 0.75em;
+      top: -1em;
+      font-size: 0.35em;
+    }
+    a {
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .projects-details {
+     @extend %inner;
+    height: tick(4);
+    margin-top: tick(0.5);
+  }
+  .projects-overview {
+ 
+    @include left-column-offset();    
+    @extend %xs-12;
+    @extend %sm-11;
+    @extend %md-9;
+    @extend %lg-9;
+    @extend %xl-8;
+    
+  height: tick(3.5);
+      @include mq($until: md) {
+      height: tick(4);
+    }
+
+ 
+   
+    color: rgba(255,255,255,0.6);
+    span {
+      border: 2px solid rgba(255,255,255,0.1);
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 4px;
+      padding: 0 0.35em;
+      display: inline-block;
+      margin-right: 3px;
+      margin-bottom: 3px;
+      color: #c0c0c0;
+    }
+  
+ 
+
+  }
+
+
+  .projects-desc {@extend %vm;
+ @extend %vm;
+     height: auto;
+     @include mq($until: md) {
+ 
+    }
+  }
+
+  .projects-image {
+    position: relative;
+    top: tick(-3.5);
+            z-index: 3;
+    opacity: 1;
+    transition: opacity 350ms;
+    left: 0; 
+    min-height: tick(6);
+    
+    max-height: tick(6);
+ 
+      @include shadow(4);
+
+    @include mq($until: md) {
+        z-index: 1;
+      top: tick(-3.5);
+       
+
+      img {
+ 
+        width: auto;
+        height: tick(8);
+      }
+ 
+         &.browser-mockup {
+          border: none;
+        }
+        &.browser-mockup:before {
+
+          display: none;
+
+        }
+
+    }
+  
+    @extend %xs-offset-13;
+    @extend %sm-offset-12;
+    @extend %md-offset-11;
+    @extend %lg-offset-10;
+    @extend %xl-offset-9;
+
+    @extend %xs-24;
+    @extend %sm-24;
+    @extend %md-24;
+    @extend %lg-20;
+    @extend %xl-15;
+     
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  }
+  .projects-bottom {
+
+ 
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    background-color: rgba(0,0,0,0.45);
+    height: tick(1);
+    text-align: center;
+      @include mq($from: sm) {
+        text-align: left;
+         background-color: rgba(0,0,0,0.25);
+        height: tick(2);
+      }
+  }
+  .inner {
+    height: auto;
+    position: relative;
+    @include left-column-offset();
+       @extend %vm;
+  }
+  .projects-view {  
+
+
+    width: 47%;
+       @include mq($from: sm) {
+        width: auto;
+      }
+  }
+
+
+}
+
+ 
