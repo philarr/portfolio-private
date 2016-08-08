@@ -51,13 +51,6 @@ module.exports = [
   ],
   module: {
     loaders: loaders,
-    postLoaders: [
-      {
-        include: path.resolve(__dirname, '../node_modules/pixi.js'),
-        loader: 'transform?brfs'
-      }
-    ] 
-    
   },
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
@@ -96,7 +89,9 @@ module.exports = [
     }),
     new ExtractTextPlugin("styles.css"), 
   ],
-
+  module: {
+    loaders: loaders,
+  },
  
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']

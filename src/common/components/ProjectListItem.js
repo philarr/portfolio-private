@@ -22,25 +22,25 @@ class ProjectListItem extends React.Component {
 	 	};
 
 		return (		 	 
-	 		<div className="projects" style={ projectBackground }>
-				<div className="projects-details">
-					<div className="projects-overview">
-						<div className="projects-title">&mdash; { projectItem.name }<sup>{ projectItem.year }</sup></div>
+	 		<div className="projects-item" style={ projectBackground }>
+				<div className="projects-item-details">
+					<div className="projects-item-overview">
+						<div className="projects-item-title"><span>&mdash;</span> { projectItem.name }<sup>{ projectItem.year }</sup></div>
 
-						<div className="projects-desc">
+						<div className="projects-item-desc">
 							<div className="label">{ projectItem.type }</div>
 							<p>{ projectItem.desc }</p>
 							<p>{ projectTech }</p>
 						</div>	
 					</div>
-	 				<div ref="projectsImage" className="projects-image browser-mockup" style={ projectGradient }>
+	 				<div ref="projectsImage" className="projects-item-image browser-mockup" style={ projectGradient }>
 						<LazyImage src={ projectItem.assets.front } className="animated-before" activeClass="fadeInto" />
 					</div>
 				</div>
-				<div className="projects-bottom">
+				<div className="projects-item-bottom">
 					<div className="inner">
-						<Link to="/"className="projects-view icon eye rect">View Case</Link>
-						<Link to="/" className="projects-view icon linknew rect">Visit website</Link> 
+						<Link to="/"className="projects-item-view icon eye rect">View Case</Link>
+						<Link to="/" className="projects-item-view icon linknew rect">Visit website</Link> 
 					</div> 
 				</div>
 			</div>

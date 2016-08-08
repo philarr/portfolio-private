@@ -38,10 +38,10 @@ $mq-breakpoints: (
     xl: map-get($grid-breakpoints, xl),
 
     // Tweakpoints
-    layout: 1360px
+    layout: 1400px,
+    layoutpad: 1525px
 );
  
-
 //$mq-show-breakpoints: (sm, md, lg, xl);
 
 
@@ -61,13 +61,14 @@ $mq-breakpoints: (
 }
 @mixin right-column-offset() {
   @extend %md-offset-1;
-
 }
 
 @mixin left-column-content() {
-  @extend %xs-4; 
- 
- 
+  @include left-column-offset();    
+  @extend %xs-23;
+  @extend %sm-11;
+  @extend %md-9;
+  @extend %lg-9;
 }
 
 @mixin left-column-block() {
@@ -86,7 +87,8 @@ $mq-breakpoints: (
   @extend %xs-24;
   @extend %sm-24;
   @extend %md-11;
-  @extend %lg-17;
+  @extend %lg-13;
+  @extend %xl-13;
 }
 
 /* 
@@ -96,7 +98,7 @@ $mq-breakpoints: (
 @import "bootstrap/bootstrap-reboot";
 @import "bootstrap/bootstrap-grid";
 @import 'partials/mixin';
- @import 'partials/animate';
+@import 'partials/animate';
 
 /* 
  * Component styles
@@ -106,8 +108,7 @@ $mq-breakpoints: (
 @import 'hero';
 @import 'projects';
 @import 'project-list-item';
-
-
+@import 'footer';
 
 
  
@@ -120,36 +121,9 @@ $mq-breakpoints: (
   opacity: 1;
 }
 
-
-
 /*
   decorators, icons, shorthands
 */
-
-
-
-.icon-wave {
- 
-  display: inline-block;
-  background-image: url('../img/wave.svg');
-  width: 2em;
-  height: 2em;
-  @include mq($from: md) { 
-    width: 4em;
-    height: 4em; 
-  }
-  margin-top: -0.5em;
-  /*
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-name: waveHand;
-  animation-name: waveHand;
-  -webkit-animation-iteration-count: infinite; 
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate-reverse;
-  animation-direction: alternate-reverse;
-  */
-}
 
 .icon, .icon-dark {
   display: inline-block;
@@ -163,14 +137,9 @@ $mq-breakpoints: (
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
-    transition: border 500ms;
     display: inline-block;
-    border-radius: 50%;
-    line-height: 1.6em;
-    width: 1.75em;
-    height: 1.75em;
-    text-align: center;
-    margin-right: 0.25rem;
+    vertical-align: bottom;
+    margin: 0 0.25em;
 }
 
 .icon:hover {
@@ -232,7 +201,9 @@ $mq-breakpoints: (
     text-align: center;
     margin-right: 0.5em;
 }
-
+.up:before {
+  content: 'keyboard_arrow_up';
+}
 .down:before {
   content: 'keyboard_arrow_down';
 }
@@ -252,7 +223,7 @@ $mq-breakpoints: (
   content: 'mail_outline';
 }
 .menu:before {
-    vertical-align: middle;
+  vertical-align: middle;
   content: 'menu';
 }
 .person:before {
@@ -264,7 +235,7 @@ $mq-breakpoints: (
 .web:before {
   content: 'layers';
 }
- .linknew:before {
+.linknew:before {
   content: 'open_in_new';
 }
  
@@ -272,13 +243,13 @@ $mq-breakpoints: (
   content: 'keyboard_arrow_down';
 }
 
+.work:before {
+  content: 'work';
+}
 
-
-
-
-
-
-
+.linkafter:after {
+  content: 'open_in_new';
+}
 
 
 
@@ -312,12 +283,6 @@ $mq-breakpoints: (
     }
   }
 }
-
-
- 
-
-
-
 
 
 ol {

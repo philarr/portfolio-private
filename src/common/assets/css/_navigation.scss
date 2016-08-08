@@ -1,26 +1,39 @@
 /* Header Component */
 
 nav.nav-primary {
- height: tick(1);
  
- @extend %inner;
+   padding-right: 4%;
+ 
+  @include mq($from: layoutpad) {
+    padding: 0;
+ 
+  }
+
+ 
   z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
- 
-  margin: auto;
+  line-height: tick(1);
+  vertical-align: top;
    .nav-logo {      
-    @extend %xs-4;
+    height: tick();
+    @include mq($until: layoutpad) {
+      display: inline-block;
+    }
+      
+    display: block;
+    font-size: 1.2rem;
+    color: #ffffff;
     a {
       display: block;
-      font-size: 2rem;
+      font-size: 2.5rem;
       width: tick();
       height: tick();
       line-height: tick();
       font-weight: 400;
-      letter-spacing: -1px;
+ 
       color: #ffffff;
       text-align: center;
       background-color: rgba(255,255,255,0.15);
@@ -29,28 +42,76 @@ nav.nav-primary {
   }
   /* right navigation */
   .nav-links {
-    
-    @extend %xs-19;
-    @extend %lg-20;
- 
-    text-align: right;
-    font-size: 1.2rem;
-    .nav-menu {
-      font-size: 1.5rem;
-      display: block;
-      @include mq($from: md) {
-        display: none;
-      }
+    @include mq($until: layoutpad) {
+      display: inline-block;
     }
-    a { 
-      @include mq($until: md) {
-        display: none;
+      
+    vertical-align: top;
+    font-size: 1.25rem;
+    height: 100%; 
+    display: block;
+    white-space: nowrap;  
+    .nav-select {
+      display: block;
+      @include mq($until: layoutpad) {
+        display: inline-block;
       }
-      margin-left: 2em;
-      line-height:95px;
-       &:hover {
-        color: #ffffff;
-       }
+      width: tick();
+      height: tick();
+      background-color: rgba(255,255,255,0.05);
+      transition: background-color 350ms;
+      &:hover {
+        background-color: rgba(255,255,255,0.25);
+      }
+      &:first-child {
+        background-color: rgba(255,255,255,0.1);
+        &:hover {
+
+          background-color: rgba(255,255,255,0.25);
+        }
+      }
+    } 
+
+    a {
+      text-align: center;
+
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      display: block;
+      color: #c0c0c0;
+     &:hover {
+      color: #ffffff;
+     }
     }
   }
 }
+ 
+
+
+    .nav-top {
+ 
+      z-index: 6;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: tick();
+      font-size: 3rem;
+
+      a {
+        line-height: tick();
+        transition: transform 350ms, opacity 350ms;
+        opacity: 0;
+        &:hover {
+            transform: translateY(-12px);
+        }
+        &.show {
+          opacity: 1;
+        }
+      }
+    }
+
+
+
+

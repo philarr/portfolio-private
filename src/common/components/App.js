@@ -1,52 +1,42 @@
 import React from 'react'
-import { Link } from 'react-router'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Navigation from './Navigation'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
-import TransitionGroup from 'react-addons-transition-group'
-
+import { Element } from 'react-scrollkit'
 
 
 /* Load client assets */
 require('../assets/css/style.scss');
  
 
-function mapProps(state) 
-{
-	return {
-		globalLoad: state.reduxAsyncConnect.loaded
-	}
-}
 
 class App extends React.Component 
 {
 
- 
-	componentWillReceiveProps(nextProps) 
-	{
-		if (this.props.globalLoad && !nextProps.globaLoad) 
-		{
-			console.log('new props');
-		}
-	}
-
-
- 
-
- 
-	render() 
-	{
+	render() {
 		return (
 			<div className="main">
-	 		 
-				{ this.props.children && React.cloneElement(this.props.children) }
-				 
+				<Element name="top">&nbsp;</Element>
+				<Navigation />
+				<ReactCSSTransitionGroup
+					component="div"
+					transitionName="example" 
+					transitionAppear={true} 
+					transitionAppearTimeout={500} 
+					transitionEnterTimeout={500} 
+					transitionLeaveTimeout={500}
+				>
+				{ this.props.children && React.cloneElement(
+					this.props.children, { key: this.props.location.pathname }
+					)
+				}
+				</ReactCSSTransitionGroup>
 			</div>
-
-			);	
+		);	
 	} 
 };
 
 
  
-export default withRouter(connect(mapProps)(App));
+export default App;

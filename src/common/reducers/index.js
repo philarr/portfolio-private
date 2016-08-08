@@ -3,20 +3,23 @@
  const project = [
  /*
     { 
-      name: 'Flora', 
+      name: 'MyVinyl', 
       year: 'Ongoing',
       type: 'Web Application',
-      desc: 'Game data collection and analysis tool. A project consisting of multiple components across different platforms.',
+      desc: 'Curated soundcloud playlists with custom music player.',
       tech: ['HTML', 'CSS', 'React.js'],
-      color: ['#3D4735', '#222222']
+      color: ['#747474', '#747474'],
+      assets: {
+        front: require('../assets/img/pmhc.png')
+      }
     },
-*/
+ */
     { 
-      name: 'PMHC', 
+      name: 'Portfolio', 
       year: '2016',
       type: 'Web Application',
       desc: 'The newest iteration of my personal portfolio using universal/isomorphic React.',
-      tech: ['HTML', 'CSS', 'React.js', 'Node.js'],
+      tech: ['HTML', 'CSS', 'React.js', 'Node.js', 'MongoDB'],
       color: ['#292E36', '#21262E'],
       assets: {
         front: require('../assets/img/pmhc.png')

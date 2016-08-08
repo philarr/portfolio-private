@@ -1,10 +1,9 @@
 import React from 'react'
 import Hero from './Hero'
 import ProjectList from './ProjectList'
-import { Element } from 'react-scrollkit'
+import Footer from './Footer'
+import { Element } from 'react-scrollkit' 
 
-
- 
 class Home extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
@@ -13,11 +12,14 @@ class Home extends React.Component {
 
 
 	render() {
-			return ( 
+		return ( 
 
 			<section className="content">
 	 			<Hero />
-		 		<ProjectList /> 
+				<Element name="content" className="push-bottom">
+		 			<ProjectList /> 
+	 	 			<Footer />
+		 		</Element>
 	 		</section>
  
 		);

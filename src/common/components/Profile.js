@@ -87,7 +87,7 @@ class Profile extends React.Component {
  
 				<div className="content-bg">
 
- 					<Reveal name="profile-expanded-1" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before page-header"> 
+ 					<Reveal name="content" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before page-header"> 
 					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
 					 	<hr className="hr-thick-black" />
 

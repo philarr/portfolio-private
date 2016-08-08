@@ -23,8 +23,8 @@ class ProjectList extends React.Component {
 
 		let projectNum = this.props.project.length + 1;
 		return (
-
-			<div className="push-bottom">
+			<div>
+ 
 					{ this.props.project.map( 
 		 				item => {
 		 					projectNum--;
@@ -32,8 +32,23 @@ class ProjectList extends React.Component {
 		 					}
 		 				) 
 		 			}
-	 		</div>
 
+				<div className="projects">
+					<div className="inner">
+						<div className="projects-left">
+							<h3>Miscellaneous</h3>
+						</div>
+						<div className="projects-right">
+							<a href="#">Archive</a>
+							<p>Projects from the past.</p>
+							<br />
+							<a href="http://www.github.com/philarr" target="_blank">Github</a><span className="icon linknew"></span>
+							<p>Open source projects I'ved started and contributed to.</p>
+						</div>
+					</div>
+		 		</div>
+	  
+		 	</div>
  		 
 		);
 

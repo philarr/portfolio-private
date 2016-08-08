@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { ScrollLink } from 'react-scrollkit'
 
 /* client asset */
 if ( process.env.CanUseDom ) {
 	var particles = require('particles.js');
 	var parallax = require('../assets/vendor/parallax.js');
+	var particlesJSON = require('../assets/json/particles.json');
 }
-
 
 /* hero background + text */
 class Hero extends React.Component {
@@ -14,71 +15,48 @@ class Hero extends React.Component {
  	constructor() {
  		super();
  		this.parallax = null;
+ 		this.debounce = null;
+ 		this.setSceneSize = this.setSceneSize.bind(this);
  	}
 
-
 	componentDidMount() {
-     
- 
+   
  		this.parallax = new Parallax(this.refs.heroScene, {
- 			clipRelativeInput: false,
  			limitX: 100,
  			limitY: 100
  		});
-
-
- 		var scrolling = false;
- 		var debounce = null;
- 		var scrollDebounce = null;
-
- 		window.addEventListener('touchmove', () => {
-
- 			scrolling = true;
-
- 			if (scrollDebounce) clearTimeout(scrollDebounce);
-
- 			scrollDebounce = setTimeout(() => {
- 				scrolling = false;
- 			}, 100)
- 		});
-
-  		window.addEventListener('resize', () => {
-  			if (scrolling) return;
-  			if (debounce) clearTimeout(debounce);
-  			debounce = setTimeout(this.setSceneSize.bind(this), 150);
-  		});
-
 		this.setSceneSize();
-
-  		particlesJS('hero-particle', require('../assets/json/particles.json'));
-
+  		window.addEventListener('resize', this.setSceneSize, 150);
+		particlesJS('hero-particle', particlesJSON);
 	}
 	
 
-
-
 	setSceneSize() {
+  		if (this.debounce) clearTimeout(this.debounce);
 
-		const width = window.innerWidth, height = window.innerHeight;
-
-		this.refs.heroCanvas.style.width = (width + 100) + 'px';
-		this.refs.heroCanvas.style.height = (height + 100) + 'px';
-		this.refs.heroParticle.style.width = (width + 100) + 'px';
-		this.refs.heroParticle.style.height = ((height*0.33) + 100) + 'px';
+  		this.debounce = setTimeout(()=> {
+			const width = window.innerWidth, height = window.innerHeight;
+			this.refs.heroBg.style.width = (width + 150) + 'px';
+			this.refs.heroBg.style.height = (height + 150) + 'px';
+			this.refs.heroExtra.style.width = (width + 150) + 'px';
+			this.refs.heroParticle.style.width = (width + 150) + 'px';
+			this.refs.heroParticle.style.height = ((height*0.33) + 150) + 'px';
+  		}, 150);
 	}
 	
 
 	componentWillUnmount() {
 		if (this.parallax) this.parallax.disable();
+		window.removeEventListener('resize', this.setSceneSize);
 	}
 
 
 	render() {
 		return (
 			<div className="hero">
-				<div ref="heroCanvas" id="hero-canvas" >
+				<div ref="heroCanvas" id="hero-canvas">
 					<div ref="heroScene" id="scene">
-		 				<div className="layer hero-bg" data-depth="0.20" />
+		 				<div className="layer hero-bg" ref="heroBg" data-depth="0.20" />
 			 	 		<div className="layer" id="hero-particle" ref="heroParticle" data-depth="0.20" />
 						<div ref="heroText"  className="layer hero-text" data-depth="0.35">
 							<div className="hero-text-left">P&ndash;</div>
@@ -90,11 +68,11 @@ class Hero extends React.Component {
 				<div className="hero-wrapper">
 					<div className="inner">
 						<div className="hero-msg"><span><span>Hi &mdash; I'm Philip Chung.</span></span><span><span>I create digital solutions.</span></span></div>	  
- 
+
 					</div>
 					<div className="hero-bottom">
-						<span>Selected Projects</span>
-						<a href="/projects" className="icon down" onClick={ this.doStuff } />
+		 
+						<ScrollLink to="content" smooth={ true } className="icon down" onClick={ this.doStuff } />
 					</div>
 				</div>
 			</div>
