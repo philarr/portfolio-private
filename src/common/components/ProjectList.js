@@ -19,36 +19,44 @@ function mapDispatchToProps(props) {
 
 class ProjectList extends React.Component {
 
+
+	constructor() {
+		super();
+		this.selectProjectItem = this.selectProjectItem.bind(this);
+	}
+
+	selectProjectItem() {
+
+
+	}
+
+
 	render() {
 
 		let projectNum = this.props.project.length + 1;
 		return (
-			<div>
+			<div className="projects-list">
  
-					{ this.props.project.map( 
-		 				item => {
-		 					projectNum--;
-		 					return (<ProjectListItem key={ projectNum } projectItem={ item }  />);
-		 					}
-		 				) 
-		 			}
 
-				<div className="projects">
-					<div className="inner">
-						<div className="projects-left">
-							<h3>Miscellaneous</h3>
-						</div>
-						<div className="projects-right">
-							<a href="#">Archive</a>
-							<p>Projects from the past.</p>
-							<br />
-							<a href="http://www.github.com/philarr" target="_blank">Github</a><span className="icon linknew"></span>
-							<p>Open source projects I'ved started and contributed to.</p>
-						</div>
-					</div>
-		 		</div>
-	  
+				{ 
+				this.props.project.map( 
+	 				item => {
+	 					projectNum--;
+	 					return (
+	 						<ProjectListItem 
+	 						key={ projectNum } 
+	 						projectItem={ item } 
+	 						selectItem={ this.selectProjectItem }  
+	 						/>
+	 						);
+	 					}
+	 				) 
+	 			}
+ 
+
 		 	</div>
+
+
  		 
 		);
 

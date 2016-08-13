@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { LazyImage } from 'react-scrollkit'
+import { LazyImage, Reveal } from 'react-scrollkit'
 
+ 
 
 class ProjectListItem extends React.Component {
 
-
+ 
 
 	render() {
 
@@ -23,9 +24,14 @@ class ProjectListItem extends React.Component {
 
 		return (		 	 
 	 		<div className="projects-item" style={ projectBackground }>
+
+ 
 				<div className="projects-item-details">
+
+
+
 					<div className="projects-item-overview">
-						<div className="projects-item-title"><span>&mdash;</span> { projectItem.name }<sup>{ projectItem.year }</sup></div>
+						<div className="projects-item-title">{ projectItem.name }<sup>{ projectItem.year }</sup></div>
 
 						<div className="projects-item-desc">
 							<div className="label">{ projectItem.type }</div>
@@ -33,9 +39,14 @@ class ProjectListItem extends React.Component {
 							<p>{ projectTech }</p>
 						</div>	
 					</div>
+
+
+					
 	 				<div ref="projectsImage" className="projects-item-image browser-mockup" style={ projectGradient }>
 						<LazyImage src={ projectItem.assets.front } className="animated-before" activeClass="fadeInto" />
 					</div>
+
+
 				</div>
 				<div className="projects-item-bottom">
 					<div className="inner">

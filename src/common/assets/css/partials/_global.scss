@@ -26,23 +26,27 @@ html {
  
 body {
   font-family: $font-content;
-  background-color: #000000;
+  background-color: #202020;  
   color: #e0e0e0;
   font-weight: 300;
   line-height: 1.6em;
   height: 100%;
   width: 100%;
+ 
+
 }
 #app {
-
  
   width: 100%;
   height: 100%;
-
- 
 }
  
- 
+
+#accessible-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 
 a { 
@@ -60,10 +64,6 @@ a {
   }
 */
 }
-
-
-
- 
 
 img {
   width: 100%;
@@ -98,10 +98,12 @@ p {
 }
 .profile-list {
   width: 25%;
-  margin: 0 0 2em;
-  padding: 0;
+ 
+  padding-right: 2rem;
   font-size: 0.9em;
   font-weight: 300;
+display: inline-block;
+vertical-align: top;
 }
 hr {
   vertical-align: middle;
@@ -125,14 +127,12 @@ em {
   border-top: 4px solid rgba(255,255,255,0.1);
 }
 
-
-.col-left {
- 
-  @include left-column-block();
+.sublabel {
+  color: #666666;
+  margin-bottom: 1rem;
+  display: block;
 }
-.col-mid {
 
-}
 
 .inner, %inner {
   max-width: tick(13);
@@ -149,12 +149,11 @@ em {
  
 }
 .push-bottom {
-  
+   background-color: #202020; 
   position: absolute;
   top: 100%;
   width: 100%;
-  z-index: 2;
- 
+  z-index: 3;
 }
 .example-appear {
   opacity: 0.01;
@@ -184,25 +183,4 @@ em {
 }
 
 
-
-.content-primary {
-  position: relative;
-  z-index: 2;
  
-  .label {
-    color: #555555;
-  }
-  color: #555555;
-  background-color: #F8F8F8;
-}
-
-
-.content-bg-black {
- 
-   .label {
-    color: #f8f8f8;
-  }
-  background-color: #202020;
-  color: #ffffff;
-}
-

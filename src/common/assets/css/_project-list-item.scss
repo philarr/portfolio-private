@@ -1,30 +1,77 @@
+.projects-list {
+  position: relative;
+  z-index: 2;
+ 
+    span.abc {
+      color: rgba(255,255,255,0.25);
+      font-size: 3rem;
+
+ 
+    }
+ 
+
+  .projects-list-header {
+    height: tick(2);
+    @extend %row;
+    .inner {
+      @extend %vm;
+    }
+
+
+  .projects-list-left {
+    @include left-column-content();
+    padding: 2% 2% 0 0;
+    h1 {
+      line-height: tick();
+    }
+ 
+  }
+
+
+  .projects-list-right {
+    @include right-column-block();
+    padding: 2% 0 0 2%;
+    vertical-align: middle;
+    text-align: right;
+  
+  }
+
+
+  }
+}
+
 .projects-item {
+        background-size: tick(1) tick(1);
+        background-position: top left;
+       background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), 
+       linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
   @extend %row;
   overflow: hidden;
   position: relative; 
-      height: tick(6);
-    @include mq($until: md) {
+  height: tick(6);
+  @include mq($until: md) {
    height: tick(6);
-    }
- 
-   background-size: tick(1) tick(1);
-   background-position: top left;
-   background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), 
-  linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  }
 
  
   .projects-item-title {
+    @include mq($until: md) {
+      line-height: tick(1.5);
+      margin-bottom: 1rem;
  
+    }
+    line-height: tick(2);
+    margin-bottom: tick(-0.5);
     white-space: nowrap;
     font-size: 2rem;
-    margin: tick(0.5) 0;
-    color: #e0e0e0;
 
+    color: #e0e0e0;
     span {
       color: rgba(255,255,255,0.25);
       font-size: 3rem;
 
     }
+ 
     sup {
       margin-left: 0.75em;
       top: -1em;
@@ -38,9 +85,10 @@
   }
 
   .projects-item-details {
+
      @extend %inner;
      height: tick(4);
-
+     position: relative;
 
 
     @include mq($until: sm) {
@@ -63,7 +111,7 @@
  
   }
   .projects-item-overview {
- 
+    
     @include left-column-offset();    
     @extend %xs-13;
     @extend %sm-11;
@@ -85,7 +133,7 @@
     transition: opacity 350ms;
 
       @include mq($until: sm) {
-        opacity: 0.35;
+        opacity: 0.15;
       }
       
     @extend %vm;
@@ -103,8 +151,20 @@
   }
 
   .projects-item-image {
-    position: relative;
-    top: tick(-1.5);
+    @extend %xs-offset-3;
+    @extend %sm-offset-12;
+    @extend %md-offset-10;
+    @extend %lg-offset-10;
+    @extend %xl-offset-9;
+
+    @extend %xs-24;
+    @extend %sm-24;
+    @extend %md-24;
+    @extend %lg-20;
+    @extend %xl-15;
+
+    position: absolute;
+    top: tick();
     z-index: 3;
     opacity: 1;
     transition: transform 350ms, opacity 350ms;
@@ -118,31 +178,18 @@
 
     @include mq($until: md) {
       z-index: 1;
-      top: tick(-1.5);
-
+      top: tick(1.5);
+      height: tick(5);
       img {
         -webkit-user-select:none;
         -webkit-touch-callout:none;
-        width: 100%;
+        width: 140%;
         height: auto;
 
       }
  
 
     }
-  
-    @extend %xs-offset-2;
-    @extend %sm-offset-12;
-    @extend %md-offset-11;
-    @extend %lg-offset-10;
-    @extend %xl-offset-9;
-
-    @extend %xs-24;
-    @extend %sm-24;
-    @extend %md-24;
-    @extend %lg-20;
-    @extend %xl-15;
-
   }
   .projects-item-bottom {
 
@@ -157,7 +204,7 @@
     text-align: center;
       @include mq($from: sm) {
         text-align: left;
-         background-color: rgba(0,0,0,0.2);
+         background-color: rgba(26,26,26,0.3);
         height: tick(2);
       }
   }

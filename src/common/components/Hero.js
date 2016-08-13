@@ -26,7 +26,7 @@ class Hero extends React.Component {
  			limitY: 100
  		});
 		this.setSceneSize();
-  		window.addEventListener('resize', this.setSceneSize, 150);
+  		window.addEventListener('resize', this.setSceneSize);
 		particlesJS('hero-particle', particlesJSON);
 	}
 	

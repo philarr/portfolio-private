@@ -1,46 +1,66 @@
-.projects {
+.projects-header {
+	      background-size: tick(1) tick(1);
+      background-position: top left;
+     background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), 
+     linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+ height: tick(6);
+	 .inner {
+	 	@extend %vm;
+	 	height: tick();
+	 }
+ }
 
+.projects, .projects-header {
 
  	@extend %row;
+	color: #b0b0b0;	 
+ 	width: 100%;
  
- 
-  	height: tick(4);
- 
-	overflow: hidden;
-	position: relative; 
-	background-color: #292E36;
-	color: #c0c0c0;
- 	.inner {
- 		 @extend %vm;
- 		 height: tick(2);
- 	}
-
-		a {
- 
+		a {	
+ 			line-height: 1.6em;
 			font-size: 2rem;
 			display: inline-block;
 			transition: box-shadow 350ms;
-			box-shadow: inset 0 -0.3em 0 rgba(255,255,255,0.1);
-			border-bottom: 2px solid rgba(255,255,255,0.2);
-		&:hover {
-		   box-shadow: inset 0 0 0 rgba(255,255,255,0.15);
+
+			&:before {
+				display: inline-block;
+				height: 3px;
+				vertical-align: middle;
+				background-color: rgba(255,255,255,0.1);
+				transition: padding-right 350ms;
+				content: ' ';
+			}
 		}
 
-		}
-		span {
-			vertical-align: top;
-			font-size: 0.5em;
-		}
+		a:hover {
+	
+			&:before {
+			margin-right: 0.5rem;
+			padding-right: 1rem;
+			transition: padding-right 350ms, margin-right 350ms;
+			}
+
+		} 
+ 
 	.projects-left {
 		@include left-column-content();
- 
+		@include mq($until: md) {
+				padding: tick(0.5) 2% tick(0.5) 0;
+		}
+		padding: tick() 2% tick() 0;
  
 	}
 
 
 	.projects-right {
 		@include right-column-block();
-  
+		@include mq($until: md) {
+			border-top: 1px solid #272727;
+				padding: tick(0.5) 2% tick(0.5) 0;
+		}
+		padding: tick() 0 tick() 2%;
+ 
 	}
 
 }

@@ -3,7 +3,7 @@ import { Reveal, scroller } from 'react-scrollkit'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../actions'
 import { Link } from 'react-router'
-
+import Footer from './Footer'
 
 import { asyncConnect } from 'redux-connect'
 import fetch from 'isomorphic-fetch'
@@ -82,39 +82,37 @@ class Profile extends React.Component {
 	render() {
 		return ( 
 
-	 		<div className="wrapper-animated">
+	 		<div  >
 
  
-				<div className="content-bg">
 
- 					<Reveal name="content" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before page-header"> 
-					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-					 	<hr className="hr-thick-black" />
-
-					</div>
-					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1 col-xs-22 col-md-20 col-lg-10">
-	 					<h1 className="label">
-	 						Being self-taught has given me the opportunity to work on projects from the perspective of different roles.
-
-						</h1>
-					</div>
-
-					<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-			 
-
-					</div>
+ 
  
 
-				</Reveal>
-					<Reveal name="profile-expanded-2"  once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded  animated-before"> 
-						
+ 					
+		 				<div className="projects-header" >
+							<div className="inner">
+								<div className="projects-left">
+					 
+								</div>
+								<div className="projects-right">
+				 					<h1 className="label">
+				 						Being self-taught has given me the opportunity to work on projects from the perspective of different roles.
 
-						<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
+									</h1>
+								</div>
+							</div>
+				 		</div>
+
+ 
+
+ 				<Reveal name="profile-expanded-2"  once={ true } className="projects  animated-before" activeClass="animated fadeInUp">
+					<div className="inner">
+						<div className="projects-left">
 							<div className="label">About me</div>
 						</div>
-						<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
-			 
-							<p>
+						<div className="projects-right">
+						<p>
 								My passion for developing websites started since the days of geocities/homestead drag and drop. Unsatisfied with the limitations
 								of the interface and customization features, I dived into HTML, picking up CSS/PHP/MySQL over the years. Since then I've
 								grown interested in how new web technologies are incorporated in some of the most visited websites.
@@ -126,28 +124,36 @@ class Profile extends React.Component {
 								I am currently an Interactive Arts (B.Sc) student at Simon Fraser University.
 							</p>
 
-
 						</div>
-					</Reveal>
+					</div>
+		 		</Reveal>
 
-					<Reveal name="profile-expanded-3"  once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded  animated-before"> 
-						<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-							<div className="label">I have worked with</div>
+
+
+	 
+			 
+ 
+
+
+ 						<Reveal name="profile-expanded-3"  once={ true } className="projects  animated-before" activeClass="animated fadeInUp">
+					<div className="inner">
+						<div className="projects-left">
+						<div className="label">I have worked with</div>
 						</div>
-						<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
-							<div className="pull-left profile-list">
+						<div className="projects-right">
+<div className="profile-list">
 								<h3>Front-end</h3><br />
 							 	<p>
 								&mdash; HTML 5<br/>
-								&mdash; CSS 3 (Sass, Susy)<br />
+								&mdash; CSS 3/Sass<br />
 								&mdash; Javascript/ES6<br />
-								&mdash; JQuery<br />
+								&mdash; jQuery<br />
 								&mdash; React<br />
 								&mdash; Angular 1
 						 		</p>
 		 					</div>
 
-							<div className="pull-left profile-list">
+							<div className="profile-list">
 								<h3>Back-end</h3>
 								<p>
 									<br/>&mdash; PHP
@@ -158,7 +164,7 @@ class Profile extends React.Component {
 								</p>
 		 					</div>
 
-							<div className="pull-left profile-list">
+							<div className="profile-list">
 								<h3>Desktop</h3>
 								<p>
 									<br/>&mdash; C#.NET
@@ -167,7 +173,7 @@ class Profile extends React.Component {
 								</p>
 		 					</div>
 
-							<div className="pull-left profile-list">
+							<div className="profile-list">
 								<h3>Tools/Services</h3>
 								<p> 
 									<br/>&mdash; Git
@@ -177,46 +183,17 @@ class Profile extends React.Component {
 								</p>
 		 					</div>
 
-
 						</div>
-					</Reveal>
-
-					<div className="content-bg-black">
-						<Reveal name="profile-expanded-2" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before"> 
-							<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-								<div className="label">Reach me directly</div>
-							</div>
-							<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
-								<h3>
-								+1 604 781 9813<br />
-								<a href="mailto:contact@pmhc.co">contact@pmhc.co</a>
-								</h3>
-							
-							</div>
-						</Reveal>
-						<Reveal name="profile-expanded-2" once={ true } activeClass="animated fadeInUp" className="row wrapper-expanded animated-before"> 
-							<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-4 col-xs-22 col-md-20 col-lg-4">
-								<div className="label">Connect with me!</div>
-							</div>
-							<div  className="col-xs-offset-1 col-md-offset-2 col-lg-offset-1  col-xs-22 col-md-20 col-lg-11">
-								<p className="pull-left profile-list">
-									<a href="http://www.github.com/philarr" target="_blank"><img className="icon-png" /> &nbsp; Github</a>
-								</p>
-								<p className="pull-left profile-list">
-									<a href="http://www.twitter.com/pmhc_" target="_blank"><img  className="icon-png" /> &nbsp; Twitter</a>
-								</p>	
-								<p className="pull-left">
-									<a href="http://www.instagram.com/pmhc_" target="_blank"><img className="icon-png" /> &nbsp; Instagram</a>
-								</p>		
-
-							</div>
-
-						</Reveal>
 					</div>
-  
+ 
 
+				</Reveal>
 
- 				</div>
+ 
+	 	 			<Footer />
+ 
+ 
+ 
 
 			</div>
 		);
