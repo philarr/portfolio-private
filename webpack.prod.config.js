@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var nodeExternals = require('webpack-node-externals');
+var config = require('./webpack.config.js');
 
 var loaders = [
       { /* Babel */
@@ -44,7 +45,9 @@ module.exports = [
     new webpack.DefinePlugin({
       "process.env": {
         CanUseDom: JSON.stringify(true),
-        NODE_ENV: JSON.stringify("production") 
+        NODE_ENV: JSON.stringify("production"),
+        HOST: JSON.stringify(config.server),
+        PORT: JSON.stringify(config.port)
       }
     }),
     new ExtractTextPlugin("styles.css"), 
@@ -84,7 +87,9 @@ module.exports = [
     new webpack.DefinePlugin({
       "process.env": {
         CanUseDom: JSON.stringify(false),
-        NODE_ENV: JSON.stringify("production") 
+        NODE_ENV: JSON.stringify("production"),
+        HOST: JSON.stringify(config.server),
+        PORT: JSON.stringify(config.port)
       }
     }),
     new ExtractTextPlugin("styles.css"), 

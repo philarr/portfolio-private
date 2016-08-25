@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var nodeExternals = require('webpack-node-externals');
-
+var config = require('./webpack.config.js');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -26,7 +26,9 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         CanUseDom: JSON.stringify(false),
-        NODE_ENV: JSON.stringify("development") 
+        NODE_ENV: JSON.stringify("development"),
+        HOST: JSON.stringify(config.server),
+        PORT: JSON.stringify(config.port)
       }
     }),
     new ExtractTextPlugin("styles.css")
@@ -47,6 +49,7 @@ module.exports = {
       { test: /\.png$/, loader: "file-loader" },
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.woff$/, loader: "file-loader" },
+            { test: /\.ttf$/, loader: "file-loader" },
       { test: /\.otf$/, loader: "file-loader" },
       { test: /\.svg/,  loader: "svg-url-loader"},
       { test: /\.json$/, loader: "json"},

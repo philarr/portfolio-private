@@ -40,7 +40,8 @@ const mapAsyncToProps =  [{
 			/* possibility set spinner state here */	
 		}
 
-		return (fetch('http://www.mocky.io/v2/5756b3070f0000f6192f000e')
+		return (
+		fetch('/api')
 	      .then(response => {
 	      	console.log('fetching data.');
 	      	return response.json();
@@ -82,15 +83,10 @@ class Profile extends React.Component {
 	render() {
 		return ( 
 
-	 		<div  >
+	 		<section>
 
  
-
- 
- 
-
- 					
-		 				<div className="projects-header" >
+		 				<div className="projects-header">
 							<div className="inner">
 								<div className="projects-left">
 					 
@@ -106,7 +102,7 @@ class Profile extends React.Component {
 
  
 
- 				<Reveal name="profile-expanded-2"  once={ true } className="projects  animated-before" activeClass="animated fadeInUp">
+ 				<div className="projects">
 					<div className="inner">
 						<div className="projects-left">
 							<div className="label">About me</div>
@@ -126,7 +122,7 @@ class Profile extends React.Component {
 
 						</div>
 					</div>
-		 		</Reveal>
+		 		</div>
 
 
 
@@ -135,7 +131,7 @@ class Profile extends React.Component {
  
 
 
- 						<Reveal name="profile-expanded-3"  once={ true } className="projects  animated-before" activeClass="animated fadeInUp">
+ 					 				<div className="projects">
 					<div className="inner">
 						<div className="projects-left">
 						<div className="label">I have worked with</div>
@@ -187,18 +183,16 @@ class Profile extends React.Component {
 					</div>
  
 
-				</Reveal>
-
- 
-	 	 			<Footer />
+				</div>
  
  
  
 
-			</div>
+			</section>
 		);
 	}
 }
- 
+
+Profile.displayName = "Profile";
  
 export default asyncConnect(mapAsyncToProps, mapStateToProps, mapDispatchToProps)(Profile)

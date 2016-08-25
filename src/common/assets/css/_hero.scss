@@ -6,18 +6,20 @@
  
   background-color: #262930;
  
-  position: absolute;
+  position: relative;
   width: 100%;
-  top: 0;
-  left: 0;
+  height: 100vh;
+ 
   z-index: 4;
-  height: 100%;
+ 
   display: table;
-  overflow: hidden;
+ 
  
   #hero-canvas {
     position: absolute;
-     overflow: hidden;
+    overflow: hidden;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
  
@@ -34,20 +36,21 @@
     display: table-cell; 
    vertical-align: middle;
    text-align: center;
-
+ 
  
   }
 
 
  
   .hero-msg {
+ 
     display: inline-block;
     color: #f0f0f0;
     vertical-align: bottom;
     z-index: 1;
     text-align: center;
     span {
- 
+       pointer-events: none;
       line-height: 1.6em;
       font-weight: 300;
       color: #f0f0f0;
@@ -105,6 +108,7 @@
  #scene {
   height: 100%;
   width: 100%;
+
   
  }
 
@@ -115,10 +119,7 @@
     width: 100%;
     height: 33%;
     canvas {  
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
+ 
     }
   }
  

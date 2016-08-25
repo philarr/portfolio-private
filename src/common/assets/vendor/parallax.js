@@ -1,34 +1,3 @@
-//============================================================
-//
-// The MIT License
-//
-// Copyright (C) 2014 Matthew Wagerfield - @wagerfield
-//
-// Permission is hereby granted, free of charge, to any
-// person obtaining a copy of this software and associated
-// documentation files (the "Software"), to deal in the
-// Software without restriction, including without limitation
-// the rights to use, copy, modify, merge, publish, distribute,
-// sublicense, and/or sell copies of the Software, and to
-// permit persons to whom the Software is furnished to do
-// so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice
-// shall be included in all copies or substantial portions
-// of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY
-// OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
-// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
-// EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
-// AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
-// OR OTHER DEALINGS IN THE SOFTWARE.
-//
-//============================================================
-
 /**
  * Parallax.js
  * @author Matthew Wagerfield - @wagerfield
@@ -67,6 +36,8 @@
   function Parallax(element, options) {
 
     // DOM Context
+
+
     this.element = element;
     this.layers = element.getElementsByClassName('layer');
 
@@ -161,11 +132,11 @@
   };
 
   Parallax.prototype.deserialize = function(value) {
-    if (value === 'true') {
+    if (value === "true") {
       return true;
-    } else if (value === 'false') {
+    } else if (value === "false") {
       return false;
-    } else if (value === 'null') {
+    } else if (value === "null") {
       return null;
     } else if (!isNaN(parseFloat(value)) && isFinite(value)) {
       return parseFloat(value);
@@ -218,7 +189,7 @@
           body.appendChild(element);
           element.style[jsProperty] = 'translate3d(1px,1px,1px)';
           propertyValue = window.getComputedStyle(element).getPropertyValue(cssProperty);
-          featureSupport = propertyValue !== undefined && propertyValue.length > 0 && propertyValue !== 'none';
+          featureSupport = propertyValue !== undefined && propertyValue.length > 0 && propertyValue !== "none";
           documentElement.style.overflow = documentOverflow;
           body.removeChild(element);
         }
@@ -239,14 +210,11 @@
   Parallax.prototype.motionSupport = !!window.DeviceMotionEvent;
   Parallax.prototype.orientationSupport = !!window.DeviceOrientationEvent;
   Parallax.prototype.orientationStatus = 0;
+  Parallax.prototype.transform2DSupport = Parallax.prototype.transformSupport('2D');
+  Parallax.prototype.transform3DSupport = Parallax.prototype.transformSupport('3D');
   Parallax.prototype.propertyCache = {};
 
   Parallax.prototype.initialise = function() {
-
-    if (Parallax.prototype.transform2DSupport === undefined) {
-      Parallax.prototype.transform2DSupport = Parallax.prototype.transformSupport('2D');
-      Parallax.prototype.transform3DSupport = Parallax.prototype.transformSupport('3D');
-    }
 
     // Configure Context Styles
     if (this.transform3DSupport) this.accelerate(this.element);
@@ -319,7 +287,8 @@
         this.cx = 0;
         this.cy = 0;
         this.portrait = false;
-        window.addEventListener('mousemove', this.onMouseMove);
+        this.listenedElement = this.clipRelativeInput ? this.listenTo : window;
+        this.listenedElement.addEventListener('mousemove', this.onMouseMove);
       }
       window.addEventListener('resize', this.onWindowResize);
       this.raf = requestAnimationFrame(this.onAnimationFrame);
@@ -332,7 +301,7 @@
       if (this.orientationSupport) {
         window.removeEventListener('deviceorientation', this.onDeviceOrientation);
       } else {
-        window.removeEventListener('mousemove', this.onMouseMove);
+        this.listenedElement.removeEventListener('mousemove', this.onMouseMove);
       }
       window.removeEventListener('resize', this.onWindowResize);
       cancelAnimationFrame(this.raf);
@@ -412,7 +381,7 @@
     }
   };
 
-  Parallax.prototype.onOrientationTimer = function() {
+  Parallax.prototype.onOrientationTimer = function(event) {
     if (this.orientationSupport && this.orientationStatus === 0) {
       this.disable();
       this.orientationSupport = false;
@@ -420,11 +389,11 @@
     }
   };
 
-  Parallax.prototype.onCalibrationTimer = function() {
+  Parallax.prototype.onCalibrationTimer = function(event) {
     this.calibrationFlag = true;
   };
 
-  Parallax.prototype.onWindowResize = function() {
+  Parallax.prototype.onWindowResize = function(event) {
     this.updateDimensions();
   };
 
@@ -503,14 +472,6 @@
     // Calculate Mouse Input
     if (!this.orientationSupport && this.relativeInput) {
 
-      // Clip mouse coordinates inside element bounds.
-      if (this.clipRelativeInput) {
-        clientX = Math.max(clientX, this.ex);
-        clientX = Math.min(clientX, this.ex + this.ew);
-        clientY = Math.max(clientY, this.ey);
-        clientY = Math.min(clientY, this.ey + this.eh);
-      }
-
       // Calculate input relative to the element.
       this.ix = (clientX - this.ex - this.ecx) / this.erx;
       this.iy = (clientY - this.ey - this.ecy) / this.ery;
@@ -527,38 +488,3 @@
   window[NAME] = Parallax;
 
 })(window, document);
-
-/**
- * Request Animation Frame Polyfill.
- * @author Tino Zijdel
- * @author Paul Irish
- * @see https://gist.github.com/paulirish/1579671
- */
-;(function() {
-
-  var lastTime = 0;
-  var vendors = ['ms', 'moz', 'webkit', 'o'];
-
-  for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-    window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-  }
-
-  if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = function(callback, element) {
-      var currTime = new Date().getTime();
-      var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-      var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-        timeToCall);
-      lastTime = currTime + timeToCall;
-      return id;
-    };
-  }
-
-  if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = function(id) {
-      clearTimeout(id);
-    };
-  }
-
-}());

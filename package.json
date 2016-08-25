@@ -1,13 +1,10 @@
 {
   "name": "pmhc.co",
   "version": "1.0.0",
-  "description": "2015 Portfolio",
-  "main": "server.js",
+  "description": "2016 Portfolio",
+  "main": "./build/server.js",
   "scripts": {
-    "start-dev": "cross-env NODE_ENV=development webpack --watch --config webpack.server.config.js",
-    "start-client": "cross-env NODE_ENV=development webpack-dev-server --port 8002 --hot --inline --config webpack.dev.config.js",
-    "start": "npm run start-dev & npm run start-client & node ./src/server.dev.js",
-    "start-win": "start \"ServerWatcher\" npm run start-dev & start \"ClientWatcher\" npm run start-client & start \"Server\" node ./src/server.dev.js",
+    "start-dev": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.server.config.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js -p",
     "deploy": "cross-env NODE_ENV=production node ./build/server.js"
   },
@@ -28,7 +25,8 @@
     "react-router": "^2.4.0",
     "react-scrollkit": "philarr/react-scrollkit",
     "redux": "^3.5.2",
-    "redux-connect": "^2.4.0"
+    "redux-connect": "^2.4.0",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -51,6 +49,7 @@
     "svg-url-loader": "^1.0.3",
     "transform-loader": "^0.2.3",
     "webpack": "^1.13.0",
+    "webpack-dashboard": "0.0.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0",

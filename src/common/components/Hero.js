@@ -22,6 +22,9 @@ class Hero extends React.Component {
 	componentDidMount() {
    
  		this.parallax = new Parallax(this.refs.heroScene, {
+ 			listenTo: this.refs.heroWrapper,
+ 			relativeInput: true,
+ 			clipRelativeInput: true,
  			limitX: 100,
  			limitY: 100
  		});
@@ -65,7 +68,7 @@ class Hero extends React.Component {
 						<div className="layer hero-extra" ref="heroExtra" data-depth="0.5" />
 					</div>
 				</div>	
-				<div className="hero-wrapper">
+				<div ref="heroWrapper" className="hero-wrapper">
 					<div className="inner">
 						<div className="hero-msg"><span><span>Hi &mdash; I'm Philip Chung.</span></span><span><span>I create digital solutions.</span></span></div>	  
 
@@ -80,5 +83,6 @@ class Hero extends React.Component {
 	}
 }
 
+Hero.displayName = "Hero";
 export default Hero
 

@@ -1,14 +1,15 @@
-.footer {
+footer {
  
  overflow: hidden;
  	height: auto;
 	    width: 100%;
+	    position: relative;
  
- 	.footer-row {
-background-color: #171717;
+ 
+background-color: #121212;
 
  	 	@extend %row;
-	 	height: tick(1);
+ 
  
 	 	line-height: tick(1);
 	 
@@ -34,7 +35,7 @@ background-color: #171717;
 	  
 		}
 
- 	}
+ 
  
   
 }

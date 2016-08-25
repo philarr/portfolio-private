@@ -11,11 +11,10 @@ class Footer extends React.Component {
 		return (	
 
 
-		<div className="footer">
+		<footer>
 
 				{ this.props.children }	 	 
-
-				<div className="footer-row">
+ 
 					<div className="inner">
 				 
 						<div className="footer-left">
@@ -30,13 +29,13 @@ class Footer extends React.Component {
 	 					
 		 				</div>
 			 		</div>
-		 		</div>
+		 	 
 	 	 
-		 	</div>
+		 	</footer>
 
 		);
 	}
 }
 
-
+Footer.displayName = "Footer";
 export default Footer

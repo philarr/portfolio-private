@@ -1,68 +1,34 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import ProjectListItem from './ProjectListItem'
-import { ScrollLink, Element } from 'react-scrollkit'
 
-function mapStateToProps(state /*, ownProps */) {
-  return {
-    project: state.Reducer.project,
-    toggle: state.Reducer.environment.toggle
-  }
+
+/* ProjectList 
+ *
+ * Returns list of available projects by filtering to selectedId,
+ * Returns all projects if selectedId is undefined.
+ */
+
+ProjectList.propTypes = {
+	projects : React.PropTypes.array,
+	selectedId: React.PropTypes.string
+};
+
+function ProjectList({ projects = [], selectedId, children }) {
+
+	projects = selectedId ? projects.filter( item => (item.uid === selectedId)) : projects;
+	let child = (children && selectedId) ? React.cloneElement(children, { backgroundColor: projects[0].color[0] }) : null;
+
+	return (
+		<div className="projects-list">
+			{ projects.map( item => <ProjectListItem key={ item.uid } projectItem={ item } projectActive={ (item.uid === selectedId) } /> )}
+
+			{ child }
+	 	</div>
+	);
 }
 
-function mapDispatchToProps(props) {
-
-}
-
-
-
-class ProjectList extends React.Component {
-
-
-	constructor() {
-		super();
-		this.selectProjectItem = this.selectProjectItem.bind(this);
-	}
-
-	selectProjectItem() {
-
-
-	}
-
-
-	render() {
-
-		let projectNum = this.props.project.length + 1;
-		return (
-			<div className="projects-list">
- 
-
-				{ 
-				this.props.project.map( 
-	 				item => {
-	 					projectNum--;
-	 					return (
-	 						<ProjectListItem 
-	 						key={ projectNum } 
-	 						projectItem={ item } 
-	 						selectItem={ this.selectProjectItem }  
-	 						/>
-	 						);
-	 					}
-	 				) 
-	 			}
- 
-
-		 	</div>
-
-
- 		 
-		);
-
-	}
-
-}
 
  
-export default connect(mapStateToProps)(ProjectList)
+
+ProjectList.displayName = "ProjectList";
+export default ProjectList;

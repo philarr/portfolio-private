@@ -13,15 +13,24 @@ import { Provider } from 'react-redux'
 import routes from './common/routes'
 import { ReduxAsyncConnect, loadOnServer } from 'redux-connect'
 import path from 'path'
- 
-const $ = Express();
+import api from './api'
 
-/* Dev imports */
+const $ = Express();
+let css = '';
+// DEV IMPORTS
+// ================================================
+
 if (process.env.NODE_ENV !== 'production') {  
   console.log('Development mode => Load HMR')
-  let webpack = require('webpack'),
-  webpackConfig = require('../webpack.dev.config.js'),
+
+  //let Dashboard = require('webpack-dashboard');
+  //let DashboardPlugin = require('webpack-dashboard/plugin');
+  // let dashboard = new Dashboard();
+
+  let webpack = require('webpack');
+  let webpackConfig = require('../webpack.dev.client.config.js'),
   compiler = webpack(webpackConfig);
+  //compiler.apply(new DashboardPlugin(dashboard.setData));
 
   $.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
@@ -30,31 +39,31 @@ if (process.env.NODE_ENV !== 'production') {
   $.use(require('webpack-hot-middleware')(compiler));
 }
 else {
-  /* gzip */
+  css = '<link rel="stylesheet" type="text/css" href="/static/styles.css" />';
   $.use(Compression());
 }
 
-/* middlware */
-//var middleware = require('./middlewares')(app);
+// MIDDLEWARE
+// ================================================
+
 $.use((req, res, next) => {
   console.log(req.method + ' -> ' + req.url);
   next();
 })
-/* serve any request for /static from /dist folder */
+
+// ROUTES
+// ================================================
+
 $.use('/static', Express.static(path.join(__dirname, 'dist')));
-/* catch any other requests */
+$.use('/api', api);
 $.get('*', (req, res) => {
 
-  /* combine redux-connect reducer with ours to get LOADING states */
- 
 
   match({ routes, location: req.url }, (err, redirect, renderProps) => {
-    /* bad/not found requests */
     if (err) res.status(500).send(err.message)
     else if (redirect) res.redirect(redirect.pathname + redirect.search)
     else if (!renderProps) res.status(404).send('Not found');
-
-    /* success (200) */
+    /* all good */
     else {
       const store = configureStore();
       /* Get async props before rendering */
@@ -66,20 +75,21 @@ $.get('*', (req, res) => {
           </Provider>
         );
 
-
         res
         .status(200)
-        .send(renderHTML(ReactDOM, JSON.stringify(store.getState())));
-
+        .send(renderHTML(ReactDOM, JSON.stringify(store.getState()), css));
       })
-
     }
-
   })
 });
 
 
-const renderHTML = (app, store) => (`<!doctype html>
+$.listen(process.env.PORT, process.env.HOST);
+console.log("😎 PMHC.co started @ "+ process.env.HOST + ":"+ process.env.PORT +". (" + process.env.NODE_ENV + ")");
+
+// INITIAL TEMPLATE
+// ================================================
+const renderHTML = (app, store, css) => (`<!doctype html>
 <!--
 Check out my github to see the unbundled code! => github.com/philarr/portfolio
 -->
@@ -90,10 +100,9 @@ Check out my github to see the unbundled code! => github.com/philarr/portfolio
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>Philip Chung</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    ${css}
     <script src="https://use.typekit.net/ivy1pbs.js"></script>
     <script>try{Typekit.load({async:true});}catch(e){}</script> 
-
   </head>
   <body>
     <div id="app">${app}</div>
@@ -105,6 +114,4 @@ Check out my github to see the unbundled code! => github.com/philarr/portfolio
 </html>`);
 
 
-
-$.listen(8001);
-console.log("PMHC.co started. (" + process.env.NODE_ENV + ")");
+ 

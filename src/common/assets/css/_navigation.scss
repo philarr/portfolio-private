@@ -1,31 +1,26 @@
 /* Header Component */
 
 nav.nav-primary {
- 
+
    padding-right: 4%;
- 
   @include mq($from: layoutpad) {
     padding: 0;
- 
   }
-overflow: hidden;
- 
+  overflow: hidden;
   z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
- 
-  line-height: tick(1);
-  vertical-align: top;
-   .nav-logo {      
+
+}
+
+ .nav-logo {      
     height: tick();
     @include mq($until: layoutpad) {
       display: inline-block;
     }
-      
-    display: block;
-    font-size: 1.2rem;
-    color: #ffffff;
+   width: tick();
+     background-color: rgba(255,255,255,0.25);
     a {
       display: block;
       font-size: 2.5rem;
@@ -36,82 +31,181 @@ overflow: hidden;
  
       color: #ffffff;
       text-align: center;
-      background-color: rgba(255,255,255,0.25);
+     
       //  background-color: rgba(0,0,0,0.75);
     }
+}
+
+
+.nav-links {
+  @include mq($until: layoutpad) {
+    display: inline-block;
   }
-  /* right navigation */
-  .nav-links {
-    @include mq($until: layoutpad) {
-      display: inline-block;
-    }
-      
-    vertical-align: top;
-    font-size: 1.25rem;
-    height: 100%; 
+  vertical-align: top;
+  font-size: 1.25rem;
+  height: 100%; 
+  display: block;
+  white-space: nowrap;  
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+
+  }
+
+  a {
+    height: tick();
+    line-height: tick();
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
     display: block;
-    white-space: nowrap;  
-    .nav-select {
-      display: block;
-      @include mq($until: layoutpad) {
-        display: inline-block;
-      }
+    color: #c0c0c0;
+   &:before {
+
+      margin: 0 1rem 0 0;
       width: tick();
-      height: tick();
-      background-color: rgba(255,255,255,0.05);
-      transition: background-color 350ms;
-      &:hover {
-        background-color: rgba(255,255,255,0.25);
-      }
-      &:first-child {
-        background-color: rgba(255,255,255,0.1);
-        &:hover {
+   
+      opacity: 1;
+   
+   }
+   &:hover {
+    color: #ffffff;
 
-          background-color: rgba(255,255,255,0.25);
-        }
-      }
-    } 
-
-    a {
-      text-align: center;
-
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      white-space: nowrap;
-      display: block;
-      color: #c0c0c0;
-     &:hover {
-      color: #ffffff;
-     }
-    }
+   }
   }
 }
- 
 
 
-    .nav-top {
- 
-      z-index: 6;
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      height: tick();
-      font-size: 3rem;
+.nav-select {
+  display: block;
+  @include mq($until: layoutpad) {
+    overflow: hidden;
+    display: inline-block;
+  }
+  width: tick();
+  height: tick();
+  background-color: rgba(255,255,255,0.1);
+  transition: width 350ms ease-out, background-color 350ms ease-out;
+  &:hover {
+    width: tick(3);
+    background-color: rgba(255,255,255,0.25);
+  }
 
-      a {
-        line-height: tick();
-        transition: transform 350ms, opacity 350ms;
-        opacity: 0;
-        &:hover {
-            transform: translateY(-12px);
-        }
-        &.show {
-          opacity: 1;
-        }
-      }
+
+} 
+
+
+.nav-top {
+
+  z-index: 6;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: tick();
+  font-size: 3rem;
+
+  a {
+    line-height: tick();
+    transition: transform 350ms, opacity 350ms;
+    opacity: 0;
+    &:hover {
+        transform: translateY(-12px);
     }
+    &.show {
+      opacity: 1;
+    }
+  } 
+}
 
 
 
 
+
+ 
+.loading {
+  margin: auto;
+  position: relative;
+  top: 1rem;
+  border-bottom: 6px solid #fff;
+  border-left: 6px solid #fff;
+  border-right: 6px solid #666666;
+  border-top: 6px solid #666666;
+  border-radius: 100%;
+  height: 3rem;
+  width: 3rem;
+ 
+  -webkit-animation: spin .6s infinite linear;
+  -moz-animation: spin .6s infinite linear;
+  -ms-animation: spin .6s infinite linear;
+  -o-animation: spin .6s infinite linear;
+  animation: spin .6s infinite linear;
+}
+
+@keyframes "spin" {
+ from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+ }
+ to {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    transform: rotate(359deg);
+ }
+
+}
+
+@-moz-keyframes spin {
+ from {
+   -moz-transform: rotate(0deg);
+   transform: rotate(0deg);
+ }
+ to {
+   -moz-transform: rotate(359deg);
+   transform: rotate(359deg);
+ }
+
+}
+
+@-webkit-keyframes "spin" {
+ from {
+   -webkit-transform: rotate(0deg);
+   transform: rotate(0deg);
+ }
+ to {
+   -webkit-transform: rotate(359deg);
+   transform: rotate(359deg);
+ }
+
+}
+
+@-ms-keyframes "spin" {
+ from {
+   -ms-transform: rotate(0deg);
+   transform: rotate(0deg);
+ }
+ to {
+   -ms-transform: rotate(359deg);
+   transform: rotate(359deg);
+ }
+
+}
+
+@-o-keyframes "spin" {
+ from {
+   -o-transform: rotate(0deg);
+   transform: rotate(0deg);
+ }
+ to {
+   -o-transform: rotate(359deg);
+   transform: rotate(359deg);
+ }
+
+}

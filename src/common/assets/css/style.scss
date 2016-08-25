@@ -2,6 +2,7 @@
  * PMHC.co default stylesheet
  */
  
+ 
 $font-primary: "futura-pt",sans-serif;
 $font-extra: "hack", sans-serif;
 $font-content: "nimbus-sans", sans-serif;
@@ -42,7 +43,7 @@ $mq-breakpoints: (
     layoutpad: 1525px
 );
  
-$mq-show-breakpoints: (sm, md, lg, xl);
+ $mq-show-breakpoints: (sm, md, lg, xl);
 
 
 /*
@@ -66,10 +67,10 @@ $mq-show-breakpoints: (sm, md, lg, xl);
 
 @mixin left-column-content() {
   @include left-column-offset();    
-  @extend %xs-23;
+  @extend %xs-24;
   @extend %sm-11;
   @extend %md-9;
-  @extend %lg-9;
+  @extend %xl-7;
 }
 
 @mixin left-column-block() {
@@ -85,18 +86,11 @@ $mq-show-breakpoints: (sm, md, lg, xl);
   @extend %xl-4;
 }
 @mixin right-column-block() {
- 
-  @extend %xs-22;
+  @extend %xl-offset-2;
+  @extend %xs-24;
   @extend %sm-24;
-  @extend %md-14;
-  @extend %lg-15;
-  @extend %xl-15;
-}
-
-
-
-
-
+  @extend %md-15;
+ }
 
 /* 
  * Library
@@ -261,36 +255,6 @@ $mq-show-breakpoints: (sm, md, lg, xl);
 
 
 
-.expand:before {
-    direction: ltr;
-    font-family: 'Material Icons';
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-
-    transition: border 500ms, transform 500ms;
-    display: inline-block;
-    border: 2px solid rgba(255,255,255,0.1);
-    color: #FFFFFF;
-    border-radius: 50%;
-    line-height: 1.6em;
-    width: 1.75em;
-    height: 1.75em;
-    vertical-align: bottom;
- 
-  text-align: center;
-  content: 'add';
-}
-
-.expand {
-  &:hover {
-    &:before {
-      border: 2px solid rgba(255,255,255,1);
-      transition: border 500ms, transform 500ms;
-    }
-  }
-}
 
 
 ol {
