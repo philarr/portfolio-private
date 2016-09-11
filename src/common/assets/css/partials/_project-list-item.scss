@@ -31,13 +31,13 @@
     height: tick(4);
     position: relative;
 
-//mobile ontouch usability & slide effect
-@include mq($until: sm) {
-    user-select: none; // prevent unncessary hightlight when holding down slide image
-    -webkit-user-select: none;
-    -moz-user-select: none;  
-    .projects-item-image { 
-      cursor: ew-resize; 
+    //mobile ontouch usability & slide effect
+    @include mq($until: sm) {
+      user-select: none; // prevent unncessary hightlight when holding down slide image
+      -webkit-user-select: none;
+      -moz-user-select: none;  
+      .projects-item-image { 
+        cursor: ew-resize; 
         pointer-events: none; // prevent save popup when holding down slide image 
       }
       .projects-item-bottom {
@@ -94,32 +94,32 @@
       z-index: 2;
       transition: transform 350ms, opacity 350ms;
 
-//front page image
-&:nth-child(2) {
-  @extend %xs-offset-3;
-  @extend %sm-offset-12;
-  @extend %md-offset-11;
-  @extend %lg-offset-10;
-  @extend %xl-offset-9;
-  @include shadow(4);
-  top: tick(1.25);
-  min-height: tick(6);
-  width: 150%;
-  transform-origin: top left;
-  transform: scale(1 * 24/24);
-  @include mq($from: sm) {  
-    z-index: 3;
-    width: 100%; 
-    transform: scale((1 * 24/24)); 
-  }
-  @include mq($from: md) {      
-    top: tick(0.75);
-    transform: scale((1 * 18/24)); 
-  }
-  @include mq($from: lg) {      transform: scale((1 * 18/24)); }
-  @include mq($from: xl) {      transform: scale((1 * 14.5/24)); }
-  @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
-}
+    //front page image
+    &:nth-child(2) {
+      @extend %xs-offset-3;
+      @extend %sm-offset-12;
+      @extend %md-offset-11;
+      @extend %lg-offset-10;
+      @extend %xl-offset-9;
+      @include shadow(4);
+      top: tick(1.25);
+      min-height: tick(6);
+      width: 150%;
+      transform-origin: top left;
+      transform: scale(1 * 24/24);
+      @include mq($from: sm) {  
+        z-index: 3;
+        width: 100%; 
+        transform: scale((1 * 24/24)); 
+      }
+      @include mq($from: md) {      
+        top: tick(0.75);
+        transform: scale((1 * 18/24)); 
+      }
+      @include mq($from: lg) {      transform: scale((1 * 18/24)); }
+      @include mq($from: xl) {      transform: scale((1 * 14.5/24)); }
+      @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
+    }
     //Mockup bar
     border-top: 1.4rem solid rgba(233,233,233,0.5);
     background-color: transparent;
