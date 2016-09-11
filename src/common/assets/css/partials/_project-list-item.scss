@@ -1,6 +1,6 @@
- 
+
 .projects-item {
- 
+
   border-top: 1px solid rgba(255,255,255,0.03);
   border-bottom: 1px solid rgba(0,0,0,0.03);
   background-size: tick(1) tick(1);
@@ -31,102 +31,96 @@
     height: tick(4);
     position: relative;
 
-    //mobile ontouch usability & slide effect
-    @include mq($until: sm) {
-      user-select: none; // prevent unncessary hightlight when holding down slide image
-      -webkit-user-select: none;
-      -moz-user-select: none;  
-      .projects-item-image { 
-        cursor: ew-resize; 
+//mobile ontouch usability & slide effect
+@include mq($until: sm) {
+    user-select: none; // prevent unncessary hightlight when holding down slide image
+    -webkit-user-select: none;
+    -moz-user-select: none;  
+    .projects-item-image { 
+      cursor: ew-resize; 
         pointer-events: none; // prevent save popup when holding down slide image 
       }
       .projects-item-bottom {
         .rect {
-          user-select: none; // prevent unncessary hightlight when holding down slide image
+            user-select: none; // prevent unncessary hightlight when holding down slide image
+          }
+        }
+        &:active {
+          .projects-item-desc { opacity: 1; }
+          .projects-item-image:nth-child(2) { transform: translateX(100% * 10/24); }
         }
       }
-      &:active {
-        .projects-item-desc { opacity: 1; }
-        .projects-item-image:nth-child(2) { transform: translateX(100% * 10/24); }
-      }
     }
-  }
 
-  .projects-item-overview, .projects-item-bottom > .inner {
-    transition: opacity 350ms 700ms;
-    opacity: 1;
-  }
+    .projects-item-overview, .projects-item-bottom > .inner {
+      transition: opacity 350ms 700ms;
+      opacity: 1;
+    }
 
-  .projects-item-overview {
-   position: absolute;
-    @extend %xs-offset-0;
-    @extend %xs-14;
-    @extend %sm-10;
-    @extend %md-9;
-    @extend %lg-9;
-    @extend %xl-8;
-    height: tick(4);
-    color: #A0A2A4;
-  }
-
-  .projects-item-desc {
-    height: tick(2.5);
-    display: table-cell; 
-    vertical-align: middle; 
-    transition: opacity 350ms;
- 
+    .projects-item-overview {
+      position: absolute;
+      @extend %xs-offset-0;
+      @extend %xs-14;
+      @extend %sm-10;
+      @extend %md-9;
+      @extend %lg-9;
+      @extend %xl-8;
+      height: tick(4);
+      color: #A0A2A4;
+    }
+    .projects-item-desc {
+      height: tick(2.5);
+      display: table-cell; 
+      vertical-align: middle; 
+      transition: opacity 350ms;
       @include mq($until: sm) {
         opacity: 0.15;
       }
-    span {
-      border: 2px solid rgba(255,255,255,0.1);
-      background-color: rgba(0,0,0,0.2);
-      border-radius: 4px;
-      padding: 0 0.35em;
-      display: inline-block;
-      margin-right: 3px;
-      margin-bottom: 3px;
-      color: #c0c0c0;
-
+      span {
+        border: 2px solid rgba(255,255,255,0.1);
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 4px;
+        padding: 0 0.35em;
+        display: inline-block;
+        margin-right: 3px;
+        margin-bottom: 3px;
+        color: #c0c0c0;
+      }
     }
+
+    .projects-item-image {
+      position: absolute;
+      opacity: 1;
+      z-index: 2;
+      transition: transform 350ms, opacity 350ms;
+
+//front page image
+&:nth-child(2) {
+  @extend %xs-offset-3;
+  @extend %sm-offset-12;
+  @extend %md-offset-11;
+  @extend %lg-offset-10;
+  @extend %xl-offset-9;
+  @include shadow(4);
+  top: tick(1.25);
+  min-height: tick(6);
+  width: 150%;
+  transform-origin: top left;
+  transform: scale(1 * 24/24);
+  @include mq($from: sm) {  
+    z-index: 3;
+    width: 100%; 
+    transform: scale((1 * 24/24)); 
   }
-
-
-  .projects-item-image {
-    position: absolute;
-    opacity: 1;
-    z-index: 2;
- 
-    transition: transform 350ms, opacity 350ms;
-
-
-    //front page image
-    &:nth-child(2) {
-      @extend %xs-offset-3;
-      @extend %sm-offset-12;
-      @extend %md-offset-11;
-      @extend %lg-offset-10;
-      @extend %xl-offset-9;
-      @include shadow(4);
-      top: tick(1.25);
-      min-height: tick(6);
-      width: 150%;
-      transform-origin: top left;
-      transform: scale(1 * 24/24);
-      @include mq($from: sm) {  
-        z-index: 3;
-        width: 100%; 
-        transform: scale((1 * 24/24)); 
-      }
-      @include mq($from: md) {      
-        top: tick(0.75);
-        transform: scale((1 * 18/24)); 
-      }
-      @include mq($from: lg) {      transform: scale((1 * 18/24)); }
-      @include mq($from: xl) {      transform: scale((1 * 14.5/24)); }
-      @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
-    }
-     //Mockup bar
+  @include mq($from: md) {      
+    top: tick(0.75);
+    transform: scale((1 * 18/24)); 
+  }
+  @include mq($from: lg) {      transform: scale((1 * 18/24)); }
+  @include mq($from: xl) {      transform: scale((1 * 14.5/24)); }
+  @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
+}
+    //Mockup bar
     border-top: 1.4rem solid rgba(233,233,233,0.5);
     background-color: transparent;
     border-radius: 3px;
@@ -159,19 +153,19 @@
     text-align: center;
     background-color: rgba(0,0,0,0.45);
     @include mq($until: sm) {
-    .rect {
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-      height: tick(1);
-      line-height: tick();
-      width: 50%;
-      border: 0;
-      background-color: rgba(111,111,111,0.6);
-      &:nth-child(2) {
-        background-color: rgba(77,77,77,0.6);
+      .rect {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        height: tick(1);
+        line-height: tick();
+        width: 50%;
+        border: 0;
+        background-color: rgba(111,111,111,0.6);
+        &:nth-child(2) {
+          background-color: rgba(77,77,77,0.6);
+        }
       }
-    }
     }
     @include mq($from: sm) {
       text-align: left;
@@ -184,19 +178,18 @@
     @include mq($until: sm) {
       padding: 0;
     }
- 
+
     height: auto;
     @extend %vm;
   }
 
   .projects-item-view {  
     width: 47%;
-      @include mq($from: sm) {
-        width: auto;
-      }
+    @include mq($from: sm) {
+      width: auto;
+    }
   }
 }
 
- 
 
- 
+

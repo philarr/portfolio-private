@@ -1,44 +1,25 @@
 footer {
+  @include mq($from: md) {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  background-color: #101010;
+  @extend %row;
+  line-height: tick(	);
+  a {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  } 
+  .footer-left {
+    @include left-column-content();
+  }
+  .footer-right {
+    @include right-column-block();
+    padding: 0 0 0 2%;
 
-	@include mq($from: md) {
-		position: fixed; 
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
+  }
 
- 
- 
- 
-		background-color: #101010;
-
- 	 	@extend %row;
- 
- 
-	 	line-height: tick(	);
-	 
-
-		a {
-	 
-			font-size: 1rem;
-			margin: 0 0.5rem;
- 
-
-		} 
-
-		.footer-left {
-			@include left-column-content();
-
-	  
-		}
-
-
-		.footer-right {
-			@include right-column-block();
-	 	 
-	  
-		}
- 
 }
 
- 

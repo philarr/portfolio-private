@@ -1,18 +1,14 @@
 import Express from 'express'
 import Projects from './projects.json'
 
-
 /* Express REST API routes */
+const api = Express.Router();
 
-
-
-const router = Express.Router();
-
-router.get('/', (req, res) => {
+api.get('/', (req, res) => {
 	res.status(200).json(getProjectListing(Projects));
 });
 
-router.get('/:uid', (req, res) => {
+api.get('/:uid', (req, res) => {
 	res.status(200).json(getProjectCase(Projects, req.params.uid))
 })
 
@@ -28,4 +24,4 @@ function getProjectCase(Projects, selectedId) {
 }
 
 
-export default router;
+export default api;

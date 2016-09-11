@@ -11,7 +11,7 @@ import thunk from 'redux-thunk'
     		reduxAsyncConnect, 
     		pmhc	
     	}),
-    	initialState, 
+    	initialState, /* can apply localStorage state here */ 
     	// apply thunk and reduxdevtools
      	compose(
      		applyMiddleware(thunk),
