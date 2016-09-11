@@ -4,7 +4,7 @@
 .hero {
   /* optimizations to remove scroll jankiness */
  
-  background-color: #262930;
+  background-color: #222428;
  
   position: relative;
   width: 100%;
@@ -43,7 +43,7 @@
 
  
   .hero-msg {
- 
+
     display: inline-block;
     color: #f0f0f0;
     vertical-align: bottom;
@@ -81,8 +81,7 @@
     position: absolute !important;
     top: -100px !important;
     left: -100px !important;
-    transition: width 350ms, height 350ms;
-    background-image: url('../img/mountain_night.jpg');
+    background-image: url('http://pmhc.co/images/mountain_night.jpg');
     background-size: cover;
     background-repeat: no-repeat; 
  
@@ -91,7 +90,7 @@
 
   .hero-extra {
  
-    background-image: url('../img/trees_night.png');
+    background-image: url('http://pmhc.co/images/trees_night.png');
     background-size: cover;
     background-position: left top;
     background-repeat: no-repeat; 
@@ -101,8 +100,6 @@
     left: -50px !important;
     bottom: -100px;
     height: 60%;
-    transition: width 350ms, height 350ms;
-   
   }
  
  #scene {

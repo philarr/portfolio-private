@@ -23,14 +23,9 @@ let css = '';
 if (process.env.NODE_ENV !== 'production') {  
   console.log('Development mode => Load HMR')
 
-  //let Dashboard = require('webpack-dashboard');
-  //let DashboardPlugin = require('webpack-dashboard/plugin');
-  // let dashboard = new Dashboard();
-
   let webpack = require('webpack');
   let webpackConfig = require('../webpack.dev.client.config.js'),
   compiler = webpack(webpackConfig);
-  //compiler.apply(new DashboardPlugin(dashboard.setData));
 
   $.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
@@ -97,7 +92,7 @@ Check out my github to see the unbundled code! => github.com/philarr/portfolio
   <head>
     <meta charset="UTF-8">
     <meta name="author" content="Philip Chung">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>Philip Chung</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     ${css}

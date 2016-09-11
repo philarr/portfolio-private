@@ -1,0 +1,240 @@
+ //case study active state
+
+.projects-item.active { 
+  background-image: linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px), 
+  linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px);
+  height: tick(6);
+  padding-top: 75%;
+  @include mq($from: sm, $and: '(orientation: landscape)') {
+    padding-top: 0;
+    height: tick(7);
+  }
+  @include mq($from: lg, $and: '(orientation: landscape)') {
+    height: tick(8);
+  }
+  @include mq($from: xl, $and: '(orientation: landscape)') {
+    height: tick(9);
+  }
+  .projects-item-details {
+    margin-top: -75%;
+    @include mq($from: sm, $and: '(orientation: landscape)') {
+      margin-top: 0;
+      height: tick(7);
+    }
+    @include mq($from: lg, $and: '(orientation: landscape)') {
+      height: tick(8);
+    }
+    @include mq($from: xl, $and: '(orientation: landscape)') {
+      height: tick(9);
+    }
+      &:active {
+        .projects-item-image:nth-child(2) {     
+            transform:  scale(1 * 21/24);
+          @include mq($from: sm) {
+           transform:  scale(1 * 17.5/24);
+          }
+        }
+      }
+    .projects-item-image {
+      cursor: initial;
+    }
+ 
+  }
+  .projects-item-overview, .projects-item-bottom > .inner {
+    transition: opacity 350ms;
+     opacity: 0;
+  }
+  .projects-item-bottom {
+    height: 100%;
+    bottom: -80vh;
+    transform: translateY(-80vh);
+    background-color: rgba(26,26,26,0.5);
+    transition: transform 1.5s;
+  }
+
+  .projects-item-image {
+    z-index: 3;
+    &:nth-child(2) {
+      top: tick(1.25);
+      transform-origin: top right;
+      transform:  scale(1 * 21/24);
+      margin-left: 0;
+      @include mq($from: sm) {
+        margin-left: -12%;
+        transform: scale(1 * 17.5/24);
+      }
+      @include mq($from: xl) {
+         margin-left: -6%;
+      }
+      @include mq($from: layout) {
+        margin-left: 0;
+      }
+    }
+ 
+    &:nth-child(3) {
+      @include shadow(5);
+      top: tick(2);
+      width: 100%;
+      transform-origin: top left;
+      transform:  scale(1 * 17.5/24);
+      @include mq($from: sm) {
+        transform: scale(1 * 15.5/24);
+      }
+      @include mq($from: md) {
+        top: tick(2.5);
+      }
+      @include mq($from: layout) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+ 
+
+
+
+ .projects-case {
+	position: relative;
+	@extend %row;
+ 	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 4;
+	padding-top: tick(1);
+	margin-top: tick(-1);
+	border-top: 1px solid rgba(255,255,255,0.05);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+
+ 
+	ol {
+		padding: 0;
+		margin: 0;
+ 		list-style: none;
+ 		counter-reset: section; 
+		color: #fff;
+
+		//ol reveal state
+		&.active {
+			li {
+				opacity: 1;
+				transform: translateY(0);
+				transition: transform 350ms, opacity 350ms;
+			}
+		}
+		li {
+			transform: translateY(25px);
+			opacity: 0;
+			// li selected state
+			&.active {
+				.rect {
+					color: #ffffff;
+   					background-color: rgba(255,255,255,0.15);
+				}
+				.rect:after {
+					transform: rotate(45deg);
+				}
+				p, .project-case-meta  {	
+	 
+					transform: translateY(0);
+					padding: 1rem 0;
+					 height: auto;
+					opacity: 1;
+					transition: opacity 1s, transform 350ms;
+ 
+				}
+ 				.project-case-meta {
+ 					margin-top: 0.5rem;
+ 					font-size: 0.9rem;
+ 					border-top: 2px solid rgba(255,255,255,0.1);
+ 				}
+			}
+ 
+			// reveal delays
+			&:nth-child(1) { transition-delay: 150ms; }
+			&:nth-child(2) { transition-delay: 300ms; }
+			&:nth-child(3) { transition-delay: 450ms; }
+			&:nth-child(4) { transition-delay: 600ms; }
+			&:nth-child(5) { transition-delay: 750ms; }
+			&:nth-child(6) { transition-delay: 900ms; }
+		}
+	 
+ 
+		.rect {
+			clear: both;
+			cursor: pointer;
+		 	display: block;
+			padding: 0;
+			 margin: 0.25rem 0;
+		}
+		.rect:before {
+			counter-increment: section;
+			content: counter(section);
+			background-color: rgba(255,255,255,0.1);
+			width: 4rem;
+			text-align: center;
+			display: inline-block;
+			margin-right: 2rem;
+			padding: 0.75rem;
+		}
+		.rect:after {
+			padding: 0.75rem;
+		    direction: ltr;
+		    font-family: 'Material Icons';
+		    -webkit-font-smoothing: antialiased;
+		    text-rendering: optimizeLegibility;
+		    -moz-osx-font-smoothing: grayscale;
+		    font-feature-settings: 'liga';
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin: 0 0.25em;
+		    font-size: 1.5rem;
+			float: right;
+			content: 'add';
+			transition: transform 350ms;
+		}
+
+		p, .project-case-meta  {
+			clear: both;
+			transform: translateY(-7%);
+			color: #b5b5b5;
+			margin: 0;
+			opacity:  0;
+			height: 0;
+			overflow: hidden;
+		}
+
+		.project-case-label {
+			float: left;
+			color: #e0e0e0;
+		}
+
+		.project-case-info {
+			float: right;
+			span {
+				border: 2px solid rgba(255,255,255,0.1);
+				background-color: rgba(0,0,0,0.2);
+				border-radius: 4px;
+				padding: 0 0.35em;
+				display: inline-block;
+				margin-right: 3px;
+				margin-bottom: 3px;
+				color: #c0c0c0;
+			}	 
+		}
+
+	}
+	.project-case-desc {
+		margin-top: tick(0.5);
+	}
+}
+
+
+.grid {
+	padding-top: tick(1);
+	background-color: rgba(26,26,26,0.35);
+	background-size: tick(1) tick(1);
+	background-position: top left;
+	background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), 
+  linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+}

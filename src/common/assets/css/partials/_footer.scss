@@ -1,17 +1,21 @@
 footer {
+
+	@include mq($from: md) {
+		position: fixed; 
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
  
- overflow: hidden;
- 	height: auto;
-	    width: 100%;
-	    position: relative;
  
  
-background-color: #121212;
+		background-color: #101010;
 
  	 	@extend %row;
  
  
-	 	line-height: tick(1);
+	 	line-height: tick(	);
 	 
 
 		a {
@@ -25,19 +29,16 @@ background-color: #121212;
 		.footer-left {
 			@include left-column-content();
 
-	 		padding: 0 2% 0 0;
+	  
 		}
 
 
 		.footer-right {
 			@include right-column-block();
-	 		padding: 0 0 0 2%;
+	 	 
 	  
 		}
-
  
- 
-  
 }
 
  

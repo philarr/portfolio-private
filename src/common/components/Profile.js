@@ -1,15 +1,6 @@
-import React from 'react'
-import { Reveal, scroller } from 'react-scrollkit'
-import { bindActionCreators } from 'redux'
-import * as Actions from '../actions'
-import { Link } from 'react-router'
+import React from 'react';
 import Footer from './Footer'
-
-import { asyncConnect } from 'redux-connect'
-import fetch from 'isomorphic-fetch'
-
-
-
+import { Reveal, scroller } from 'react-scrollkit';
 
 
  /*
@@ -24,45 +15,6 @@ if ( process.env.CanUseDom ) {
 
 
 
-
-
-
-const mapAsyncToProps =  [{
-	key: 'lunch',
-	promise: ({ params, helpers, store }) =>  {
-
- 
-		if (store.getState().reduxAsyncConnect.loadState['lunch']) {
-			console.log('already have...');
-			return null;
-		}
-		else {
-			/* possibility set spinner state here */	
-		}
-
-		return (
-		fetch('/api')
-	      .then(response => {
-	      	console.log('fetching data.');
-	      	return response.json();
-	      })
-	      .then(json => Promise.resolve(json))
-	      )
-	}
-}];
-
-
-function mapStateToProps(state /*, ownProps */) {
-  return {
-    loading: state.reduxAsyncConnect.loaded,
-  }
-}
- 
-
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators(Actions, dispatch);
-}
-
 class Profile extends React.Component {
 
 
@@ -71,43 +23,36 @@ class Profile extends React.Component {
 			scroller.scrollTo('profile-expanded-2', { smooth: true });
 		}
 	}
-
- 	componentWillReceiveProps(nextProps) {
- 		/*
- 		if (nextProps.params.testId !== this.props.params.testId) {
- 		 
- 		}
- 		*/
- 	}
+ 
 
 	render() {
 		return ( 
 
 	 		<section>
 
- 
-		 				<div className="projects-header">
-							<div className="inner">
-								<div className="projects-left">
-					 
-								</div>
-								<div className="projects-right">
-				 					<h1 className="label">
-				 						Being self-taught has given me the opportunity to work on projects from the perspective of different roles.
 
-									</h1>
-								</div>
+	 				<div className="profile-header">
+						<div className="inner">
+							<div className="left">
+				 
 							</div>
-				 		</div>
+							<div className="right">
+			 					<h1 className="label">
+			 						Being self-taught has given me the opportunity to work on projects from the perspective of different roles.
+
+								</h1>
+							</div>
+						</div>
+			 		</div>
 
  
 
- 				<div className="projects">
+ 				<div className="profile">
 					<div className="inner">
-						<div className="projects-left">
+						<div className="left">
 							<div className="label">About me</div>
 						</div>
-						<div className="projects-right">
+						<div className="right">
 						<p>
 								My passion for developing websites started since the days of geocities/homestead drag and drop. Unsatisfied with the limitations
 								of the interface and customization features, I dived into HTML, picking up CSS/PHP/MySQL over the years. Since then I've
@@ -122,22 +67,13 @@ class Profile extends React.Component {
 
 						</div>
 					</div>
-		 		</div>
 
-
-
-	 
-			 
- 
-
-
- 					 				<div className="projects">
-					<div className="inner">
-						<div className="projects-left">
-						<div className="label">I have worked with</div>
+				<div className="inner">
+						<div className="left">
+							<div className="label">I have worked with</div>
 						</div>
-						<div className="projects-right">
-<div className="profile-list">
+						<div className="right">
+							<div className="profile-list">
 								<h3>Front-end</h3><br />
 							 	<p>
 								&mdash; HTML 5<br/>
@@ -183,16 +119,16 @@ class Profile extends React.Component {
 					</div>
  
 
-				</div>
- 
- 
- 
 
+
+		 		</div>
+
+
+			<Footer />
 			</section>
 		);
 	}
 }
 
 Profile.displayName = "Profile";
- 
-export default asyncConnect(mapAsyncToProps, mapStateToProps, mapDispatchToProps)(Profile)
+export default Profile;

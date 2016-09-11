@@ -9,7 +9,7 @@ const Navigation = ({ loaded }) => (
 
 				<div className="nav-logo">
 
-				{ loaded ? <a>P&ndash;</a> : <div className="loading"></div> }
+				{ loaded ? <Link to="/">P&ndash;</Link> : <div className="loading"></div> }
 
 				</div>
 	  			<ul className="nav-links">

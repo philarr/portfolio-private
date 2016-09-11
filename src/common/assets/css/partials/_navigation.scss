@@ -2,16 +2,16 @@
 
 nav.nav-primary {
 
-   padding-right: 4%;
-  @include mq($from: layoutpad) {
-    padding: 0;
-  }
+ 
   overflow: hidden;
   z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
-
+   padding-right: 4%;
+  @include mq($from: layoutpad) {
+    padding: 0;
+  }
 }
 
  .nav-logo {      
@@ -19,8 +19,8 @@ nav.nav-primary {
     @include mq($until: layoutpad) {
       display: inline-block;
     }
-   width: tick();
-     background-color: rgba(255,255,255,0.25);
+     width: tick();
+     background-color: rgba(111,111,111,1);
     a {
       display: block;
       font-size: 2.5rem;
@@ -38,20 +38,22 @@ nav.nav-primary {
 
 
 .nav-links {
-  @include mq($until: layoutpad) {
+  display: none;
+  @include mq($from: md) {
     display: inline-block;
+  }
+  @include mq($from: layoutpad) {
+    display: block;
   }
   vertical-align: top;
   font-size: 1.25rem;
   height: 100%; 
-  display: block;
+ 
   white-space: nowrap;  
   margin: 0;
   padding: 0;
 
-  &:hover {
-
-  }
+ 
 
   a {
     height: tick();
@@ -87,11 +89,13 @@ nav.nav-primary {
   }
   width: tick();
   height: tick();
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(77,77,77,0.6);
   transition: width 350ms ease-out, background-color 350ms ease-out;
   &:hover {
-    width: tick(3);
-    background-color: rgba(255,255,255,0.25);
+    @include mq($from: layoutpad) {
+      width: tick(3);
+    }
+    background-color: rgba(122,122,122,0.8);
   }
 
 

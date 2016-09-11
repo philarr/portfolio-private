@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'react-router'
 import { ScrollLink } from 'react-scrollkit'
 
+let particles, parallax, particlesJSON;
+
 /* client asset */
 if ( process.env.CanUseDom ) {
-	var particles = require('particles.js');
-	var parallax = require('../assets/vendor/parallax.js');
-	var particlesJSON = require('../assets/json/particles.json');
+	particles = require('particles.js');
+	parallax = require('../assets/vendor/parallax.js');
+	particlesJSON = require('../assets/json/particles.json');
 }
 
 /* hero background + text */
@@ -16,11 +18,14 @@ class Hero extends React.Component {
  		super();
  		this.parallax = null;
  		this.debounce = null;
- 		this.setSceneSize = this.setSceneSize.bind(this);
+ 		this.setSize = this.setSize.bind(this);
+ 		this.screenWidth = 0;
+ 		this.screenHeight = 0;
+ 		this.isMobile = false;
  	}
 
 	componentDidMount() {
-   
+   		this.isMobile = isMobile();
  		this.parallax = new Parallax(this.refs.heroScene, {
  			listenTo: this.refs.heroWrapper,
  			relativeInput: true,
@@ -28,29 +33,42 @@ class Hero extends React.Component {
  			limitX: 100,
  			limitY: 100
  		});
-		this.setSceneSize();
-  		window.addEventListener('resize', this.setSceneSize);
+		this.setSize();
+  		window.addEventListener('resize', this.setSize);
 		particlesJS('hero-particle', particlesJSON);
 	}
 	
 
-	setSceneSize() {
+	setSize() {
   		if (this.debounce) clearTimeout(this.debounce);
 
-  		this.debounce = setTimeout(()=> {
-			const width = window.innerWidth, height = window.innerHeight;
-			this.refs.heroBg.style.width = (width + 150) + 'px';
-			this.refs.heroBg.style.height = (height + 150) + 'px';
-			this.refs.heroExtra.style.width = (width + 150) + 'px';
-			this.refs.heroParticle.style.width = (width + 150) + 'px';
-			this.refs.heroParticle.style.height = ((height*0.33) + 150) + 'px';
-  		}, 150);
+  		const { innerWidth: w, innerHeight: h } = window;
+ 
+  		//ios/mobile scroll resize check
+  		if (this.isMobile && (w === this.screenWidth)) {
+  			console.log('ismobile')
+  			return;
+  		}
+
+		this.debounce = setTimeout(()=> {
+			let { heroBg, heroExtra, heroParticle } = this.refs;
+			this.screenWidth = w;
+			this.screenHeight = h;
+			heroBg.style.width = (w + 150) + 'px';
+			heroBg.style.height = (h + 150) + 'px';
+			heroExtra.style.width = (w + 150) + 'px';
+			heroParticle.style.width = (w + 150) + 'px';
+			heroParticle.style.height = ((h * 0.33) + 150) + 'px';
+		}, 150);
+	 
+
+ 
 	}
 	
 
 	componentWillUnmount() {
 		if (this.parallax) this.parallax.disable();
-		window.removeEventListener('resize', this.setSceneSize);
+		window.removeEventListener('resize', this.setSize);
 	}
 
 
@@ -86,3 +104,10 @@ class Hero extends React.Component {
 Hero.displayName = "Hero";
 export default Hero
 
+
+function isMobile() { 
+	return (/(iPad|iPhone|iPod|Android|BlackBerry|Opera Mini|IEMobile)/g.test(navigator.userAgent));
+};
+
+
+ 

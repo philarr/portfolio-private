@@ -1,4 +1,4 @@
 module.exports = {
-	server: '127.0.0.1',
+	server: '192.168.1.103',
 	port: 8001
 };

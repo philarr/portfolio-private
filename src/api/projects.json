@@ -4,12 +4,28 @@
       "name": "Portfolio", 
       "year": "2016",
       "type": "Web Application",
+      "url": "http://www.pmhc.co",
       "desc": "The newest iteration of my personal portfolio using universal/isomorphic React.",
-      "tech": ["HTML", "CSS", "React.js", "Node.js", "CouchDB"],
+      "tech": ["HTML", "CSS", "React.js", "Node.js"],
       "color": ["#292E36", "#21262E"],
       "assets": {
-        "front": "pmhc.jpg"
-      }
+        "front": "http://pmhc.co/images/pmhc.jpg"
+      },
+      "overview": [
+        "This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
+        "Additionally, a boilerplate is also available for my future React projects."
+      ],
+      "components": {
+        "left": [],
+        "right": [
+          {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
+          {"name": "Server", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
+          {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
+        ]
+      },
+      "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
     },
     { 
       "uid": "xivdps",
@@ -21,8 +37,23 @@
       "color": ["#23252E", "#1D212C"],
       "website": "http://www.xivdps.com",
       "assets": {
-        "front":  "1.jpg"
-      }
+        "front":  "http://pmhc.co/images/1.jpg"
+      },
+      "overview": [
+        "This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
+        "Additionally, a boilerplate is also available for my future React projects."
+      ],
+      "components": {
+        "left": [],
+        "right": [
+          {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
+          {"name": "Server", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
+          {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
+        ]
+      },
+      "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
     },
     { 
       "uid": "eterna",
@@ -33,20 +64,50 @@
       "tech": ["PHP", "MySQL", "C#", "Javascript", "HTML", "CSS"],
       "color": ["#28221e", "#202020"],
       "assets": {
-        "front": "eterna.jpg"
-      }
+        "front": "http://pmhc.co/images/eterna.jpg"
+      },
+      "overview": [
+        "This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
+        "Additionally, a boilerplate is also available for my future React projects."
+      ],
+      "components": {
+        "left": [],
+        "right": [
+          {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
+          {"name": "Server", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
+          {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
+        ]
+      },
+      "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
     },
     { 
       "uid": "tank-wars",
       "name": "Tank Wars", 
       "year": "2013",
       "type": "Game",
-      "desc": "2D Top-down shooter written for an academic project on object-oriented programming and visualisation techniques.",
+      "desc": "HTML5 canvas game using object-oriented programming and visualisation techniques.",
       "tech": ["Processing"],
       "color": ["#252629", "#222222"],
       "assets": {
-        "front":  "tankwars.png"
-      }
+        "front":  "http://pmhc.co/images/tankwars.png"
+      },
+      "overview": [
+        "This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
+        "Additionally, a boilerplate is also available for my future React projects."
+      ],
+      "components": {
+        "left": [],
+        "right": [
+          {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
+          {"name": "Server", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
+          {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
+        ]
+      },
+      "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
     },
     { 
       "uid": "magister-crabs",
@@ -57,7 +118,22 @@
       "tech": ["HTML", "CSS"],
       "color": ["#1A2D33", "#1A2D33"],
       "assets": {
-        "front":  "magister.png"
-      }
+        "front":  "http://pmhc.co/images/magister.png"
+      },
+      "overview": [
+        "This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
+        "Additionally, a boilerplate is also available for my future React projects."
+      ],
+      "components": {
+        "left": [],
+        "right": [
+          {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
+          {"name": "Server", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
+          {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
+          {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
+        ]
+      },
+      "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
     }
   ]
