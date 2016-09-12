@@ -31,7 +31,7 @@ module.exports = {
         PORT: JSON.stringify(config.port)
       }
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("app.css")
   ],
   module: {
     loaders: [
@@ -43,7 +43,7 @@ module.exports = {
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: 'css?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
+        loader: 'css?localIdentName=[name]__[local]___[hash:base64:5]sass', 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },

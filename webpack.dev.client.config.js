@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/src/dist'),
-    filename: 'bundle.js',
+    filename: 'app.js',
     publicPath: '/static/'
   },
   plugins: [
@@ -30,7 +30,7 @@ module.exports = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("app.css")
   ],
   module: {
     loaders: [
@@ -42,7 +42,7 @@ module.exports = {
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: 'style!css!postcss-loader?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
+        loader: 'style!css?localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass', 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },

@@ -13,7 +13,7 @@ var loaders = [
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract('style', 'css!postcss-loader?localIdentName=[name]__[local]___[hash:base64:5]!sass'), 
+        loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass'), 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },
@@ -36,7 +36,7 @@ module.exports = [
   ],
   output: {
     path: path.join(__dirname, './build/dist'),
-    filename: 'bundle.js',
+    filename: 'app.js',
     publicPath: '/static/'
   },
   plugins: [
@@ -51,7 +51,7 @@ module.exports = [
         PORT: JSON.stringify(config.port)
       }
     }),
-    new ExtractTextPlugin("styles.css"), 
+    new ExtractTextPlugin("app.css"), 
   ],
   module: {
     loaders: loaders,
@@ -71,7 +71,6 @@ module.exports = [
   output: {
     path: path.join(__dirname, './build/dist/'),
     filename: '../server.js',
-    libraryTarget: 'commonjs2',
     publicPath: '/static/'
   },
   /* dont bundle node_modules */
@@ -94,7 +93,7 @@ module.exports = [
         PORT: JSON.stringify(config.port)
       }
     }),
-    new ExtractTextPlugin("styles.css"), 
+    new ExtractTextPlugin("app.css"), 
   ],
   module: {
     loaders: loaders,

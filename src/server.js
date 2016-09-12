@@ -34,7 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
   $.use(require('webpack-hot-middleware')(compiler));
 }
 else {
-  css = '<link rel="stylesheet" type="text/css" href="/static/styles.css" />';
+  css = '<link rel="stylesheet" type="text/css" href="/static/app.css" />';
   $.use(Compression());
 }
 
@@ -104,7 +104,7 @@ Check out my github to see the unbundled code! => github.com/philarr/portfolio
     <script>
       window._initialState = ${store}
     </script>
-    <script src="/static/bundle.js"></script>
+    <script src="/static/app.js"></script>
   </body>
 </html>`);
 

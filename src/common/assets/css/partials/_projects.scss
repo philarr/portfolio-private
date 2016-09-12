@@ -52,45 +52,61 @@
   transition: transform 1.5s;
 }
 
-.projects-item-image {
-  z-index: 3;
-  &:nth-child(2) {
-    top: tick(1.25);
-    transform-origin: top right;
-    transform:  scale(1 * 21/24);
-    margin-left: 0;
-    @include mq($from: sm) {
-      margin-left: -12%;
-      transform: scale(1 * 17.5/24);
+  .projects-item-image {
+    z-index: 3;
+    &:nth-child(2) {
+      top: tick(1.25);
+      transform-origin: top right;
+      transform:  scale(1 * 21/24);
+      margin-left: 0;
+      @include mq($from: sm) {
+        margin-left: -12%;
+        transform: scale(1 * 17.5/24);
+      }
+      @include mq($from: xl) {
+       margin-left: -6%;
+     }
+     @include mq($from: layout) {
+      margin-left: 0;
     }
-    @include mq($from: xl) {
-     margin-left: -6%;
-   }
-   @include mq($from: layout) {
-    margin-left: 0;
+  }
+
+  &:nth-child(3) {
+  animation-delay: 500ms;
+  animation-duration: 1.5s;
+  animation-name: fadeInLeft;
+  animation-fill-mode: both;
+
+    @include shadow(5);
+    top: tick(2);
+    width: 100%;
+    transform-origin: top left;
+    transform:  scale(1 * 17.5/24);
+    @include mq($from: sm) {
+      transform: scale(1 * 15.5/24);
+    }
+    @include mq($from: md) {
+      top: tick(2.5);
+    }
+    @include mq($from: layout) {
+      margin-left: 0;
+    }
+  }
   }
 }
 
-&:nth-child(3) {
-  @include shadow(5);
-  top: tick(2);
-  width: 100%;
-  transform-origin: top left;
-  transform:  scale(1 * 17.5/24);
-  @include mq($from: sm) {
-    transform: scale(1 * 15.5/24);
-  }
-  @include mq($from: md) {
-    top: tick(2.5);
-  }
-  @include mq($from: layout) {
-    margin-left: 0;
-  }
-}
-}
-}
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-5%, 0, 0) scale(decimal-floor(1 * 15.5/24, 2));
+  }
 
+  to {
+    opacity: 1;
+ 
+  }
+}
 
 
 

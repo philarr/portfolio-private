@@ -29,7 +29,7 @@ const ProjectListItem = ({ projectItem, projectActive }) => {
 
 				{ 
 					projectActive ? (
-		 				<div className="projects-item-image animated fadeInLeft" style={ projectGradient }>
+		 				<div className="projects-item-image" style={ projectGradient }>
 							<LazyImage src={ projectItem.assets.front } className="animated-before" activeClass="fadeInto" />
 						</div>
 					) : false

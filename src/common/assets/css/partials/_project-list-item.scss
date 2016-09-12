@@ -34,8 +34,6 @@
     //mobile ontouch usability & slide effect
     @include mq($until: sm) {
       user-select: none; // prevent unncessary hightlight when holding down slide image
-      -webkit-user-select: none;
-      -moz-user-select: none;  
       .projects-item-image { 
         cursor: ew-resize; 
         pointer-events: none; // prevent save popup when holding down slide image 
