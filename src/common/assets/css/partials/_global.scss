@@ -12,7 +12,7 @@ html {
   height: 100%;
   width: 100%;
   font-size: 14px;
-
+ 
   @include mq($from: sm) {
     font-size: 17px;
   }
@@ -30,8 +30,9 @@ body {
   color: #e0e0e0;
   font-weight: 300;
   line-height: 1.6em;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+ 
 }
 #app {
   width: 100%;
@@ -39,7 +40,10 @@ body {
 }
 
 a { 
-  cursor: pointer; /* react eventhandler fix */
+  // ie position fixed scroll jump fix
+  outline: 0 !important;
+  // react eventhandler fix
+  cursor: pointer !important;
   transition: color 500ms, border-color 500ms; 
 
   &:link, &:visited, &:hover, &:active { 
@@ -165,6 +169,7 @@ em {
 section {
   position: absolute;
   width: 100%;
+
 }
 
 .content {
@@ -180,31 +185,34 @@ section {
 }
 .route-change-appear {
   opacity: 0.01;
+    transition: opacity 350ms ease-in;
 }
 
 .route-change-appear.route-change-appear-active {
   opacity: 1;
-  transition: opacity 350ms ease-in;
+     transition: opacity 350ms ease-in;
 }
 
 .route-change-enter {
   opacity: 0.01;
+    transition: opacity 350ms ease-in;
 
 }
 
 .route-change-enter.route-change-enter-active {
   opacity: 1;
-  transition: opacity 350ms ease-in;
+     transition: opacity 350ms ease-in;
 }
 
 .route-change-leave {
   opacity: 1;
+    transition: opacity 350ms ease-in;
 
 }
 
 .route-change-leave.route-change-leave-active {
   opacity: 0.01;
-  transition: opacity 350ms ease-in;
+     transition: opacity 350ms ease-in;
 }
 
 

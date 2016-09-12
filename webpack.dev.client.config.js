@@ -2,6 +2,8 @@ var path = require('path')
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var config = require('./webpack.config.js');
+var autoprefixer = require('autoprefixer');
+
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -40,7 +42,7 @@ module.exports = {
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: 'style!css?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
+        loader: 'style!css!postcss-loader?localIdentName=[name]__[local]___[hash:base64:5]!sass', 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },
@@ -54,6 +56,7 @@ module.exports = {
     ],
  
   },
+ postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },

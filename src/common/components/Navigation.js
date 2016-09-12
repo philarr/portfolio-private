@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 
 const Navigation = ({ loaded }) => (
-		<nav className="nav-primary">
+		<nav>
 
 				<div className="nav-logo">
 
@@ -17,9 +17,7 @@ const Navigation = ({ loaded }) => (
 	  				<li className="nav-select"><Link to="/profile" className="icon person">Profile</Link></li>
 	  				<li className="nav-select"><Link to="/contact" className="icon mail">Contact</Link></li>
 				</ul>
-	 		<div className="nav-top">
-				<a onClick={ scroll.scrollToTop } className="icon up"></a>
-			</div>
+ 
 		</nav>
 );
 

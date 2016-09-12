@@ -2,7 +2,7 @@
  * PMHC.co default stylesheet
  */
 
-$font-content: "nimbus-sans", sans-serif;
+$font-content: nimbus-sans, sans-serif;
 
 /* 
  * Bootstrap config
@@ -30,17 +30,17 @@ $grid-gutter-width:          0 !default; // 30px
  */
 $mq-responsive: true;
 $mq-breakpoints: (
-    sm: map-get($grid-breakpoints, sm),
-    md: map-get($grid-breakpoints, md),
-    lg: map-get($grid-breakpoints, lg),
-    xl: map-get($grid-breakpoints, xl),
+  sm: map-get($grid-breakpoints, sm),
+  md: map-get($grid-breakpoints, md),
+  lg: map-get($grid-breakpoints, lg),
+  xl: map-get($grid-breakpoints, xl),
 
-    // Tweakpoints
-    layout: 1400px,
-    layoutpad: 1525px
+  // Tweakpoints
+  layout: 1400px,
+  layoutpad: 1525px
 );
  
- $mq-show-breakpoints: (sm, md, lg, xl);
+//$mq-show-breakpoints: (sm, md, lg, xl);
 
 
 /*
@@ -78,7 +78,7 @@ $mq-breakpoints: (
 @import "bootstrap/bootstrap-reboot";
 @import "bootstrap/bootstrap-grid";
 @import 'partials/mixin';
-@import 'partials/animate';
+//@import 'partials/animate';
 
 /* 
  * Component styles

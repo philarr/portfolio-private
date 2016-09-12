@@ -22,7 +22,7 @@ export function getProjectList() {
 			return Promise.resolve();
 		}
 
-		return fetch(SERVER_PATH + '/api')
+		return fetch(SERVER_PATH + '/api/case')
 	      .then(response => response.json())
 	      .then(data => {
 	      	dispatch({
@@ -38,17 +38,40 @@ export function getProjectInfo(id) {
  
  return (dispatch, getState) => {  
  
+ 		// check if case property exist
 		if (getState().pmhc.cases[id]) {
 			return Promise.resolve();
 		}
 
-		return fetch(SERVER_PATH + '/api/' + id)
+		return fetch(SERVER_PATH + '/api/case/' + id)
 	      .then(response => response.json())
 	      .then(data => {
 	      	if (data.length > 0) {
 		      	dispatch({
 		      		type: 'FETCH_PROJECT_INFO',
 		      		id: id,
+		      		data: data[0]
+		      	}) 
+	      	}
+	      })
+    };
+}
+
+export function getMeta() {
+ 
+ return (dispatch, getState) => {  
+ 
+ 		// check if any properties exist
+		if (Object.keys(getState().pmhc.meta).length) {
+			return Promise.resolve();
+		}
+
+		return fetch(SERVER_PATH + '/api')
+	      .then(response => response.json())
+	      .then(data => {
+	      	if (data.length > 0) {
+		      	dispatch({
+		      		type: 'FETCH_META',
 		      		data: data[0]
 		      	}) 
 	      	}

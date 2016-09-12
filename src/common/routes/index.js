@@ -12,7 +12,7 @@ export default (
 	<Route path="/" component={ App }>
 		<Route component={ ProjectViewer }>
 			<IndexRoute component={ IndexFooter } />
-			<Route path="case/:id" components={  ProjectNext } />
+			<Route path="case/:id" component={ ProjectNext } />
 		</Route>
 		<Route path="profile" component={ Profile } />
 		<Route path="contact" component={ Contact } />

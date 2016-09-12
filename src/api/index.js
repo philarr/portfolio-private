@@ -1,18 +1,23 @@
 import Express from 'express'
-import Projects from './projects.json'
+import data from './projects.json'
 
 /* Express REST API routes */
 const api = Express.Router();
 
+
 api.get('/', (req, res) => {
-	res.status(200).json(getProjectListing(Projects));
+	res.status(200).json(data.meta);
+});
+ 
+api.get('/case', (req, res) => {
+	res.status(200).json(getProjectListing(data.projects));
 });
 
-api.get('/:uid', (req, res) => {
-	res.status(200).json(getProjectCase(Projects, req.params.uid))
+api.get('/case/:uid', (req, res) => {
+	res.status(200).json(getProjectCase(data.projects, req.params.uid))
 })
 
-
+ 
 // Returns minimum information for front page listing 
 function getProjectListing(Projects) {
 	return Projects.map(({ uid, name, year, type, desc, tech, color, assets }) => ({ uid, name, year, type, desc, tech, color, assets }));

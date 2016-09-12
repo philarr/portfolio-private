@@ -1,17 +1,14 @@
 /* Header Component */
 
-nav.nav-primary {
+nav {
 
- 
+
   overflow: hidden;
   z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
-  padding-right: 4%;
-  @include mq($from: layoutpad) {
-    padding: 0;
-  }
+ 
 }
 
 .nav-logo {      
@@ -28,10 +25,10 @@ nav.nav-primary {
     height: tick();
     line-height: tick();
     font-weight: 400;
-    
+
     color: #ffffff;
     text-align: center;
-    
+
       //  background-color: rgba(0,0,0,0.75);
     }
   }
@@ -48,17 +45,18 @@ nav.nav-primary {
     vertical-align: top;
     font-size: 1.25rem;
     height: 100%; 
-    
+
     white-space: nowrap;  
     margin: 0;
     padding: 0;
 
-    
+
 
     a {
+      
       height: tick();
       line-height: tick();
-      text-align: center;
+        text-align: center;
       position: relative;
       top: 50%;
       transform: translateY(-50%);
@@ -66,14 +64,13 @@ nav.nav-primary {
       display: block;
       color: #c0c0c0;
       &:before {
-
         margin: 0 1rem 0 0;
         width: tick();
-        
+         text-align: center;
         opacity: 1;
-        
       }
       &:hover {
+
         color: #ffffff;
 
       }
@@ -125,10 +122,8 @@ nav.nav-primary {
   }
 
 
-
-
-
   
+
   .loading {
     margin: auto;
     position: relative;
@@ -140,7 +135,7 @@ nav.nav-primary {
     border-radius: 100%;
     height: 3rem;
     width: 3rem;
-    
+
     -webkit-animation: spin .6s infinite linear;
     -moz-animation: spin .6s infinite linear;
     -ms-animation: spin .6s infinite linear;
@@ -148,7 +143,7 @@ nav.nav-primary {
     animation: spin .6s infinite linear;
   }
 
-  @keyframes "spin" {
+  @keyframes spin {
    from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -178,7 +173,7 @@ nav.nav-primary {
 
 }
 
-@-webkit-keyframes "spin" {
+@-webkit-keyframes spin {
  from {
    -webkit-transform: rotate(0deg);
    transform: rotate(0deg);
@@ -190,7 +185,7 @@ nav.nav-primary {
 
 }
 
-@-ms-keyframes "spin" {
+@-ms-keyframes spin {
  from {
    -ms-transform: rotate(0deg);
    transform: rotate(0deg);
@@ -202,7 +197,7 @@ nav.nav-primary {
 
 }
 
-@-o-keyframes "spin" {
+@-o-keyframes spin {
  from {
    -o-transform: rotate(0deg);
    transform: rotate(0deg);

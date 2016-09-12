@@ -88,16 +88,16 @@ const renderHTML = (app, store, css) => (`<!doctype html>
 <!--
 Check out my github to see the unbundled code! => github.com/philarr/portfolio
 -->
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="author" content="Philip Chung">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>Philip Chung</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    ${css}
     <script src="https://use.typekit.net/ivy1pbs.js"></script>
     <script>try{Typekit.load({async:true});}catch(e){}</script> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    ${css}
   </head>
   <body>
     <div id="app">${app}</div>

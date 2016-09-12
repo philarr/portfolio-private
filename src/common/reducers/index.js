@@ -13,22 +13,27 @@
     }
   }
 */ 
-export default (state = { projects: [], cases: {}}, action) => {
+export default (state = { meta:{}, projects: [], cases: {} }, action) => {
 
 	switch(action.type) {
+        case 'FETCH_META': 
+        return { 
+            ...state, 
+            'meta': action.data
+        };
 		case 'FETCH_PROJECT': 
-			return { 
-        ...state, 
-        'projects': action.data
-      };
-    case 'FETCH_PROJECT_INFO': 
-      return { 
-        ...state, 
-          cases: { 
-            ...state.cases,
-            [action.id]: action.data,
-          }
-      };
+        return { 
+            ...state, 
+            'projects': action.data
+        };
+        case 'FETCH_PROJECT_INFO': 
+          return { 
+            ...state, 
+              cases: { 
+                ...state.cases,
+                [action.id]: action.data,
+              }
+          };
 		default: 
 			return state;
 	}

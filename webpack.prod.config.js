@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var nodeExternals = require('webpack-node-externals');
 var config = require('./webpack.config.js');
+var autoprefixer = require('autoprefixer');
 
 var loaders = [
       { /* Babel */
@@ -12,7 +13,7 @@ var loaders = [
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]__[local]___[hash:base64:5]!sass'), 
+        loader: ExtractTextPlugin.extract('style', 'css!postcss-loader?localIdentName=[name]__[local]___[hash:base64:5]!sass'), 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },
@@ -55,6 +56,7 @@ module.exports = [
   module: {
     loaders: loaders,
   },
+ postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },
@@ -97,7 +99,7 @@ module.exports = [
   module: {
     loaders: loaders,
   },
- 
+ postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },

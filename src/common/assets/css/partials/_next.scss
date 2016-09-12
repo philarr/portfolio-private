@@ -1,13 +1,21 @@
 .next {
     transition: opacity 350ms;
-
+ 
     line-height: 1.6rem;
     background-color: #191919;
     height: tick(4);
     position: relative;
     display: block;
     @extend %row;
-
+  @include mq($from: md) {
+    position: fixed; 
+    bottom: tick(1);
+    left: 0;
+    right: 0;
+    height: tick(4);
+        z-index: 1;
+  }
+  
   &:hover {
     .next-background {
       opacity: 1;
@@ -26,13 +34,7 @@
     transition: opacity 350ms;
   }
 
-  @include mq($from: md) {
-    position: fixed; 
-    bottom: tick(1);
-    left: 0;
-    right: 0;
-    height: tick(4);
-  }
+
   .inner {
     @extend %vm;
     .left, .right {
@@ -40,6 +42,7 @@
     }
   }
   a {
+
     font-size: 1.5rem;
     line-height: 160%;
     margin: 0;

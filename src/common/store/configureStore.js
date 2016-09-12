@@ -6,12 +6,13 @@ import thunk from 'redux-thunk'
 
  export default function configureStore(initialState = {}) {
     const store = createStore(
-    	//reducers: redux-connect, pmhc.co
+    	//reducer namespaces: redux-connect, pmhc.co
     	combineReducers({ 
     		reduxAsyncConnect, 
     		pmhc	
     	}),
-    	initialState, /* can apply localStorage state here */ 
+        /* can apply localStorage state here */ 
+    	initialState,
     	// apply thunk and reduxdevtools
      	compose(
      		applyMiddleware(thunk),
