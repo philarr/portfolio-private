@@ -1,3 +1,7 @@
+/* 
+ * PMHC.co Portfolio 2016 
+ * client.js
+ */
 import Express from 'express'
 import data from './projects.json'
 
@@ -6,9 +10,17 @@ const api = Express.Router();
 
 
 api.get('/', (req, res) => {
-	res.status(200).json(data.meta);
+	res.status(200).json([data.meta]);
 });
- 
+
+api.get('/profile', (req, res) => {
+	res.status(200).json([data.profile]);
+});
+
+api.get('/contact', (req, res) => {
+	res.status(200).json([data.contact]);
+});
+
 api.get('/case', (req, res) => {
 	res.status(200).json(getProjectListing(data.projects));
 });

@@ -1,50 +1,55 @@
-.next {
-    transition: opacity 350ms;
+.project-next {
+  height: tick(5);
+  position: relative;
+     @extend %row;
+    @include mq($from: md) {
+      position: fixed; 
+      bottom: tick(1);
+      left: 0;
+      right: 0;
+      height: tick(4);
  
-    line-height: 1.6rem;
-    background-color: #191919;
-    height: tick(4);
-    position: relative;
-    display: block;
-    @extend %row;
-  @include mq($from: md) {
-    position: fixed; 
-    bottom: tick(1);
-    left: 0;
-    right: 0;
-    height: tick(4);
-        z-index: 1;
-  }
-  
+    }
+}
+
+.project-next-wrapper {
+ transition: opacity 350ms ease-out, transform 350ms ease-out;
+  line-height: 1.6rem;
+  background-color: #191919;
+  display: block;
+    height: tick(5);
+    @include mq($from: md) {
+     height: tick(4);
+    }
   &:hover {
     .next-background {
       opacity: 1;
       transition: opacity 350ms;
     }
   }
-
   .next-background {
+    transition: opacity 350ms;
     opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-
-    height: tick(4);
-    transition: opacity 350ms;
+    bottom: 0;
   }
-
-
   .inner {
-    @extend %vm;
+     backface-visibility: hidden;
+      height: 100%;
     .left, .right {
-      padding-bottom: tick(0.5);
+      @extend %vm;
+      padding-bottom: 1rem;
     }
-  }
+
   a {
 
     font-size: 1.5rem;
     line-height: 160%;
     margin: 0;
   } 
+  }
+ 
 }

@@ -18,52 +18,62 @@ class Hero extends React.Component {
     constructor() {
         super();
         this.state = {
-            loaded: false
+            loaded: false,
         }
         this.parallax = null;
         this.debounce = null;
-        this.checkResize = this.checkResize.bind(this);
+        this.debounceResize = this.debounceResize.bind(this);
+        this.setSize = this.setSize.bind(this);
         this.screenWidth = 0;
-        this.isMobile = false;
         this.heroImages = ['http://pmhc.co/images/mountain_night.jpg', 'http://pmhc.co/images/trees_night.png'];
     }
 
     componentDidMount() {
-        this.isMobile = isMobile();
+        if (this.props.isLoaded) {
+            this.initHero('active-nodelay');
+        } 
+        else {
+            preloadImages(this.heroImages).then(() => {
+                this.initHero('active-nodelay');
+            })
+        }
+    }
+
+    initHero(classStyle) {
+        window.addEventListener('resize', this.debounceResize);
+        particlesJS('hero-particle', particlesJSON);
+        this.refs.heroBg.style.backgroundImage = 'url('+ this.heroImages[0] + ')';
+        this.refs.heroExtra.style.backgroundImage = 'url(' + this.heroImages[1] + ')';
+        this.parallax = new Parallax(this.refs.heroScene, {
+            listenTo: this.refs.heroWrapper,
+            relativeInput: true,
+            clipRelativeInput: true,
+            limitX: 100,
+            limitY: 100
+        });
         this.setSize();
-
-        preloadImages(this.heroImages).then(() => {
-
-            window.addEventListener('resize', this.checkResize);
-            particlesJS('hero-particle', particlesJSON);
-            this.refs.heroBg.style.backgroundImage = 'url('+ this.heroImages[0] + ')';
-            this.refs.heroExtra.style.backgroundImage = 'url(' + this.heroImages[1] + ')';
-            this.parallax = new Parallax(this.refs.heroScene, {
-                listenTo: this.refs.heroWrapper,
-                relativeInput: true,
-                clipRelativeInput: true,
-                limitX: 100,
-                limitY: 100
+        setTimeout(() => { 
+            this.setState({ 
+                loaded: true,
+                classStyle 
             });
-            setTimeout(() => { this.setState({ loaded: true }) }, 50);
+            if (!this.props.isLoaded) this.props.setLoaded();
+        }, 50);
 
-        })
     }
     
-    checkResize() {
-        const { innerWidth } = window;
+    debounceResize() {
         if (this.debounce) clearTimeout(this.debounce);
-        if (this.isMobile && (innerWidth === this.screenWidth)) {
-            return;
-        }
-        this.debounce = setTimeout(()=> {
-            this.setSize()
-        }, 150);
+        this.debounce = setTimeout(this.setSize, 150);
     }
 
+ 
     setSize() {
         const { innerWidth: w, innerHeight: h } = window;
-        let { heroBg, heroExtra, heroParticle } = this.refs;
+        const { heroBg, heroExtra, heroParticle } = this.refs;
+        if (isMobile() && (w === this.screenWidth)) {
+            return;
+        }
         this.screenWidth = w;
         heroBg.style.width = (w + 150) + 'px';
         heroBg.style.height = (h + 150) + 'px';
@@ -74,16 +84,17 @@ class Hero extends React.Component {
 
     componentWillUnmount() {
         if (this.parallax) this.parallax.disable();
-        window.removeEventListener('resize', this.checkResize);
+        if (this.debounce) clearTimeout(this.debounce); 
+        window.removeEventListener('resize', this.debounceResize); 
     }
 
     render() {
 
-        let heroClass = this.state.loaded ? 'hero active' : 'hero';
+        const heroClass = this.state.loaded ? 'hero ' + this.state.classStyle : 'hero';
 
         return (
             <div className={ heroClass }>
-                <div ref="heroCanvas" id="hero-canvas">
+                <div id="hero-canvas">
                     <div ref="heroScene" id="scene">
                         <div className="layer hero-bg" ref="heroBg" data-depth="0.20" />
                         <div className="layer" id="hero-particle" ref="heroParticle" data-depth="0.20" />

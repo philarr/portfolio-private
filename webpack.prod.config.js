@@ -32,6 +32,7 @@ module.exports = [
   name: 'Client',
   devtool: 'cheap-module-source-map',
   entry: [
+    'babel-polyfill',
     './src/client.js'
   ],
   output: {
@@ -66,6 +67,7 @@ module.exports = [
   name: 'Server',
   devtool: 'cheap-module-source-map',
   entry: [
+    'babel-polyfill',
     './src/server.js'
   ],
   output: {

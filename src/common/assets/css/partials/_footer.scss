@@ -1,4 +1,11 @@
 footer {
+  @extend %row;
+  .footer-wrapper {
+    transition: opacity 350ms ease-out, transform 350ms ease-out;
+    backface-visibility: hidden; //promote layer to prevent repaint
+    background-color: #101010;
+    line-height: tick();
+  }
   @include mq($from: md) {
     position: fixed; 
     bottom: 0;
@@ -6,10 +13,6 @@ footer {
     right: 0;
     z-index: 1;
   }
-
-  background-color: #101010;
-  @extend %row;
-  line-height: tick(	);
   a {
     font-size: 1rem;
     margin: 0 0.5rem;
@@ -19,9 +22,7 @@ footer {
   }
   .footer-right {
     @include right-column-block();
-    padding: 0 0 0 2%;
-
+ 
   }
-
 }
 

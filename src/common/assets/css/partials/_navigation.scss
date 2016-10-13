@@ -1,105 +1,186 @@
 /* Header Component */
 
+
+
 nav {
-
-
+  backface-visibility: hidden;
   overflow: hidden;
-  z-index: 5;
+  user-select: none;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
  
-}
+  transition: transform 350ms ease-out;
 
-.nav-logo {      
+  @include mq($from: layoutpad) {
+    width: tick(3);
+    transform: translateX(tick(-2));
+    .nav-logo {
+      transform: translateX(tick(2));
+      transition: transform 350ms ease-out;
+    }
+    .nav-links li {
+      transform: translateX(tick(2));
+      transition: transform 350ms ease-out;
+    }
+
+    &:hover {
+      transition: transform 350ms ease-out;
+      transform: none;
+      .nav-logo {
+        transition: transform 350ms ease-out;
+        transform: none;
+      }
+      .nav-links li {
+        transition: transform 350ms ease-out;
+        transform: none;
+      }
+    }
+  } 
+}
+.nav-mobile-desc {
+  display: none;
+}
+.nav-logo {
+  position: relative;
+  z-index: 2;
   height: tick();
-  @include mq($until: layoutpad) {
-    display: inline-block;
-  }
   width: tick();
+  overflow: hidden;
   background-color: rgba(111,111,111,1);
+ 
   a {
     display: block;
     font-size: 2.5rem;
-    width: tick();
     height: tick();
     line-height: tick();
     font-weight: 400;
-
     color: #ffffff;
     text-align: center;
-
-      //  background-color: rgba(0,0,0,0.75);
+    transition: transform 350ms;
+    span {
+      vertical-align: top;
+      font-size: 1.85rem;
     }
-  }
-
-
-  .nav-links {
-    display: none;
-    @include mq($from: md) {
-      display: inline-block;
-    }
-    @include mq($from: layoutpad) {
-      display: block;
-    }
-    vertical-align: top;
-    font-size: 1.25rem;
-    height: 100%; 
-
-    white-space: nowrap;  
-    margin: 0;
-    padding: 0;
-
-
-
-    a {
-
-      height: tick();
-      line-height: tick();
-        text-align: center;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      white-space: nowrap;
-      display: block;
-      color: #c0c0c0;
-      &:before {
-        margin: 0 1rem 0 0;
-        width: tick();
-         text-align: center;
-        opacity: 1;
-      }
-      &:hover {
-
-        color: #ffffff;
-
-      }
-    }
-  }
-
-
-  .nav-select {
-    display: block;
     @include mq($until: layoutpad) {
-      overflow: hidden;
-      display: inline-block;
+      transform: translateY(tick(-1));
     }
-    width: tick();
-    height: tick();
-    background-color: rgba(77,77,77,0.6);
-    transition: width 350ms ease-out, background-color 350ms ease-out;
-    &:hover {
-      @include mq($from: layoutpad) {
-        width: tick(3);
+
+  }
+
+}
+ 
+          .nav-links {
+         
+            @include mq($until: layoutpad) {
+               transform: translateX(tick(-4));
+            }
+ 
+            display: block;
+            vertical-align: top;
+            font-size: 1.25rem;
+            height: 100%; 
+            white-space: nowrap;  
+            margin: 0;
+            padding: 0;
+
+            li {
+              display: block;
+              width: tick(1);
+              height: tick();
+              background-color: rgba(77,77,77,0.6);
+              &:hover {
+                transition: background-color 350ms ease-out;
+                background-color: rgba(111,111,111,1);
+                a {
+                  transform: translateY(-50%) translateX(10%);
+                  transition: background-color 350ms ease-out, transform 350ms ease-out;
+                  background-color: rgba(111,111,111,1);
+                }
+              }
+            } 
+            a {
+              width: tick(3);
+              height: tick();
+              line-height: tick();
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+              white-space: nowrap;
+              display: block;
+              color: #c0c0c0;
+              transition: color 350ms, transform 350ms ease-out;
+              &:before {
+                margin: 0 1rem 0 0;
+                width: tick();
+                text-align: center;
+                opacity: 1;
+              }
+              &:hover {
+                color: #ffffff;
+              }
+            }
+          }
+
+// Mobile navigation active state
+
+nav.active {
+
+  @include mq($until: md) {
+    width: calc(100% - 5rem);  
+  }
+  @include mq($from: md, $until: layoutpad) {
+    width:  45%;
+  }
+  @include mq($until: layoutpad) {
+    overflow: visible;
+    transform: none;
+    height: 100%;
+   
+ 
+    .nav-logo {
+
+      a {
+        transform: translateY(tick(-2));
+        span {
+          font-size: 2rem;
+        }
       }
-      background-color: rgba(122,122,122,0.8);
     }
+    .nav-links {
+      transition: transform 350ms ease-out;
+      transform: none;
+      display: block;
+      position: absolute;
+      top: 1px;
+      width: 100%;
+      padding-top: tick();
+      background-color: #212121;  
+ 
+      &:hover {
+         transform: none;
+      }
+      li {
+        transform: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        &:first-child {
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+      }
+      li, a {
+        background-color: transparent;
+        width: 100%;
+      }
+    }
+  }
+} 
 
 
-  } 
+ 
 
-
-  .nav-top {
+ .nav-top {
 
     z-index: 6;
     position: fixed;
@@ -121,30 +202,26 @@ nav {
     } 
   }
 
-
-  
-
-  .loading {
-    margin: auto;
-    position: relative;
-    top: 1rem;
-    border-bottom: 6px solid #fff;
-    border-left: 6px solid #fff;
-    border-right: 6px solid #666666;
-    border-top: 6px solid #666666;
-    border-radius: 100%;
-    height: 3rem;
-    width: 3rem;
-    animation: spin .6s infinite linear;
-  }
-
+ 
+.loading {
+  margin: auto;
+  position: relative;
+  top: 1rem;
+  border-bottom: 6px solid #fff;
+  border-left: 6px solid #fff;
+  border-right: 6px solid #666666;
+  border-top: 6px solid #666666;
+  border-radius: 100%;
+  height: 3rem;
+  width: 3rem;
+  animation: spin .6s infinite linear;
   @keyframes spin {
-   from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
 
 }
-

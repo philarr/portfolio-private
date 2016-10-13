@@ -1,5 +1,5 @@
 /* 
- * PMHC.co Portfolio 2015 
+ * PMHC.co Portfolio 2016 
  * server.js
  */
 import configureStore from './common/store/configureStore' /* ReduxDevTools import */
@@ -69,13 +69,11 @@ $.get('*', (req, res) => {
             <ReduxAsyncConnect { ...renderProps } />
           </Provider>
         );
+        res.status(200).send(renderHTML(ReactDOM, JSON.stringify(store.getState()), css));
 
-        res
-        .status(200)
-        .send(renderHTML(ReactDOM, JSON.stringify(store.getState()), css));
       })
     }
-  })
+  });
 });
 
 

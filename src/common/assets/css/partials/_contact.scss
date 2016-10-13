@@ -1,0 +1,59 @@
+.contact-maps > div  {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent !important;
+	z-index: 1;
+	opacity: 0.45;		
+	transition: opacity 1s;
+}
+
+.contact-content {
+	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	bottom: 0;
+ 	right: 0;
+ 	height: 100vh;
+ 	width: 100vw;
+ 	
+  	background-size: tick(1) tick(1);
+    background-position: top left;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 2px), 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 2px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+ 	 
+   		padding: tick(1.5) 0;
+  
+    .inner {
+     	@extend %vm;
+    	.right {
+    		padding: 0;
+    		animation-duration: 1s;
+		    animation-name: fadeInUp;
+		    animation-fill-mode: both;
+    	}
+    }
+	z-index: 2;
+}
+
+.contact-method {
+	margin-top: 2rem;
+	display: block;
+	@include mq($from: lg) {
+	display: inline-block;
+	width: 33%;
+	}
+	a {
+		font-size: 1.2rem;
+	}
+	p {
+ 
+	 margin: 0;
+	} 
+
+}

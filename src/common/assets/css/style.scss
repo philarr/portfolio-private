@@ -1,8 +1,8 @@
 /*!
  * PMHC.co default stylesheet
  */
-
-$font-content: nimbus-sans, sans-serif;
+ 
+$font-content: "nimbus-sans", sans-serif;
 
 /* 
  * Bootstrap config
@@ -35,34 +35,32 @@ $mq-breakpoints: (
   lg: map-get($grid-breakpoints, lg),
   xl: map-get($grid-breakpoints, xl),
 
-  // Tweakpoints
+/* 
+ * mq tweakpoints
+ */
   layout: 1400px,
-  layoutpad: 1525px
+  layoutpad: 1600px
 );
  
-//$mq-show-breakpoints: (sm, md, lg, xl);
-
+ //$mq-show-breakpoints: (sm, md, lg, xl);
 
 /*
  * Common extends
  */
-
 @function tick($unit: 1){
   @return $unit*5rem;
 }
 
-
 @mixin left-column-content() {
   @extend %xs-24;
   @extend %sm-24;
-  @extend %md-8;
-  @extend %lg-8;
+  @extend %md-7;
+  @extend %lg-7;
   @extend %xl-7;
 }
 
- 
 @mixin right-column-block() {
-  @extend %md-offset-1;
+  @extend %md-offset-2;
   @extend %xl-offset-2;
   @extend %xs-24;
   @extend %sm-24;
@@ -85,12 +83,14 @@ $mq-breakpoints: (
  */
 @import 'partials/global';
 @import 'partials/navigation';
+@import 'partials/csstransition';
 @import 'partials/hero';
 @import 'partials/projects';
 @import 'partials/project-list-item';
 @import 'partials/profile';
 @import 'partials/next';
 @import 'partials/footer';
+@import 'partials/contact';
 
 
   

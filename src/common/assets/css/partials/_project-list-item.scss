@@ -40,15 +40,15 @@
       }
       .projects-item-bottom {
         .rect {
-            user-select: none; // prevent unncessary hightlight when holding down slide image
-          }
-        }
-        &:active {
-          .projects-item-desc { opacity: 1; }
-          .projects-item-image:nth-child(2) { transform: translateX(100% * 10/24); }
+          user-select: none; // prevent unncessary hightlight when holding down slide image
         }
       }
+      &:active {
+        .projects-item-desc { opacity: 1; }
+        .projects-item-image:nth-child(2) { transform: translateX(100% * 10/24); }
+      }
     }
+  }
 
     .projects-item-overview, .projects-item-bottom > .inner {
       transition: opacity 350ms 700ms;
@@ -106,7 +106,7 @@
       transform-origin: top left;
       transform: scale(1 * 24/24);
       @include mq($from: sm) {  
-        z-index: 2;
+        z-index: 3;
         width: 100%; 
         transform: scale((1 * 24/24)); 
       }
@@ -141,10 +141,10 @@
   }
 
   .projects-item-bottom {
-    transition: transform 700ms, background-color 700ms;
+    transition: transform 700ms ;
     position: absolute;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
     float: left;
     width: 100%;
     height: tick(1);

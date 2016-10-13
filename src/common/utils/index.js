@@ -4,13 +4,12 @@ export function isMobile() {
 
 
 export function preloadImages(images) {
-	
     return Promise.all(images.map(item => {
         return new Promise((resolve, reject) => {
             const img = new Image();
             img.onload = () => resolve(img);
             img.onerror = () => reject(img);
-            img.src = item;
+            img.src = item;	
         })
     }));
 };

@@ -8,8 +8,12 @@
 		"email": "contact@pmhc.co",
 		"github": "philarr"
 	},
+	"profile": {
+		"title": "HI!",
+		"body": "bye...!"
+	},
 	"contact": {
-		"map": "@49.2501979,-123.2344053,12z/data=!4m5!3m4!1s0x548673f143a94fb3:0xbb9196ea9b81f38b!8m2!3d49.2827291!4d-123.1207375"
+		"map": [49.2501979, -123.2344053]
 	},
 	"projects": [
 		{ 
@@ -19,7 +23,7 @@
 		  "type": "Web Application",
 		  "url": "http://www.pmhc.co",
 		  "desc": "The newest iteration of my personal portfolio using universal/isomorphic React.",
-		  "tech": ["HTML", "CSS", "React.js", "Node.js"],
+		  "tech": ["HTML", "CSS", "React.js", "Node.js", "REST"],
 		  "color": ["#292E36", "#21262E"],
 		  "assets": {
 			"front": "http://pmhc.co/images/pmhc.jpg"
@@ -46,7 +50,7 @@
 		  "year": "2015",
 		  "type": "Web Application",
 		  "desc": "Game data collection and analysis tool consisting of multiple components across different platforms.",
-		  "tech": ["PHP", "MySQL", "Redis", "C#", "Node.js", "Javascript"],
+		  "tech": ["PHP", "MySQL", "Redis", "C#", "Node.js"],
 		  "color": ["#23252E", "#1D212C"],
 		  "website": "http://www.xivdps.com",
 		  "assets": {

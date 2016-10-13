@@ -1,19 +1,14 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
-import App from '../components/App'
-import IndexFooter from '../components/IndexFooter'
-import ProjectViewer from '../components/ProjectViewer'
-import ProjectNext from '../components/ProjectNext'
-import Profile from '../components/Profile'
-import Contact from '../components/Contact'
+import App from '../containers/App'
+import ProjectViewer from '../containers/ProjectViewer'
+import Profile from '../containers/Profile'
+import Contact from '../containers/Contact'
  
-
 export default (
 	<Route path="/" component={ App }>
-		<Route component={ ProjectViewer }>
-			<IndexRoute component={ IndexFooter } />
-			<Route path="case/:id" component={ ProjectNext } />
-		</Route>
+		<IndexRoute component={ ProjectViewer } />
+		<Route path="case/:id" component={ ProjectViewer } />
 		<Route path="profile" component={ Profile } />
 		<Route path="contact" component={ Contact } />
 	</Route>

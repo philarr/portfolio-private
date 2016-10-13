@@ -1,5 +1,6 @@
 /* Hero Component */
 .hero {
+backface-visibility: hidden;
   background-color: #222428;
   position: relative;
   width: 100%;
@@ -7,21 +8,40 @@
   z-index: 2;
   display: table;
   .layer, .hero-msg > span, #hero-particle > canvas {
+    
     opacity: 0;
-
   }
+ 
   .hero-text, .hero-grid {
     opacity: 1;
   }
+
+
   &.active {
     .layer, .hero-msg > span, #hero-particle > canvas {
       opacity: 1;
     }
-
+    #hero-particle > canvas, .hero-bg, .hero-extra {
+      transition-delay: 1s;
+    }
     .hero-msg > span {
        transform: none;
     }
   }
+
+
+  &.active-nodelay {
+    .layer, .hero-msg > span, #hero-particle > canvas {
+      opacity: 1;
+    }
+    #hero-particle > canvas, .hero-bg, .hero-extra {
+      transition-delay: none;
+    }
+    .hero-msg > span {
+       transform: none;
+    }
+  }
+
 
   .hero-wrapper {
     position: relative;
@@ -52,9 +72,8 @@
       @include mq($from: md) {
         font-size: 3rem;
       }
-      &:nth-child(2) {
-       
-      }
+ 
+      
     }
   }
 }
@@ -67,7 +86,7 @@
     height: 100%;
     user-select: none;
     canvas {
-      transition: opacity 1s;
+      transition: opacity 2s;
     }
   }
 
@@ -82,7 +101,7 @@
     left: -100px !important;
     background-size: cover;
     background-repeat: no-repeat; 
-    transition: opacity 1s;
+    transition: opacity 2s;
   }
 
   .hero-extra {
@@ -95,7 +114,7 @@
     left: -50px !important;
     bottom: -100px;
     height: 60%;
-    transition: opacity 1s;
+    transition: opacity 2s;
   }
 
 

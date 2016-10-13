@@ -7,9 +7,12 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
+  // Resolve entry paths from this context
+  context: __dirname,
   entry: [
+    'babel-polyfill',
     'webpack-hot-middleware/client',
-    './src/client.js'
+    './client.js'
   ],
   node: {
     fs: "empty"
@@ -48,6 +51,7 @@ module.exports = {
       { test: /\.png$/, loader: "file-loader" },
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.woff$/, loader: "file-loader" },
+      { test: /\.woff2$/, loader: "file-loader" },
       { test: /\.eot$/, loader: "file-loader" },
       { test: /\.otf$/, loader: "file-loader" },
       { test: /\.ttf$/, loader: "file-loader" },

@@ -7,6 +7,7 @@ var config = require('./webpack.config.js');
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
+    'babel-polyfill',
     './src/server.js'
   ],
   output: {

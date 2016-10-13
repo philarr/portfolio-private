@@ -41,15 +41,13 @@
 
 }
 .projects-item-overview, .projects-item-bottom > .inner {
-  transition: opacity 350ms;
-  opacity: 0;
+  display: none;
 }
 .projects-item-bottom {
   height: 100%;
-  bottom: -80%;
-  transform: translateY(-80%);
+ 
   background-color: rgba(26,26,26,0.5);
-  transition: transform 1.5s;
+  
 }
 
   .projects-item-image {
@@ -72,10 +70,10 @@
   }
 
   &:nth-child(3) {
-  animation-delay: 500ms;
-  animation-duration: 1.5s;
-  animation-name: fadeInLeft;
-  animation-fill-mode: both;
+    animation-delay: 500ms;
+    animation-duration: 1.5s;
+    animation-name: fadeInLeft;
+    animation-fill-mode: both;
 
     @include shadow(5);
     top: tick(2);
@@ -177,72 +175,96 @@
 
 
 	.rect {
-		clear: both;
-		cursor: pointer;
+	 clear: both;
+	 cursor: pointer;
    display: block;
    padding: 0;
+   font-size: 0.95rem;
    margin: 0.25rem 0;
- }
- .rect:before {
-  counter-increment: section;
-  content: counter(section);
-  background-color: rgba(255,255,255,0.1);
-  width: 4rem;
-  text-align: center;
-  display: inline-block;
-  margin-right: 2rem;
-  padding: 0.75rem;
-}
-.rect:after {
- direction: ltr;
-  font-family: 'Material Icons';
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-  padding: 0.75rem;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0.25em;
-  font-size: 1.5rem;
-  float: right;
-  content: 'add';
-  transition: transform 350ms;
-}
+  }
+   .rect:before {
+    counter-increment: section;
+    content: counter(section);
+    background-color: rgba(255,255,255,0.1);
+    width: 4rem;
+    text-align: center;
+    display: inline-block;
+    margin-right: 2rem;
+    padding: 0.75rem;
+  }
+  .rect:after {
+    @extend %icon;
+    padding: 0.75rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.25em;
+    font-size: 1.5rem;
+    float: right;
+    content: 'add';
+    transition: transform 350ms;
+  }
 
-p, .project-case-meta  {
-  clear: both;
-  transform: translateY(-15px);
-  color: #b5b5b5;
-  margin: 0;
-  opacity:  0;
-  height: 0;
-  overflow: hidden;
-}
+  p, .project-case-meta  {
+    clear: both;
+    transform: translateY(-15px);
+    color: #b5b5b5;
+    margin: 0;
+    opacity:  0;
+    height: 0;
+    overflow: hidden;
+  }
 
-.project-case-label {
-  float: left;
-  color: #e0e0e0;
-}
+  .project-case-label {
+    float: left;
+    color: #e0e0e0;
+  }
 
-.project-case-info {
-  float: right;
-  span {
-   border: 2px solid rgba(255,255,255,0.1);
-   background-color: rgba(0,0,0,0.2);
-   border-radius: 4px;
-   padding: 0 0.35em;
-   display: inline-block;
-   margin-right: 3px;
-   margin-bottom: 3px;
-   color: #c0c0c0;
- }	 
-}
+  .project-case-info {
+    float: right;
+    span {
+     border: 2px solid rgba(255,255,255,0.1);
+     background-color: rgba(0,0,0,0.2);
+     border-radius: 4px;
+     padding: 0 0.35em;
+     display: inline-block;
+     margin-right: 3px;
+     margin-bottom: 3px;
+     color: #c0c0c0;
+   }	 
+  }
 
 }
-.project-case-desc {
-	margin-top: tick(0.5);
-}
+  .project-case-desc {
+
+    a {
+      &:before {
+        margin-right: 1rem;
+      }
+      &:after {
+        transition: opacity 350ms;
+        opacity: 0;
+        float: right;
+        margin-right: 0.25em;
+        content: 'arrow_forward';
+        @extend %icon;
+      }
+      &:hover {
+        &:after {
+          opacity: 1;
+
+        }
+      }
+      &:first-child {
+       border-top: 1px solid rgba(255,255,255,0.075);
+      }
+
+      display: block;
+      border-bottom: 1px solid rgba(255,255,255,0.075);
+       padding: 0.5rem 0;
+      
+    }
+  	margin-top: tick(0.5);
+  }
 }
 
 
@@ -253,4 +275,12 @@ p, .project-case-meta  {
   background-position: top left;
   background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 2px), 
   linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 2px);
+}
+
+
+.grid-2 {
+  margin-top: tick(-1);
+  padding-top: tick(1);
+ 
+color: #000000;
 }

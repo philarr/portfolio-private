@@ -8,29 +8,28 @@ class ProjectCase extends React.Component {
 
 
 	render() {
-		let { name, year, type, color, desc } = this.props.project;
-		let { overview, components, design } = this.props.cases;
-		let overviewLong = overview.map( (item, idx) => (<p key={ idx }>{ item }</p>));
+		const { name, year, type, color, desc } = this.props.project;
+		const { overview, components, design } = this.props.cases;
+		const overviewLong = overview.map( (item, idx) => (<p key={ idx }>{ item }</p>));
 		 
 		return (
 			<div className="projects-case" style={ { backgroundColor: color[0] } }>
+
+            
 				<div className="inner">
 					<div className="left">
 						<h1 className="label">{ name }<sup>{ year }</sup></h1>
 						<div>{ type }</div>
 					<div className="project-case-desc">
-						 <a href="#" className="icon source">Source code</a> <br />
-						 <a href="#" className="icon linknew">Visit website</a></div>
+						 <a href="#" className="icon source">View source</a>
+						 <a href="#" className="icon web">Visit website</a></div>
 					</div>
 					<div className="right">
 						<h2  className="label">{ desc }</h2>
 				 	<div className="project-case-desc">{ overviewLong }</div>
 					</div>
 				</div>
-	 
-
-
-
+ 
 			  	<div className="grid">
 					<div className="inner">
 						<div className="left">
