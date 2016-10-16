@@ -1,6 +1,7 @@
-// Reducer
-// ================================================
-
+/* 
+ * PMHC.co Portfolio 2016 
+ * Reducers
+ */
 
 const DEFAULT_STATE = {
     meta: {}, 
@@ -9,58 +10,47 @@ const DEFAULT_STATE = {
     projects: [], 
     cases: {},
     environment: {
-        menuOpen: false,
-        heroLoaded: false,
+        menuOpen: false
     }
 };
 
 export default (state = DEFAULT_STATE, action) => {
 
 	switch(action.type) {
-        case 'FETCH_META': 
-        return { 
-            ...state, 
-            'meta': action.data
-        };
         case 'FETCH_PROFILE':
-        return {
-            ...state,
-            'profile': action.data
-        };
+            return {
+                ...state,
+                'meta': action.meta,
+                'profile': action.result[0]
+            };
         case 'FETCH_CONTACT':
-        return {
-            ...state,
-            'contact': action.data
-        };
+            return {
+                ...state,
+                'meta': action.meta,
+                'contact': action.result[0]
+            };
 		case 'FETCH_PROJECT': 
-        return { 
-            ...state, 
-            'projects': action.data
-        };
+            return { 
+                ...state, 
+                'meta': action.meta,
+                'projects': action.result
+            };
         case 'FETCH_PROJECT_INFO': 
-        return { 
-            ...state, 
-            cases: { 
-                ...state.cases,
-                [action.id]: action.data,
-            }
-        };
+            return { 
+                ...state, 
+                cases: { 
+                    ...state.cases,
+                    [action.id]: action.result[0]
+                }
+            };
         case 'TOGGLE_MENU':
-        return {
-            ...state,
-            'environment': {
-                ...state.environment,
-                menuOpen: !state.environment.menuOpen
-            }
-        };
-        case 'SET_HERO_LOADED': 
-        return { 
-            ...state, 
-            'environment': {
-                ...state.environment,
-                heroLoaded: action.data
-            }
-        };
+            return {
+                ...state,
+                'environment': {
+                    ...state.environment,
+                    menuOpen: !state.environment.menuOpen
+                }
+            };
         default: 
 			return state;
 	}

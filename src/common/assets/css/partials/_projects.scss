@@ -251,17 +251,14 @@
       &:hover {
         &:after {
           opacity: 1;
-
         }
       }
       &:first-child {
        border-top: 1px solid rgba(255,255,255,0.075);
       }
-
       display: block;
       border-bottom: 1px solid rgba(255,255,255,0.075);
-       padding: 0.5rem 0;
-      
+      padding: 0.5rem 0;
     }
   	margin-top: tick(0.5);
   }
@@ -271,16 +268,53 @@
 .grid {
   padding-top: tick(1);
   background-color: rgba(26,26,26,0.35);
-  background-size: tick(1) tick(1);
-  background-position: top left;
-  background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 2px), 
-  linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 2px);
-}
-
-
-.grid-2 {
-  margin-top: tick(-1);
-  padding-top: tick(1);
  
-color: #000000;
 }
+
+
+figure {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.1);
+  margin-bottom: tick(0.5);
+  padding: 0 tick(0.5) tick(0.5) tick(0.5);
+  @extend %row;
+  &:first-child {
+    margin-top: tick(0.5);
+  }
+  &:last-child {
+    margin-bottom: tick();
+  }
+
+  @include mq($from: lg) {
+    padding: tick() tick(2) tick() 0;
+    figcaption {
+      position: absolute;
+      transform: rotate(-90deg) translateX(-100%);
+      transform-origin: top left;
+      text-align: right;
+    }
+    img {
+      margin-left: tick();
+    }
+  }
+
+   
+  figcaption {
+    width: 100%;
+    float: left;
+    line-height: tick();
+    overflow: hidden;
+    color: rgba(255,255,255,0.2);
+  }
+
+  img {
+ 
+    @include shadow(3);
+  }
+
+
+
+
+ }

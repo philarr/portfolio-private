@@ -1,3 +1,8 @@
+/* 
+ * PMHC.co Portfolio 2016 
+ * Routes
+ */
+
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from '../containers/App'

@@ -1,25 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-class Footer extends React.Component {
-	render() {
-		return (	
-			<footer>
-				<div className="footer-wrapper">
-					<div className="inner">
-						<div className="footer-left">
-							<a href="mailto:contact@pmhc.co" className="icon mail">contact@pmhc.co</a>
-			 			</div>
-		 				<div className="footer-right">
-	 						<a href="https://ca.linkedin.com/in/philip-chung-6955b7106" target="_blank">LinkedIn</a>&mdash;
-	 						<a href="https://twitter.com/pmhc_	" target="_blank">Twitter</a>&mdash;
-	 						<a href="http://www.instagram.com/pmhc_" target="_blank">Github</a>
-		 				</div>
-			 		</div>
-			 	</div>
-		 	</footer>
-		);
-	}
-}
+const Footer = ({ meta: { email, github, linkedin, twitter } }) => (
+	<footer>
+		<div className="footer-wrapper">
+			<div className="inner">
+				<div className="footer-left">
+					<a href={ 'mailto:' + email } className="icon mail">{ email }</a>
+	 			</div>
+ 				<div className="footer-right">
+ 					<a href={ github } target="_blank">Github</a> /
+					<a href={ linkedin } target="_blank">LinkedIn</a> /
+					<a href={ twitter } target="_blank">Twitter</a>
+					 
+ 				</div>
+	 		</div>
+	 	</div>
+ 	</footer>
+);
 
 Footer.displayName = "Footer";
 export default Footer

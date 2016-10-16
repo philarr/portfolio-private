@@ -10,29 +10,27 @@ const mapAsync = [
 	{ promise: ({ store: { dispatch }}) => dispatch(getContact()) },
 ];
  
-const mapProps = (state) =>  ({ 
-	contact: state.pmhc.contact
+const mapProps = ({ pmhc: { meta, contact }}) =>  ({ 
+	meta,
+	contact
 });
 
 class Contact extends React.Component {
  
 	componentDidMount() {
- 
-		GoogleMaps({
-			key: 'AIzaSyD1XSn4mO0TXODHhJ8epGNhU_WQ4koQYUY',
-		    zoom: 10,
-		    disableDefaultUI: true,
-			location: this.props.contact.map
+		GoogleMaps({ 
+			...this.props.contact.mapOption, 
+		    zoom: 11,
+		    disableDefaultUI: true
 		}).then((map) => {
 			this.refs.map.appendChild(map);
 			google.maps.event.trigger(this.refs.map.children[0], 'resize');
 		});
 	}
- 
 
 	render() {
 
-		const { contact } = this.props;
+		const { meta, contact } = this.props;
  
 		return (
 	 		<section>
@@ -40,23 +38,24 @@ class Contact extends React.Component {
   				<div className="contact-content">
 					<div className="inner">
 						<div className="left">
- 
+ 				 
 						</div>
 						<div className="right">
 		 					<h1 className="label">
-								If you have any questions or opportunities for me, you can reach me via the following methods.
+								{ contact.title }
 							</h1>
 							<div className="contact-method">
 								<p><small className="mail icon">E-MAIL &mdash;</small></p>
-								<a href="#">contact@pmhc.co</a>
+								<a href={ 'mailto:' + meta.email }>{ meta.email }</a>
 							</div>
 							<div className="contact-method">
 								<p><small className="phone icon">PHONE &mdash;</small></p>
-								<a href="#">+1 555 5555</a>
+								<a href="#">{ contact.phone }</a>
 							</div>
 							<div className="contact-method">
 								<p><small className="more icon">OTHER &mdash;</small></p>
-								<a href="#">Github</a> / <a href="#">LinkedIn</a>
+								<a href={ meta.github } target="_blank">Github</a> /
+								<a href={ meta.linkedin } target="_blank">LinkedIn</a> 
 							</div>
 						</div>
 					</div>

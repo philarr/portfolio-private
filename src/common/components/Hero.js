@@ -20,6 +20,7 @@ class Hero extends React.Component {
         this.state = {
             loaded: false,
         }
+        this._isMounted = true;
         this.parallax = null;
         this.debounce = null;
         this.debounceResize = this.debounceResize.bind(this);
@@ -29,14 +30,11 @@ class Hero extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.isLoaded) {
-            this.initHero('active-nodelay');
-        } 
-        else {
-            preloadImages(this.heroImages).then(() => {
-                this.initHero('active-nodelay');
-            })
-        }
+        preloadImages(this.heroImages).then(() => {
+            if (this._isMounted) {
+                this.initHero();
+            }
+        });
     }
 
     initHero(classStyle) {
@@ -52,14 +50,9 @@ class Hero extends React.Component {
             limitY: 100
         });
         this.setSize();
-        setTimeout(() => { 
-            this.setState({ 
-                loaded: true,
-                classStyle 
-            });
-            if (!this.props.isLoaded) this.props.setLoaded();
-        }, 50);
-
+        this.setState({ 
+            loaded: true
+        });
     }
     
     debounceResize() {
@@ -83,6 +76,7 @@ class Hero extends React.Component {
     }    
 
     componentWillUnmount() {
+        this._isMounted = false;
         if (this.parallax) this.parallax.disable();
         if (this.debounce) clearTimeout(this.debounce); 
         window.removeEventListener('resize', this.debounceResize); 
@@ -90,7 +84,7 @@ class Hero extends React.Component {
 
     render() {
 
-        const heroClass = this.state.loaded ? 'hero ' + this.state.classStyle : 'hero';
+        const heroClass = this.state.loaded ? 'hero active-nodelay' : 'hero';
 
         return (
             <div className={ heroClass }>

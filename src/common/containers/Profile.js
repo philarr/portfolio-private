@@ -3,6 +3,8 @@ import { asyncConnect } from 'redux-connect';
 import { bindActionCreators } from 'redux';
 import { Reveal, scroller } from 'react-scrollkit';
 import { getProfile } from '../actions';
+import IndexFooter from '../components/IndexFooter';
+import TextFormat from '../components/TextFormat';
 import Footer from '../components/Footer';
 
 
@@ -10,11 +12,12 @@ const mapAsync = [
 	{ promise: ({ store: { dispatch }}) => dispatch(getProfile()) },
 ];
  
-const mapProps = (state) =>  ({ 
-	profile: state.pmhc.profile
+const mapProps = ({ pmhc: { meta, profile }}) =>  ({ 
+	meta,
+	profile
 });
 
-const Profile = ({ profile }) => {
+const Profile = ({ meta, profile }) => {
  
 		return ( 
 		<div>
@@ -26,8 +29,7 @@ const Profile = ({ profile }) => {
 						</div>
 						<div className="right">
 		 					<h1 className="label">
-		 						Being self-taught has given me the opportunity to work on projects from the perspective of different roles.
-
+		 						{ profile.title }
 							</h1>
 						</div>
 					</div>
@@ -35,24 +37,24 @@ const Profile = ({ profile }) => {
  				<div className="profile">
 					<div className="inner">
 						<div className="left">
-							<div className="label">About me</div>
+							<h3 className="label">About me</h3>
 						</div>
 						<div className="right">
-							<p>
+							<TextFormat>
 								My passion for developing websites started since the days of geocities/homestead drag and drop. Unsatisfied with the limitations
 								of the interface and customization features, I dived into HTML, picking up CSS/PHP/MySQL over the years. Since then I've
 								grown interested in how new web technologies are incorporated in some of the most visited websites.
 								As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and 
 								geniune interest in this field to succeed. I'm always learning!
-							</p>
-							<p>
+ 								\n
 								I am currently an Interactive Arts (B.Sc) student at Simon Fraser University.
-							</p>
+							</TextFormat>
+							 
 						</div>
 					</div>
 					<div className="inner">
 						<div className="left">
-							<div className="label">I have worked with</div>
+							<h3 className="label">I have worked with</h3>
 						</div>
 						<div className="right">
 							<div className="profile-list">
@@ -60,6 +62,7 @@ const Profile = ({ profile }) => {
 							 	<ul>
 							 		<li>HTML</li>
 							 		<li>CSS (Sass)</li>
+							 		<li>Bootstrap</li>
 							 		<li>Javascript (ES6)</li>
 							 		<li>React</li>
 							 		<li>jQuery</li>
@@ -68,10 +71,13 @@ const Profile = ({ profile }) => {
 							<div className="profile-list">
 								<p><small className="icon server">BACK-END</small></p>
 							 	<ul>
-							 		<li>PHP</li>
+							 		 
 							 		<li>Node.js</li>
 							 		<li>MySQL</li>
+							 		<li>PHP</li>
 							 		<li>Redis</li>
+							 		<li>Apache</li>
+							 		<li>Nginx</li>
 							 	</ul>
 		 					</div>
 
@@ -84,12 +90,12 @@ const Profile = ({ profile }) => {
 							 	</ul>
 		 					</div>
 							<div className="profile-list">
-								<p><small className="icon tools">TOOLS</small></p>
+								<p><small className="icon tools">WORKFLOW</small></p>
 					 			<ul>
 							 		<li>Git</li>
 							 		<li>npm</li>
 							 		<li>Webpack</li>
-							 		<li>Apache, Nginx</li>
+							 		<li>PostCSS</li>
 							 	</ul>
 
 		 					</div>
@@ -97,7 +103,8 @@ const Profile = ({ profile }) => {
 					</div>
 		 		</div>
 			</section>
-			<Footer />
+			<IndexFooter />
+			<Footer meta={ meta } />
 		</div>
 		);
 	 

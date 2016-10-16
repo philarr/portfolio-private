@@ -1,158 +1,437 @@
-{
-	"meta": {
-		"name": "PMHC.co",
-		"version": "1",
-		"linkedin": "pmhcco",
-		"instagram": "pmhc_",
-		"twitter": "pmhc_",
-		"email": "contact@pmhc.co",
-		"github": "philarr"
-	},
-	"profile": {
-		"title": "HI!",
-		"body": "bye...!"
-	},
-	"contact": {
-		"map": [49.2501979, -123.2344053]
-	},
-	"projects": [
-		{ 
-		  "uid": "portfolio-2016",
-		  "name": "Portfolio", 
-		  "year": "2016",
-		  "type": "Web Application",
-		  "url": "http://www.pmhc.co",
-		  "desc": "The newest iteration of my personal portfolio using universal/isomorphic React.",
-		  "tech": ["HTML", "CSS", "React.js", "Node.js", "REST"],
-		  "color": ["#292E36", "#21262E"],
-		  "assets": {
-			"front": "http://pmhc.co/images/pmhc.jpg"
-		  },
-		  "overview": [
-			"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
-			"Additionally, a boilerplate is also available for my future React projects."
-		  ],
-		  "components": {
-			"left": [],
-			"right": [
-			  {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
-			  {"name": "Server", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
-			  {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
-			]
-		  },
-		  "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
-		},
-		{ 
-		  "uid": "xivdps",
-		  "name": "XIVDPS", 
-		  "year": "2015",
-		  "type": "Web Application",
-		  "desc": "Game data collection and analysis tool consisting of multiple components across different platforms.",
-		  "tech": ["PHP", "MySQL", "Redis", "C#", "Node.js"],
-		  "color": ["#23252E", "#1D212C"],
-		  "website": "http://www.xivdps.com",
-		  "assets": {
-			"front":  "http://pmhc.co/images/1.jpg"
-		  },
-		  "overview": [
-			"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
-			"Additionally, a boilerplate is also available for my future React projects."
-		  ],
-		  "components": {
-			"left": [],
-			"right": [
-			  {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
-			  {"name": "Server", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
-			  {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
-			]
-		  },
-		  "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
-		},
-		{ 
-		  "uid": "eterna",
-		  "name": "Eterna", 
-		  "year": "2014",
-		  "type": "Web Application",
-		  "desc": "Website for a small gaming community with a lightweight C# plugin and phpBB skin.",
-		  "tech": ["PHP", "MySQL", "C#", "Javascript", "HTML", "CSS"],
-		  "color": ["#28221e", "#202020"],
-		  "assets": {
-			"front": "http://pmhc.co/images/eterna.jpg"
-		  },
-		  "overview": [
-			"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
-			"Additionally, a boilerplate is also available for my future React projects."
-		  ],
-		  "components": {
-			"left": [],
-			"right": [
-			  {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
-			  {"name": "Server", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
-			  {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
-			]
-		  },
-		  "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
-		},
-		{ 
-		  "uid": "tank-wars",
-		  "name": "Tank Wars", 
-		  "year": "2013",
-		  "type": "Game",
-		  "desc": "HTML5 canvas game using object-oriented programming and visualisation techniques.",
-		  "tech": ["Processing"],
-		  "color": ["#252629", "#222222"],
-		  "assets": {
-			"front":  "http://pmhc.co/images/tankwars.png"
-		  },
-		  "overview": [
-			"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
-			"Additionally, a boilerplate is also available for my future React projects."
-		  ],
-		  "components": {
-			"left": [],
-			"right": [
-			  {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
-			  {"name": "Server", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
-			  {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
-			]
-		  },
-		  "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
-		},
-		{ 
-		  "uid": "magister-crabs",
-		  "name": "Magister Crabs", 
-		  "year": "2011",
-		  "type": "Microsite",
-		  "desc": "A simple brochure-style website for a business based in Richmond, BC.",
-		  "tech": ["HTML", "CSS"],
-		  "color": ["#1A2D33", "#1A2D33"],
-		  "assets": {
-			"front":  "http://pmhc.co/images/magister.png"
-		  },
-		  "overview": [
-			"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.",
-			"Additionally, a boilerplate is also available for my future React projects."
-		  ],
-		  "components": {
-			"left": [],
-			"right": [
-			  {"name": "DLL Plugin", "tech": ["C#"], "info": "A222"},
-			  {"name": "Server", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Worker", "tech": ["Node.js"], "info": "A222"},
-			  {"name": "Database", "tech": ["MySQL", "Redis"], "info": "A222"},
-			  {"name": "Website", "tech": ["HTML", "CSS", "PHP", "Javascript"], "info": "A222"}
-			]
-		  },
-		  "design": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo justo, bibendum sit amet elit non, rutrum convallis orci. Curabitur cursus sapien non odio fermentum, vel tincidunt mi facilisis. Morbi et placerat ex, id luctus diam. Donec non nisi venenatis, dictum velit vitae, tincidunt tellus. Donec eleifend tortor eros, et fermentum nisi tincidunt consectetur. Aenean id vulputate nisi. Donec eu viverra magna. Nam massa felis, condimentum a neque ac, egestas pretium elit. Etiam congue odio justo, ut tincidunt enim scelerisque et."
-		}
-	]
-
+{  
+    "meta":{  
+        "name":"PMHC.co",
+        "version":"1",
+        "github":"http://www.github.com/philarr",
+        "linkedin":"https://www.linkedin.com/in/pmhcco",
+        "twitter":"http://www.twitter.com/pmhc_",
+        "email":"philip@pmhc.co",
+        "cdn":"http://www.pmhc.co"
+    },
+    "profile":{  
+        "title":"Being self-taught has given me the opportunity to work on projects from the perspective of different roles.",
+        "section":[  
+            {  
+                "subtitle":"About me",
+                "content":"My passion for developing websites started since the days of geocities/homestead drag and drop. Unsatisfied with the limitations of the interface and customization features, I dived into HTML, picking up CSS/PHP/MySQL over the years. Since then I've grown interested in how new web technologies are incorporated in some of the most visited websites. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I'm always learning!\nI am currently an Interactive Arts (B.Sc) student at Simon Fraser University."
+            }
+        ]
+    },
+    "contact":{  
+        "title":"If you have any questions or opportunities for me, you can reach me via the following methods.",
+        "phone": "+1 604 781 9813",
+        "mapOption":{  
+            "key":"AIzaSyD1XSn4mO0TXODHhJ8epGNhU_WQ4koQYUY",
+            "location":[  
+                49.2501979,
+                -123.2344053
+            ]
+        }
+    },
+    "projects":[  
+        {  
+            "uid":"portfolio-2016",
+            "name":"Portfolio",
+            "year":"2016",
+            "type":"Web Application",
+            "url":"http://www.pmhc.co",
+            "source":"http://www.github.com/philarr/portfolio-private",
+            "desc":"The newest iteration of my personal portfolio using universal/isomorphic React.",
+            "tech":[  
+                "HTML",
+                "CSS",
+                "React.js",
+                "Node.js",
+                "REST"
+            ],
+            "color":[  
+                "#292E36",
+                "#21262E"
+            ],
+            "display":{  
+                "front":"/images/pmhc1.jpg",
+                "secondary":"/images/pmhc1.jpg"
+            },
+            "overview":"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.\\nAdditionally, a boilerplate is also available for my future React projects.",
+            "components":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "name":"Plugin",
+                        "tech":[  
+                            "C#"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Server",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Worker",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Database",
+                        "tech":[  
+                            "MySQL",
+                            "Redis"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Website",
+                        "tech":[  
+                            "HTML",
+                            "CSS",
+                            "PHP",
+                            "Javascript"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    }
+                ]
+            },
+            "design":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "caption":"Landing Page",
+                        "url":"/images/pmhc1.jpg"
+                    },
+                    {  
+                        "caption":"About Page",
+                        "url":"/images/pmhc1.jpg"
+                    }
+                ]
+            }
+        },
+        {  
+            "uid":"xivdps",
+            "name":"XIVDPS",
+            "year":"2015",
+            "type":"Web Application",
+            "url":"http://www.xivdps.com",
+            "source":"http://www.github.com/philarr/portfolio-private",
+            "desc":"Game data collection and analysis tool consisting of multiple components across different platforms.",
+            "tech":[  
+                "PHP",
+                "MySQL",
+                "Redis",
+                "C#",
+                "Node.js"
+            ],
+            "color":[  
+                "#23252E",
+                "#1D212C"
+            ],
+            "display":{  
+                "front":"/images/1.jpg",
+                "secondary":"/images/1.jpg"
+            },
+            "overview":"A\\nB\\nC\\nD",
+            "components":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "name":"Plugin",
+                        "tech":[  
+                            "C#"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Server",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Worker",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Database",
+                        "tech":[  
+                            "MySQL",
+                            "Redis"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Website",
+                        "tech":[  
+                            "HTML",
+                            "CSS",
+                            "PHP",
+                            "Javascript"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    }
+                ]
+            },
+            "design":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "caption":"Landing Page",
+                        "url":"/images/1.jpg"
+                    },
+                    {  
+                        "caption":"About Page",
+                        "url":"/images/1.jpg"
+                    }
+                ]
+            }
+        },
+        {  
+            "uid":"eterna",
+            "name":"Eterna",
+            "year":"2014",
+            "type":"Web Application",
+            "url":"http://www.xivdps.com",
+            "source":"http://www.github.com/philarr/portfolio-private",
+            "desc":"Website for a small gaming community with a lightweight C# plugin and phpBB skin.",
+            "tech":[  
+                "PHP",
+                "MySQL",
+                "C#",
+                "Javascript",
+                "HTML",
+                "CSS"
+            ],
+            "color":[  
+                "#28221e",
+                "#202020"
+            ],
+            "display":{  
+                "front":"/images/eterna.jpg",
+                "secondary":"/images/eterna.jpg"
+            },
+            "overview":"A\\nB\\nC\\nD",
+            "components":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "name":"Plugin",
+                        "tech":[  
+                            "C#"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Server",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Worker",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Database",
+                        "tech":[  
+                            "MySQL",
+                            "Redis"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Website",
+                        "tech":[  
+                            "HTML",
+                            "CSS",
+                            "PHP",
+                            "Javascript"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    }
+                ]
+            },
+            "design":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "caption":"Landing Page",
+                        "url":"/images/eterna.jpg"
+                    },
+                    {  
+                        "caption":"About Page",
+                        "url":"/images/eterna.jpg"
+                    }
+                ]
+            }
+        },
+        {  
+            "uid":"tank-wars",
+            "name":"Tank Wars",
+            "year":"2013",
+            "type":"Game",
+            "url":"http://www.xivdps.com",
+            "source":"http://www.github.com/philarr/portfolio-private",
+            "desc":"HTML5 canvas game using object-oriented programming and visualisation techniques.",
+            "tech":[  
+                "Processing"
+            ],
+            "color":[  
+                "#252629",
+                "#222222"
+            ],
+            "display":{  
+                "front":"/images/tankwars.png",
+                "secondary":"/images/tankwars.png"
+            },
+            "overview":"A\\nB\\nC\\nD",
+            "components":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "name":"Plugin",
+                        "tech":[  
+                            "C#"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Server",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Worker",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Database",
+                        "tech":[  
+                            "MySQL",
+                            "Redis"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Website",
+                        "tech":[  
+                            "HTML",
+                            "CSS",
+                            "PHP",
+                            "Javascript"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    }
+                ]
+            },
+            "design":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "caption":"Landing Page",
+                        "url":"/images/tankwars.png"
+                    },
+                    {  
+                        "caption":"About Page",
+                        "url":"/images/tankwars.png"
+                    }
+                ]
+            }
+        },
+        {  
+            "uid":"magister-crabs",
+            "name":"Magister Crabs",
+            "year":"2011",
+            "type":"Microsite",
+            "url":"http://www.xivdps.com",
+            "source":"http://www.github.com/philarr/portfolio-private",
+            "desc":"A simple brochure-style website for a business based in Richmond, BC.",
+            "tech":[  
+                "HTML",
+                "CSS"
+            ],
+            "color":[  
+                "#1A2D33",
+                "#1A2D33"
+            ],
+            "display":{  
+                "front":"/images/magister.png",
+                "secondary":"/images/magister.png"
+            },
+            "overview":"A\\nB\\nC\\nD",
+            "components":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "name":"Plugin",
+                        "tech":[  
+                            "C#"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Server",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Worker",
+                        "tech":[  
+                            "Node.js"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Database",
+                        "tech":[  
+                            "MySQL",
+                            "Redis"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    {  
+                        "name":"Website",
+                        "tech":[  
+                            "HTML",
+                            "CSS",
+                            "PHP",
+                            "Javascript"
+                        ],
+                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    }
+                ]
+            },
+            "design":{  
+                "subtitle":"Each component works in tandem to create a flow of information.",
+                "list":[  
+                    {  
+                        "caption":"Landing Page",
+                        "url":"/images/magister.png"
+                    },
+                    {  
+                        "caption":"About Page",
+                        "url":"/images/magister.png"
+                    }
+                ]
+            }
+        }
+    ]
 }

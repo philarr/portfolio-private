@@ -1,44 +1,36 @@
 /* 
  * PMHC.co Portfolio 2016 
- * client.js
+ * Server API
  */
-import Express from 'express'
-import data from './projects.json'
+import Express from 'express';
+import data from './projects.json';
+import Result from './result'; 
 
-/* Express REST API routes */
+// Express REST API routes 
 const api = Express.Router();
 
+// Result handler for JSON data
+const result = new Result(data);
 
-api.get('/', (req, res) => {
-	res.status(200).json([data.meta]);
-});
-
+// API routes
 api.get('/profile', (req, res) => {
-	res.status(200).json([data.profile]);
+	res.status(200).json(result.getProfile());
 });
 
 api.get('/contact', (req, res) => {
-	res.status(200).json([data.contact]);
+	res.status(200).json(result.getContact());
 });
 
 api.get('/case', (req, res) => {
-	res.status(200).json(getProjectListing(data.projects));
+	res.status(200).json(result.getProjectListing());
 });
 
 api.get('/case/:uid', (req, res) => {
-	res.status(200).json(getProjectCase(data.projects, req.params.uid))
-})
+	res.status(200).json(result.getProjectCase(req.params.uid));
+});
 
- 
-// Returns minimum information for front page listing 
-function getProjectListing(Projects) {
-	return Projects.map(({ uid, name, year, type, desc, tech, color, assets }) => ({ uid, name, year, type, desc, tech, color, assets }));
-}
-
-// Returns full description
-function getProjectCase(Projects, selectedId) {
-	return Projects.filter((item) => (item.uid === selectedId)).map(({ overview, components, design }) => ({ overview, components, design }));
-}
-
+api.get('*', (req, res) => {
+	res.status(200).json(result.nomatch());
+});
 
 export default api;

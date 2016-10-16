@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleMenu } from '../actions';
+import { Element } from 'react-scrollkit';
 
 const config = {
 	component: 'div',
@@ -20,12 +21,13 @@ const mapProps = (state) => ({
 const mapActions = dispatch => bindActionCreators({ toggleMenu }, dispatch);
 
 const CSSTransition = ({ menuOpen, children, toggleMenu }) => (
-	<div className={ menuOpen ? 'main push' : 'main' }>
+	<Element name="mainContainer" className={ menuOpen ? 'main push' : 'main' }>
+	
 		<div className="menu-overlay" onClick={ toggleMenu } />
 		  
 			{ children && React.cloneElement(children, { key: children.type.displayName }) }
 		 
  
-	</div>
+	</Element>
 );
 export default connect(mapProps, mapActions)(CSSTransition);
