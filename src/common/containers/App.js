@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import CSSTransition from './CSSTransition';
 import Navigation from './Navigation';
  
@@ -15,6 +16,7 @@ class App extends React.Component {
  
 		return ( 
 			<div>
+				<Helmet defaultTitle="Philip Chung" titleTemplate="%s - Philip Chung" />
 				<Navigation />
 				<CSSTransition>
 					{ this.props.children }

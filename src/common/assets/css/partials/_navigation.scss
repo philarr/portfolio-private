@@ -11,29 +11,28 @@ nav {
   top: 0;
   left: 0;
  
-  transition: transform 350ms ease-out;
+ 
 
   @include mq($from: layoutpad) {
     width: tick(3);
     transform: translateX(tick(-2));
     .nav-logo {
       transform: translateX(tick(2));
-      transition: transform 350ms ease-out;
+   
     }
     .nav-links li {
       transform: translateX(tick(2));
-      transition: transform 350ms ease-out;
+ 
     }
 
     &:hover {
-      transition: transform 350ms ease-out;
-      transform: none;
+       transform: none;
       .nav-logo {
-        transition: transform 350ms ease-out;
+    
         transform: none;
       }
       .nav-links li {
-        transition: transform 350ms ease-out;
+  
         transform: none;
       }
     }
@@ -91,11 +90,11 @@ nav {
               height: tick();
               background-color: rgba(77,77,77,0.6);
               &:hover {
-                transition: background-color 350ms ease-out;
+                transition: background-color 350ms;
                 background-color: rgba(111,111,111,1);
                 a {
                   transform: translateY(-50%) translateX(10%);
-                  transition: background-color 350ms ease-out, transform 350ms ease-out;
+                  transition: background-color 350ms, transform 350ms;
                   background-color: rgba(111,111,111,1);
                 }
               }
@@ -110,7 +109,7 @@ nav {
               white-space: nowrap;
               display: block;
               color: #c0c0c0;
-              transition: color 350ms, transform 350ms ease-out;
+              transition: color 350ms, transform 350ms;
               &:before {
                 margin: 0 1rem 0 0;
                 width: tick();
@@ -149,7 +148,7 @@ nav.active {
       }
     }
     .nav-links {
-      transition: transform 350ms ease-out;
+      transition: transform 350ms;
       transform: none;
       display: block;
       position: absolute;

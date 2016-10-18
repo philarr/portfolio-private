@@ -9,7 +9,7 @@
         "cdn":"http://www.pmhc.co"
     },
     "profile":{  
-        "title":"Being self-taught has given me the opportunity to work on projects from the perspective of different roles.",
+        "title":"Being self-taught has given me the opportunity to work on projects from the perspective of multiple roles.",
         "section":[  
             {  
                 "subtitle":"About me",
@@ -49,8 +49,16 @@
                 "#21262E"
             ],
             "display":{  
-                "front":"/images/pmhc1.jpg",
-                "secondary":"/images/pmhc1.jpg"
+                "front":{  
+                    "caption":"Portfolio 2016",
+                    "src":"/images/pmhc1.jpg",
+                    "size": [1903, 2043]
+                },
+                "secondary":{  
+                    "caption":"Secondary Page",
+                    "src":"/images/pmhc1.jpg",
+                    "size": [1903, 2043]
+                }
             },
             "overview":"This project is the result of my initiative on learning modern front-end tools and frameworks. The transition from the usual LAMP stack to the Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.\\nAdditionally, a boilerplate is also available for my future React projects.",
             "components":{  
@@ -102,11 +110,13 @@
                 "list":[  
                     {  
                         "caption":"Landing Page",
-                        "url":"/images/pmhc1.jpg"
+                        "src":"/images/pmhc1.jpg",
+                        "size": [1903, 2043]
                     },
                     {  
                         "caption":"About Page",
-                        "url":"/images/pmhc1.jpg"
+                        "src":"/images/pmhc1.jpg",
+                        "size": [1903, 2043]
                     }
                 ]
             }
@@ -131,8 +141,16 @@
                 "#1D212C"
             ],
             "display":{  
-                "front":"/images/1.jpg",
-                "secondary":"/images/1.jpg"
+                "front":{  
+                    "caption":"XIVDPS",
+                    "src":"/images/1.jpg",
+                    "size": [1245, 992]
+                },
+                "secondary":{  
+                    "caption":"Secondary Page",
+                    "src":"/images/1.jpg",
+                    "size": [1245, 992]
+                }
             },
             "overview":"A\\nB\\nC\\nD",
             "components":{  
@@ -184,11 +202,13 @@
                 "list":[  
                     {  
                         "caption":"Landing Page",
-                        "url":"/images/1.jpg"
+                        "src":"/images/1.jpg",
+                        "size": [1245, 992]
                     },
                     {  
                         "caption":"About Page",
-                        "url":"/images/1.jpg"
+                        "src":"/images/1.jpg",
+                        "size": [1245, 992]
                     }
                 ]
             }
@@ -214,8 +234,16 @@
                 "#202020"
             ],
             "display":{  
-                "front":"/images/eterna.jpg",
-                "secondary":"/images/eterna.jpg"
+                "front":{  
+                    "caption":"Landing Page",
+                    "src":"/images/eterna.jpg",
+                    "size": [1627, 1245]
+                },
+                "secondary":{  
+                    "caption":"Landing Page",
+                    "src":"/images/eterna.jpg",
+                    "size": [1627, 1245]
+                }
             },
             "overview":"A\\nB\\nC\\nD",
             "components":{  
@@ -267,11 +295,13 @@
                 "list":[  
                     {  
                         "caption":"Landing Page",
-                        "url":"/images/eterna.jpg"
+                        "src":"/images/eterna.jpg",
+                        "size": [1627, 1245]
                     },
                     {  
                         "caption":"About Page",
-                        "url":"/images/eterna.jpg"
+                        "src":"/images/eterna.jpg",
+                        "size": [1627, 1245]
                     }
                 ]
             }
@@ -292,8 +322,16 @@
                 "#222222"
             ],
             "display":{  
-                "front":"/images/tankwars.png",
-                "secondary":"/images/tankwars.png"
+                "front":{  
+                    "caption":"About Page",
+                    "src":"/images/tankwars.png",
+                    "size": [791, 600]
+                },
+                "secondary":{  
+                    "caption":"About Page",
+                    "src":"/images/tankwars.png",
+                    "size": [791, 600]
+                }
             },
             "overview":"A\\nB\\nC\\nD",
             "components":{  
@@ -345,11 +383,13 @@
                 "list":[  
                     {  
                         "caption":"Landing Page",
-                        "url":"/images/tankwars.png"
+                        "src":"/images/tankwars.png",
+                        "size": [791, 600]
                     },
                     {  
                         "caption":"About Page",
-                        "url":"/images/tankwars.png"
+                        "src":"/images/tankwars.png",
+                        "size": [791, 600]
                     }
                 ]
             }
@@ -371,8 +411,16 @@
                 "#1A2D33"
             ],
             "display":{  
-                "front":"/images/magister.png",
-                "secondary":"/images/magister.png"
+                "front":{  
+                    "caption":"Magister Crabs",
+                    "src":"/images/magister.png",
+                    "size": [1057, 927]
+                },
+                "secondary":{  
+                    "caption":"Secondary Page",
+                    "src":"/images/magister.png",
+                    "size": [1057, 927]
+                }
             },
             "overview":"A\\nB\\nC\\nD",
             "components":{  
@@ -424,11 +472,13 @@
                 "list":[  
                     {  
                         "caption":"Landing Page",
-                        "url":"/images/magister.png"
+                        "src":"/images/magister.png",
+                        "size": [1057, 927]
                     },
                     {  
                         "caption":"About Page",
-                        "url":"/images/magister.png"
+                        "src":"/images/magister.png",
+                        "size": [1057, 927]
                     }
                 ]
             }

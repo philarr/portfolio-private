@@ -22,13 +22,13 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
 					</div>	
 				</div>
  				<div className="projects-item-image" style={ projectGradient }>
-					<LazyImage src={ cdn + display.front } className="animated-before" activeClass="fadeInto" />
+					<LazyImage src={ cdn + display.front.src } className="animated-before" activeClass="fadeInto" />
 				</div>
 
 				{ 
 					projectActive ? (
 		 				<div className="projects-item-image" style={ projectGradient }>
-							<LazyImage src={ cdn + display.secondary } className="animated-before" activeClass="fadeInto" />
+							<LazyImage src={ cdn + display.secondary.src } className="animated-before" activeClass="fadeInto" />
 						</div>
 					) : false
 				}

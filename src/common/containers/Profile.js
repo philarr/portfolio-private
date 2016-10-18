@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { asyncConnect } from 'redux-connect';
 import { bindActionCreators } from 'redux';
 import { Reveal, scroller } from 'react-scrollkit';
@@ -7,6 +8,11 @@ import IndexFooter from '../components/IndexFooter';
 import TextFormat from '../components/TextFormat';
 import Footer from '../components/Footer';
 
+const IndexFooterProps = {
+	subheading: 'Get in touch',
+	heading: 'Whether it\'s a new opportunity or a simple hello, I would love to hear from you.',
+	url: '/contact'
+};
 
 const mapAsync = [
 	{ promise: ({ store: { dispatch }}) => dispatch(getProfile()) },
@@ -21,6 +27,7 @@ const Profile = ({ meta, profile }) => {
  
 		return ( 
 		<div>
+			<Helmet title={ Profile.displayName } />
 	 		<section>
  				<div className="profile-header">
 					<div className="inner">
@@ -103,12 +110,10 @@ const Profile = ({ meta, profile }) => {
 					</div>
 		 		</div>
 			</section>
-			<IndexFooter />
-			<Footer meta={ meta } />
+			<IndexFooter { ...IndexFooterProps } />
+			<Footer { ...meta } />
 		</div>
 		);
-	 
-
 };
  
  

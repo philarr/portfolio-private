@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { asyncConnect } from 'redux-connect';
 import { bindActionCreators } from 'redux';
 import { Reveal, scroller } from 'react-scrollkit';
@@ -23,18 +24,20 @@ class Contact extends React.Component {
 		    zoom: 11,
 		    disableDefaultUI: true
 		}).then((map) => {
-			this.refs.map.appendChild(map);
-			google.maps.event.trigger(this.refs.map.children[0], 'resize');
+			const { mapNode } = this.refs;
+			mapNode.appendChild(map);
+			google.maps.event.trigger(mapNode.children[0], 'resize');
 		});
 	}
 
 	render() {
 
-		const { meta, contact } = this.props;
+		const { meta: { github, linkedin, twitter, email }, contact } = this.props;
  
 		return (
 	 		<section>
-		 		<div ref="map" className="contact-maps" />
+				<Helmet title="Contact" />
+		 		<div ref="mapNode" className="contact-maps" />
   				<div className="contact-content">
 					<div className="inner">
 						<div className="left">
@@ -46,7 +49,7 @@ class Contact extends React.Component {
 							</h1>
 							<div className="contact-method">
 								<p><small className="mail icon">E-MAIL &mdash;</small></p>
-								<a href={ 'mailto:' + meta.email }>{ meta.email }</a>
+								<a href={ 'mailto:' + email }>{ email }</a>
 							</div>
 							<div className="contact-method">
 								<p><small className="phone icon">PHONE &mdash;</small></p>
@@ -54,8 +57,9 @@ class Contact extends React.Component {
 							</div>
 							<div className="contact-method">
 								<p><small className="more icon">OTHER &mdash;</small></p>
-								<a href={ meta.github } target="_blank">Github</a> /
-								<a href={ meta.linkedin } target="_blank">LinkedIn</a> 
+			 					<a href={ github } target="_blank">Github</a>&nbsp;/&nbsp;
+								<a href={ linkedin } target="_blank">LinkedIn</a>&nbsp;/&nbsp;
+								<a href={ twitter } target="_blank">Twitter</a>
 							</div>
 						</div>
 					</div>

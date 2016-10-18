@@ -1,6 +1,7 @@
 /* ProjectViewer container 
    ======================= */
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Element } from 'react-scrollkit';
 import { asyncConnect } from 'redux-connect';
 import { bindActionCreators } from 'redux';
@@ -20,6 +21,13 @@ const Error = {
 	type: "404",
 	message: "Case not found!"
 };
+
+const IndexFooterProps = {
+	subheading: 'Read more about me',
+	heading: 'Being self-taught has given me the opportunity to work on projects from the perspective of multiple roles.',
+	url: '/profile'
+};
+
 // Async props
 const mapAsync = [
 	{ promise: ({ store: { dispatch }}) => dispatch(getProjectList()) },
@@ -48,6 +56,7 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
  
 	return (
 		<div >
+			{ id && <Helmet title={ projectList[0].name } /> }
 			<section>
 				{ !id && <Hero /> || <div />}
 				<Element name="content" className="content">
@@ -55,11 +64,11 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
 					{ id && projectCase }
 				</Element>
 			</section>
-			{  id && <ProjectNext next={ projectList[1] } /> || <IndexFooter /> }
-			 <Footer meta={ meta } />
+			{  id && <ProjectNext next={ projectList[1] } /> || <IndexFooter  { ...IndexFooterProps } /> }
+			<Footer { ...meta } />
 		</div>
 	);
-}
+};
  
 //Transition key
 ProjectViewer.displayName = "ProjectViewer";

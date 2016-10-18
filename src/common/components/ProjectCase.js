@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Image from './Image';
 import { LazyImage } from 'react-scrollkit';
 import Collapsible from './Collapsible';
 import TextFormat from './TextFormat';
@@ -12,7 +13,9 @@ class ProjectCase extends React.Component {
 		const screenshots = design.list.map((item, idx) => (
 			<figure key={ idx }>
 				<figcaption>{ item.caption }</figcaption>
-				<LazyImage src={ this.props.cdn + item.url } className="animated-before" activeClass="fadeInto" />
+				<Image size={ item.size }>
+					<LazyImage src={ this.props.cdn + item.src } className="animated-before" activeClass="fadeInto" />
+				</Image>
 			</figure>
 		));
 	 
@@ -49,6 +52,8 @@ class ProjectCase extends React.Component {
 							<Collapsible items={ components.list } />
 						</div>
 					</div>
+
+
 					<div className="inner">
 						<div className="left">
 							<h3 className="label">Design & Interface &ndash;</h3>

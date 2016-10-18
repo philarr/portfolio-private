@@ -2,18 +2,18 @@
  * PMHC.co Portfolio 2016 
  * server.js
  */
-import configureStore from './common/store/configureStore' /* ReduxDevTools import */
-import Express from 'express'
-import Compression from 'compression'
-import { join } from 'path'
-import React from 'react'
-import DOM from 'react-dom/server'
-import { match, RouterContext } from 'react-router'
-import { Provider } from 'react-redux'
-import routes from './common/routes'
-import { ReduxAsyncConnect, loadOnServer } from 'redux-connect'
-import path from 'path'
-import api from './api'
+import configureStore from './common/store/configureStore'; /* ReduxDevTools import */
+import Express from 'express';
+import Compression from 'compression';
+import path, { join } from 'path';
+import React from 'react';
+import DOM from 'react-dom/server';
+import Helmet from 'react-helmet';
+import { match, RouterContext } from 'react-router';
+import { Provider } from 'react-redux';
+import routes from './common/routes';
+import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
+import api from './api';
 
 const $ = Express();
 let css = '';
@@ -69,7 +69,10 @@ $.get('*', (req, res) => {
             <ReduxAsyncConnect { ...renderProps } />
           </Provider>
         );
-        res.status(200).send(renderHTML(ReactDOM, JSON.stringify(store.getState()), css));
+
+        let head = Helmet.rewind();
+
+        res.status(200).send(renderHTML(ReactDOM, JSON.stringify(store.getState()), css, head));
 
       })
     }
@@ -82,16 +85,16 @@ console.log("😎 PMHC.co started @ "+ process.env.HOST + ":"+ process.env.PORT 
 
 // INITIAL TEMPLATE
 // ================================================
-const renderHTML = (app, store, css) => (`<!doctype html>
+const renderHTML = (app, store, css, head) => (`<!doctype html>
 <!--
 Check out my github to see the unbundled code! => github.com/philarr/portfolio
 -->
 <html lang="en">
   <head>
+    ${head.title.toString()}
     <meta charset="UTF-8">
     <meta name="author" content="Philip Chung">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>Philip Chung</title>
     <script src="https://use.typekit.net/ivy1pbs.js"></script>
     <script>try{Typekit.load({async:true});}catch(e){}</script> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

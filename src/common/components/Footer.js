@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = ({ meta: { email, github, linkedin, twitter } }) => (
+const Footer = ({ email, github, linkedin, twitter }) => (
 	<footer>
 		<div className="footer-wrapper">
 			<div className="inner">
@@ -8,8 +8,8 @@ const Footer = ({ meta: { email, github, linkedin, twitter } }) => (
 					<a href={ 'mailto:' + email } className="icon mail">{ email }</a>
 	 			</div>
  				<div className="footer-right">
- 					<a href={ github } target="_blank">Github</a> /
-					<a href={ linkedin } target="_blank">LinkedIn</a> /
+ 					<a href={ github } target="_blank">Github</a>&nbsp;/&nbsp;
+					<a href={ linkedin } target="_blank">LinkedIn</a>&nbsp;/&nbsp;
 					<a href={ twitter } target="_blank">Twitter</a>
 					 
  				</div>
