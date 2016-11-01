@@ -23,7 +23,7 @@ html {
 
 body {
   font-family: $font-content;
-  background-color: #191919;
+  background-color: #101010;
   color: #e0e0e0;
   font-weight: 300;
   line-height: 1.6em;
@@ -63,7 +63,7 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: #101010;
+    background-color: #000000;
     cursor: w-resize;
   }
 
@@ -79,7 +79,7 @@ body {
     &.push .project-next .project-next-wrapper,
     &.push footer .footer-wrapper {
       transition: opacity 350ms ease-out, transform 350ms ease-out;
-      transform: translateX(calc(100% - 5rem));
+      transform: translateX(100%);
     }
  }
  @include mq($from: md, $until: layoutpad) {
@@ -94,16 +94,20 @@ body {
 
 section {
   @extend %row;
+  background-color: #202020;
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   z-index: 3;    
   transition: opacity 350ms ease-out, transform 350ms ease-out;
   @include mq($from: md) {
     margin-bottom: tick(5);
   } 
+  &.no-margin {
+    margin-bottom: 0;
+  }
 }  
 
 .content {
@@ -119,25 +123,36 @@ section {
   margin: auto;
   color: #b5b5b5;
   padding: 0 6% 0 6%;
-  @include mq($from: md) { padding: 0 tick(0.5); }
-  @include mq($from: lg) { padding: 0 tick(0.5); }
-  @include mq($from: layout) { padding: 0; }
+  @include mq($from: md) { padding: 0 tick(1); }
+  @include mq($from: lg) { padding: 0 tick(1); }
+  @include mq($from: layout) {  padding: 0 tick(0.5); }
+    @include mq($from: layoutpad) {  padding: 0; }
 }
 .left {
   @include left-column-content();
-  padding: 0;
-  @include mq($until: md) { padding: 0 0 tick(0.5) 0; }
+  padding: 0 0 tick(0.5) 0;  
 }
 .right {
   @include right-column-block();
   padding: 0 0 tick() 0;
   @include mq($until: md) { padding: 0 0 tick(1) 0;}
 }
-.full {
+
+
+.inner-full {
  
   width: 100%;
-  padding: tick();
-  @include mq($until: md) { padding: 0 0 tick(1) 0;}
+  padding: 0;
+  @include mq($from: md) {   
+    max-width: tick(13);
+    margin: auto;
+    padding: 0 tick(0.5); 
+  }
+ 
+  @include mq($from: lg) { padding: 0 tick(1); }
+  @include mq($from: layout) {  padding: 0 tick(0.5); }
+  @include mq($from: layoutpad) {  padding: 0; }
+ 
 }
 
 
@@ -182,13 +197,19 @@ h1 {
 }
 
 p {
-  @include mq($until: sm) {
+
+  font-size: 15px;
+  @include mq($from: sm) {
     font-size: 16px;
   }
-  @include mq($until: layoutpad) {
+  @include mq($from: md) {
     font-size: 17px;
-  }  
-  font-size: 19px;
+  }
+  @include mq($from: lg) {
+    font-size: 19px;
+  }
+
+ 
   font-weight: 300;
   margin: 0 0 1rem;
   padding: 0;
@@ -215,7 +236,7 @@ em {
   text-decoration: none;
   font-style: normal;
   border-bottom: 3px solid #5a6273;
-} 
+}
 
 .sublabel {
   color: #666666;
@@ -317,7 +338,7 @@ decorators, icons, shorthands
 .location:before {
   content: 'location_on';
 }
-.tools:before {
+.workflow:before {
   content: 'build';
 }
 .mail:before {
@@ -336,7 +357,7 @@ decorators, icons, shorthands
 .web:before {
   content: 'desktop_mac';
 }
-.frontend:before {
+.front-end:before {
   content: 'star';
 }
 .desktop:before {
@@ -345,15 +366,9 @@ decorators, icons, shorthands
 .opennew:before {
   content: 'open_in_new';
 }
-
-.tooltip:after {
-  content: 'keyboard_arrow_down';
-}
-
 .work:before {
   content: 'view_list';
 }
-
 .linkafter:after {
   content: 'open_in_new';
 }
@@ -366,11 +381,13 @@ decorators, icons, shorthands
 .phone:before {
   content: 'phone';
 }
-.server:before {
+.back-end:before {
   content: 'storage';
 }
+.clock:before {
+  content: 'access_time';
+}
 
- 
 %vm {
   @include vertical-align();
 }
@@ -380,6 +397,7 @@ decorators, icons, shorthands
 .shadow-3 { @include shadow(3); }
 .shadow-4 { @include shadow(4); }
 .shadow-5 { @include shadow(5); }
+
 
 
 @keyframes fadeInUp {
@@ -393,3 +411,35 @@ decorators, icons, shorthands
     transform: none;
   }
 }
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-12px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+ 
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

@@ -13,16 +13,16 @@ class Result {
 	}
 
 	nomatch() {
-		return {
-			meta: this.meta,
-			result: []
-		};
+		return this.output([]);
 	}
 
 	output(res) {
 		if (res.constructor !== Array) res = [res];
 		return {
-			meta: this.meta,
+			meta: {
+				...this.meta,
+				nav: this.projects.map(({ uid, name, year, color }) => ({ uid, name, year, color }))
+			},
 			result: res
 		};
 	}

@@ -29,7 +29,6 @@ export function getProjectList() {
 			if (result.length > 0) {
 				dispatch({
 					type: 'FETCH_PROJECT',	
-					meta,
 					result
 				});
 			}
@@ -51,12 +50,34 @@ export function getProjectInfo(id) {
 			 	dispatch({
                     type: 'FETCH_PROJECT_INFO',
 					id,
-					meta,
 					result
 				});
 			}
 	      })
     };
+}
+
+export function getMeta() {
+    return (dispatch, getState) => {
+
+        if (Object.keys(getState().pmhc.meta).length > 0 ) {
+            return Promise.resolve();
+        }
+
+        return FETCH_API('/api')
+          .then(({ meta }) => {
+            
+                dispatch({
+                    type: 'FETCH_META',
+                    meta
+                });
+             
+          })
+
+    }
+
+
+
 }
 
 export function getProfile() {
@@ -72,7 +93,6 @@ export function getProfile() {
 	      	if (result.length > 0) {
 		      	dispatch({
 		      		type: 'FETCH_PROFILE',
-		      		meta,
 		      		result
 		      	});
 	      	}
@@ -93,9 +113,8 @@ export function getContact() {
 	      	if (result.length > 0) {
 		      	dispatch({
 		      		type: 'FETCH_CONTACT',
-		      		meta,
                     result
-		      	}) 
+		      	}); 
 	      	}
 	      })
     };
@@ -107,4 +126,8 @@ export function toggleMenu() {
 	};
 }
 
-
+export function closeMenu() {
+    return {
+        type: 'CLOSE_MENU'
+    };
+}

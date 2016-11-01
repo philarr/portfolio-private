@@ -30,14 +30,20 @@ class Collapsible extends React.Component {
 					<TextFormat>
 						{ item.desc }
 					</TextFormat>
+				</div>
+				{ (item.tech.length > 0) ?
+
+					(
+						<div className="project-case-meta">
+							<div className="project-case-label">Technology used</div>
+							<div className="project-case-info">
+								{ item.tech.map( t => <span key={ item.name + t }>{ t }</span>) }
+							</div>
+						</div>
+					) : null
+
+				}
  
-				</div>
-				<div className="project-case-meta">
-					<div className="project-case-label">Technology used</div>
-					<div className="project-case-info">
-						{ item.tech.map( t => <span key={ item.name + t }>{ t }</span>) }
-					</div>
-				</div>
 			</li>
 		));
 		 

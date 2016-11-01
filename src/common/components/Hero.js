@@ -23,10 +23,13 @@ class Hero extends React.Component {
         this._isMounted = true;
         this.parallax = null;
         this.debounce = null;
+        this.screenWidth = 0;
         this.debounceResize = this.debounceResize.bind(this);
         this.setSize = this.setSize.bind(this);
-        this.screenWidth = 0;
-        this.heroImages = ['http://pmhc.co/images/mountain_night.jpg', 'http://pmhc.co/images/trees_night.png'];
+        this.heroImages = ['http://pmhc.co/images/hero/mountain_night.jpg', 'http://pmhc.co/images/hero/trees_night.png'];
+    
+ 
+
     }
 
     componentDidMount() {
@@ -40,10 +43,13 @@ class Hero extends React.Component {
     initHero(classStyle) {
         window.addEventListener('resize', this.debounceResize);
         particlesJS('hero-particle', particlesJSON);
-        this.refs.heroBg.style.backgroundImage = 'url('+ this.heroImages[0] + ')';
-        this.refs.heroExtra.style.backgroundImage = 'url(' + this.heroImages[1] + ')';
-        this.parallax = new Parallax(this.refs.heroScene, {
-            listenTo: this.refs.heroWrapper,
+
+        const { heroBg, heroExtra, heroScene, heroWrapper } = this.refs;
+
+        heroBg.style.backgroundImage = 'url('+ this.heroImages[0] + ')';
+        heroExtra.style.backgroundImage = 'url(' + this.heroImages[1] + ')';
+        this.parallax = new Parallax(heroScene, {
+            listenTo: heroWrapper,
             relativeInput: true,
             clipRelativeInput: true,
             limitX: 100,

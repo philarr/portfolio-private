@@ -2,20 +2,15 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { asyncConnect } from 'redux-connect';
 import { bindActionCreators } from 'redux';
-import { Reveal, scroller } from 'react-scrollkit';
 import { getProfile } from '../actions';
-import IndexFooter from '../components/IndexFooter';
+import ProfileList from '../components/ProfileList';
 import TextFormat from '../components/TextFormat';
-import Footer from '../components/Footer';
-
-const IndexFooterProps = {
-	subheading: 'Get in touch',
-	heading: 'Whether it\'s a new opportunity or a simple hello, I would love to hear from you.',
-	url: '/contact'
-};
-
+import GoogleMaps from '../utils/GoogleMapsInstance';
+import GoogleMapsStyle from '../assets/vendor/GoogleMapsStyle';
+import { isMobile, formatTime } from '../utils';
+ 
 const mapAsync = [
-	{ promise: ({ store: { dispatch }}) => dispatch(getProfile()) },
+	{ promise: ({ store: { dispatch }}) => dispatch(getProfile()) }
 ];
  
 const mapProps = ({ pmhc: { meta, profile }}) =>  ({ 
@@ -23,99 +18,144 @@ const mapProps = ({ pmhc: { meta, profile }}) =>  ({
 	profile
 });
 
-const Profile = ({ meta, profile }) => {
- 
-		return ( 
-		<div>
-			<Helmet title={ Profile.displayName } />
-	 		<section>
- 				<div className="profile-header">
-					<div className="inner">
-						<div className="left">
- 
-						</div>
-						<div className="right">
-		 					<h1 className="label">
-		 						{ profile.title }
-							</h1>
-						</div>
-					</div>
-		 		</div>
- 				<div className="profile">
-					<div className="inner">
-						<div className="left">
-							<h3 className="label">About me</h3>
-						</div>
-						<div className="right">
-							<TextFormat>
-								My passion for developing websites started since the days of geocities/homestead drag and drop. Unsatisfied with the limitations
-								of the interface and customization features, I dived into HTML, picking up CSS/PHP/MySQL over the years. Since then I've
-								grown interested in how new web technologies are incorporated in some of the most visited websites.
-								As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and 
-								geniune interest in this field to succeed. I'm always learning!
- 								\n
-								I am currently an Interactive Arts (B.Sc) student at Simon Fraser University.
-							</TextFormat>
-							 
-						</div>
-					</div>
-					<div className="inner">
-						<div className="left">
-							<h3 className="label">I have worked with</h3>
-						</div>
-						<div className="right">
-							<div className="profile-list">
-							 	<p><small className="icon frontend">FRONT-END</small></p>
-							 	<ul>
-							 		<li>HTML</li>
-							 		<li>CSS (Sass)</li>
-							 		<li>Bootstrap</li>
-							 		<li>Javascript (ES6)</li>
-							 		<li>React</li>
-							 		<li>jQuery</li>
-							 	</ul>
-		 					</div>
-							<div className="profile-list">
-								<p><small className="icon server">BACK-END</small></p>
-							 	<ul>
-							 		 
-							 		<li>Node.js</li>
-							 		<li>MySQL</li>
-							 		<li>PHP</li>
-							 		<li>Redis</li>
-							 		<li>Apache</li>
-							 		<li>Nginx</li>
-							 	</ul>
-		 					</div>
+class Profile extends React.Component {
 
-							<div className="profile-list">
-								<p><small className="icon desktop">DESKTOP</small></p>
-							 	<ul>
-							 		<li>C#.NET</li>
-							 		<li>Visual Basic</li>
-							 		<li>Processing</li>
-							 	</ul>
-		 					</div>
-							<div className="profile-list">
-								<p><small className="icon tools">WORKFLOW</small></p>
-					 			<ul>
-							 		<li>Git</li>
-							 		<li>npm</li>
-							 		<li>Webpack</li>
-							 		<li>PostCSS</li>
-							 	</ul>
+	constructor(props) {
+		super(props);
+		this.timer = false;
+		this.runTimer = this.runTimer.bind(this, this.props.profile.mapOption.utc);
+	}
 
-		 					</div>
+	runTimer(utc) {
+		if (this.timer) {
+			const date = new Date();
+			this.refs.clock.innerHTML = formatTime(
+				date.getUTCHours() + utc, 
+				date.getUTCMinutes(), 
+				date.getUTCSeconds()
+			);
+			setTimeout(this.runTimer, 500);
+		}
+	}
+ 
+ 	componentDidMount() {
+
+ 		this.timer = true;
+ 		this.runTimer();
+
+		GoogleMaps({ 
+			...this.props.profile.mapOption, 
+		    zoom: 11,
+		    navigationControl: false,
+		    mapTypeControl: false,
+		    scaleControl: false,
+		    draggable: false,
+		    scrollwheel: false,
+		    disableDefaultUI: true,
+		    styles: GoogleMapsStyle
+		}).then( ({ dom, geo }) => {
+			const { mapNode, location } = this.refs;
+			mapNode.appendChild(dom);
+	 		location.innerHTML = `${geo[2].address_components[1].short_name}, ${geo[2].address_components[3].short_name}`;
+			 google.maps.event.trigger(mapNode.children[0], 'resize');
+		});
+	}
+
+
+	componentWillUnmount() {
+		this.timer = false;
+	}
+
+	render() {
+
+		const { meta, profile } = this.props;
+
+		return (
+			<div>
+				<Helmet title={ Profile.displayName } />
+		 		<section >
+					<div className="profile-header">
+						<div className="profile-grid" />
+						<div className="profile-me" />
+						<div className="inner">
+							<div className="left">&nbsp;</div>
+							<div className="right">
+								<h1 className="label">
+									{ profile.title }
+								</h1>
+							</div>
+						</div>
+			 		</div>
+					<div className="profile">
+						<div className="inner">
+							<div className="left">
+								<h3 className="label">About me</h3>
+							</div>
+							<div className="right">
+								<TextFormat>
+									{ profile.aboutme }
+								</TextFormat>
+							</div>
+						</div>
+						<div className="inner">
+							<div className="left">
+								<h3 className="label">I have worked with</h3>
+							</div>
+							<div className="right">
+								{ profile.skillset.map((item, idx) => <ProfileList key={ idx } list={ item } />) }
+							</div>
+						</div>
+		 				<div className="inner">
+							<div className="left">
+								<h3 className="label">Get in touch!</h3>
+							</div>
+							<div className="right">
+									<p>If you have any questions or opportunities for me, you can reach me via the following methods.</p>
+									<div className="profile-contact">
+										<small className="mail icon">E-MAIL</small>
+										<a href={ 'mailto:' + meta.email }>{ meta.email }</a>
+									</div>
+									<div className="profile-contact">
+										<small className="phone icon">PHONE</small>
+										<p className="label">{ meta.phone }</p>
+									</div>
+									<div className="profile-contact">
+										<small className="more icon">OTHER</small>
+										<a href={ meta.github } target="_blank">Github</a>&nbsp;/&nbsp;
+										<a href={ meta.linkedin } target="_blank">LinkedIn</a>
+ 
+									</div>					
+							</div>
+						</div>
+			 		</div>
+				</section>
+	 			<div className="profile-map project-next">
+	 				<div className="project-next-wrapper">
+	   					<div ref="mapNode" className="profile-maps" />
+	 					<div className="profile-overlay" />
+					<div className="inner">
+						<div className="left">
+							<h3 className="label">Currently living in</h3>
+						</div>
+						<div className="right">
+
+		 					<h1 ref="location" className="label">Unknown</h1>
+		 					<p ref="clock" className="icon clock">00:00:00 AM</p>
 						</div>
 					</div>
+				</div>
 		 		</div>
-			</section>
-			<IndexFooter { ...IndexFooterProps } />
-			<Footer { ...meta } />
-		</div>
+			</div>
+
 		);
-};
- 
+
+
+
+	}
+
+}
+
+
  
 Profile.displayName = "Profile";
 export default asyncConnect(mapAsync, mapProps)(Profile);

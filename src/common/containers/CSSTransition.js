@@ -21,13 +21,15 @@ const mapProps = (state) => ({
 const mapActions = dispatch => bindActionCreators({ toggleMenu }, dispatch);
 
 const CSSTransition = ({ menuOpen, children, toggleMenu }) => (
+	<ReactCSSTransitionGroup { ...config }>  
 	<Element name="mainContainer" className={ menuOpen ? 'main push' : 'main' }>
 	
 		<div className="menu-overlay" onClick={ toggleMenu } />
-		  
-			{ children && React.cloneElement(children, { key: children.type.displayName }) }
 		 
+			{ children && React.cloneElement(children, { key: children.type.displayName }) }
+ 
  
 	</Element>
+			</ReactCSSTransitionGroup>
 );
 export default connect(mapProps, mapActions)(CSSTransition);

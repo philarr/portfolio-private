@@ -8,21 +8,26 @@ import TextFormat from './TextFormat';
 class ProjectCase extends React.Component {
 
 	render() {
-		const { name, year, type, color, desc, source, url, display } = this.props.project;
+		const { uid, name, year, type, color, desc, source, url, display } = this.props.project;
 		const { overview, components, design } = this.props.cases;
+ 		const imagePath = this.props.cdn + '/images/' + uid + '/';
 		const screenshots = design.list.map((item, idx) => (
 			<figure key={ idx }>
 				<figcaption>{ item.caption }</figcaption>
 				<Image size={ item.size }>
-					<LazyImage src={ this.props.cdn + item.src } className="animated-before" activeClass="fadeInto" />
+					<LazyImage 
+						src={ imagePath + item.src } 
+						alt={ name + ' - ' + item.caption} 
+						title={ name + ' - ' + item.caption } 
+						className="animated-before" 
+						activeClass="fadeInto" 
+					/>
 				</Image>
 			</figure>
 		));
 	 
 		return (
 			<div className="projects-case" style={ { backgroundColor: color[0] } }>
-
-            
 				<div className="inner">
 					<div className="left">
 						<h1 className="label">{ name }<sup>{ year }</sup></h1>
@@ -41,7 +46,6 @@ class ProjectCase extends React.Component {
 				 		</div>
 					</div>
 				</div>
- 
 			  	<div className="grid">
 					<div className="inner">
 						<div className="left">
@@ -52,18 +56,17 @@ class ProjectCase extends React.Component {
 							<Collapsible items={ components.list } />
 						</div>
 					</div>
-
-
 					<div className="inner">
 						<div className="left">
 							<h3 className="label">Design & Interface &ndash;</h3>
  							<p>{ design.subtitle }</p>
 						</div>
-						<div className="right">
-						</div>
+	 
 					</div>
-					<div className="inner">
+					<div className="inner-full">
+						 
  						{ screenshots }
+ 						 
 					</div>
 				</div>
 			</div>

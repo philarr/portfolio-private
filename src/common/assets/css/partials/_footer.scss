@@ -4,7 +4,24 @@ footer {
     transition: opacity 350ms ease-out, transform 350ms ease-out;
     backface-visibility: hidden; //promote layer to prevent repaint
     background-color: #101010;
-    line-height: tick();
+    
+ p {
+  line-height: tick(0.75);
+   @include mq($from: md) {
+         line-height: tick();
+      }
+  }
+
+ 
+ 
+ 
+     
+  }
+
+  .inner {
+  
+ 
+ 
   }
   @include mq($from: md) {
     position: fixed; 
@@ -13,16 +30,44 @@ footer {
     right: 0;
     z-index: 1;
   }
-  a {
-    font-size: 1rem;
-    margin: 0 0.5rem;
-  } 
-  .footer-left {
-    @include left-column-content();
+
+  .left {
+  @extend %xs-24;
+  @extend %sm-24;
+  @extend %md-4;
+  @extend %lg-7;
+  @extend %xl-7;
   }
-  .footer-right {
-    @include right-column-block();
+
+  .right {
+    @extend %md-offset-2;
  
+  @extend %xs-24;
+  @extend %sm-24;
+  @extend %md-18;
+  @extend %lg-15;
+  @extend %xl-15;
   }
+
+
+  .right, .left {
+    padding: 0;
+     p {
+      padding: 0;
+      margin: 0 1rem 0 0;
+             font-size: 1rem;
+             
+     @include mq($from: md) {
+     font-size: 0.8rem;
+    }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+
+
+ 
 }
 

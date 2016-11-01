@@ -15,7 +15,7 @@
 .project-next-wrapper {
  transition: opacity 350ms ease-out, transform 350ms ease-out;
   line-height: 1.6rem;
-  background-color: #191919;
+  background-color: #181818;
   display: block;
     height: tick(5);
     @include mq($from: md) {
@@ -23,12 +23,14 @@
     }
   &:hover {
     .next-background {
+      transform: none;
       opacity: 1;
-      transition: opacity 350ms;
+      transition: transform 350ms ease-out, opacity 350ms;
     }
   }
   .next-background {
-    transition: opacity 350ms;
+    transform: translateX(-100%);
+    transition: transform 350ms ease-out, opacity 350ms;
     opacity: 0;
     position: absolute;
     top: 0;
@@ -38,10 +40,9 @@
   }
   .inner {
      backface-visibility: hidden;
-      height: 100%;
-    .left, .right {
-      @extend %vm;
-      padding-bottom: 1rem;
+   @extend %vm;
+    .right {
+      padding-bottom: 0;
     }
 
   a {

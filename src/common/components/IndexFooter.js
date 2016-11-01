@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-const IndexFooter = ({ subheading, heading, url}) => (
+const IndexFooter = ({ subheading, heading, url, color}) => (
  
 		<div className="project-next">
 	 		<Link to={ url } className="project-next-wrapper">
+	 		
 				<div className="inner">
 					<div className="left">
 

@@ -17,22 +17,24 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
 
 	switch(action.type) {
+        case 'FETCH_META':
+            return {
+                ...state,
+                'meta': action.meta
+            };
         case 'FETCH_PROFILE':
             return {
                 ...state,
-                'meta': action.meta,
                 'profile': action.result[0]
             };
         case 'FETCH_CONTACT':
             return {
                 ...state,
-                'meta': action.meta,
                 'contact': action.result[0]
             };
 		case 'FETCH_PROJECT': 
             return { 
                 ...state, 
-                'meta': action.meta,
                 'projects': action.result
             };
         case 'FETCH_PROJECT_INFO': 
@@ -51,6 +53,15 @@ export default (state = DEFAULT_STATE, action) => {
                     menuOpen: !state.environment.menuOpen
                 }
             };
+        case 'CLOSE_MENU':
+            return {
+                ...state,
+                'environment': {
+                    ...state.environment,
+                    menuOpen: false
+                }
+            };
+
         default: 
 			return state;
 	}

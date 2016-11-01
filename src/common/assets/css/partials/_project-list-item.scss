@@ -92,53 +92,53 @@
       z-index: 2;
       transition: transform 350ms, opacity 350ms;
 
-    //front page image
-    &:nth-child(2) {
-      @extend %xs-offset-3;
-      @extend %sm-offset-12;
-      @extend %md-offset-11;
-      @extend %lg-offset-10;
-      @extend %xl-offset-9;
-      @include shadow(4);
-      top: tick(1.25);
-      min-height: tick(12);
-      width: 150%;
-      transform-origin: top left;
-      transform: scale(1 * 24/24);
-      @include mq($from: sm) {  
-        z-index: 3;
-        width: 100%; 
-        transform: scale((1 * 24/24)); 
+      //front page image
+      &:nth-child(2) {
+        @extend %xs-offset-3;
+        @extend %sm-offset-12;
+        @extend %md-offset-11;
+        @extend %lg-offset-10;
+        @extend %xl-offset-9;
+        @include shadow(4);
+        top: tick(1.25);
+       
+        width: 150%;
+        transform-origin: top left;
+        transform: scale(1 * 24/24);
+        @include mq($from: sm) {  
+          z-index: 3;
+          width: 100%; 
+          transform: scale((1 * 24/24)); 
+        }
+        @include mq($from: md) {      
+          top: tick(0.75);
+          transform: scale((1 * 18/24)); 
+        }
+        @include mq($from: lg) {      transform: scale((1 * 18/24)); }
+        @include mq($from: xl) {      transform: scale((1 * 14.5/24)); }
+        @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
       }
-      @include mq($from: md) {      
-        top: tick(0.75);
-        transform: scale((1 * 18/24)); 
+      //Mockup bar
+      border-top: 1.4rem solid rgba(233,233,233,0.5);
+      background-color: transparent;
+      border-radius: 3px;
+      &:before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: -0.8em;
+        left: 1em;
+        width: 0.25em;
+        height: 0.25em;
+        border-radius: 50%;
+        background-color: #55575e;
+        box-shadow: 0 0 0 2px #55575e, 1.1em 0 0 2px #55575e, 2.2em 0 0 2px #55575e;
       }
-      @include mq($from: lg) {      transform: scale((1 * 18/24)); }
-      @include mq($from: xl) {      transform: scale((1 * 14.5/24)); }
-      @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
-    }
-    //Mockup bar
-    border-top: 1.4rem solid rgba(233,233,233,0.5);
-    background-color: transparent;
-    border-radius: 3px;
-    &:before {
-      display: block;
-      position: absolute;
-      content: '';
-      top: -0.8em;
-      left: 1em;
-      width: 0.25em;
-      height: 0.25em;
-      border-radius: 50%;
-      background-color: #55575e;
-      box-shadow: 0 0 0 2px #55575e, 1.1em 0 0 2px #55575e, 2.2em 0 0 2px #55575e;
-    }
-    img {
-      border-radius: 0 0 3px 3px;
-    }
+      img {
+        border-radius: 0 0 3px 3px;
+      }
 
-  }
+    }
 
   .projects-item-bottom {
     transition: transform 700ms ;

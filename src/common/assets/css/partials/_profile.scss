@@ -1,36 +1,135 @@
-.profile-header {
+ 
+.profile-grid {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
     background-size: tick(1) tick(1);
     background-position: top left;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 2px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 2px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
- 	height: tick(6);
-   background-color: #202020;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 2px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 2px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    height: tick(6);
+}
+
+.profile-me {
+
+	position: absolute;
+	top: tick(0.5);
+	@include mq($from: sm) {
+		top: 0;
+	} 
+ 	left: 25%;
+ 	right: -15%;
+ 	width: tick(13);
+	
+	@include mq($from: md) {
+		left: 6%;
+		right: 0;
+	} 
+ 	@include mq($from: layout) {
+		left: 0;
+		right: 0;
+	} 
  
-    .inner {
-      	@extend %vm;
- 	
-    }
+
+	background-size: 425px;
+	height: tick(6);
+	z-index: 2;
+	background-position: left bottom;
+  
+	margin: auto;
+ 
+	background-repeat: no-repeat;
+	animation-duration: 1s;
+	animation-name: fadeInRight;
+	animation-fill-mode: both;
+ 
+	 
+	background-image: url('http://www.pmhc.co/images/profile/profile_1.png');
+ 	 	
+ 
 }
 
  .profile-header {
+	position: relative;
+	background-image: url('http://www.pmhc.co/images/profile/profile_bg.jpg');
+	background-position: 15%;
+	background-size: cover;
+	height: tick(6);
+	background-color: #202020;
+
  	.inner {
+ 	 
+    	 
+
+      	
  		.right {
+ 			position: relative;
+ 			height: tick(6);
+ 	 	z-index: 3;
  		 	animation-duration: 1s;
 		    animation-name: fadeInUp;
 		    animation-fill-mode: both;
 		    padding: 0;
+		    h1 {
+		     
+			   	position: absolute;
+	 			bottom: tick();
+		    }
  		}
  	}
  }
+
+
  .profile {
+ 	position: relative;
+ 	z-index: 4;
   background-color: #202020;
   padding-top: tick(1);
+
+
+ 	.right {
+ 		padding-bottom: tick();
+ 	}
+}
+
+.profile-map {
+ 
+  	.icon:before {
+		padding-left: 0;
+		margin-left: 0;
+	}
+    @extend %row;
+	&.project-next {
+		@include mq($from: md) {
+			position: fixed; 
+			bottom: 0;
+			left: 0;
+			right: 0;
+			backface-visibility: hidden; //promote layer to prevent repaint
+			height: tick(5);
+		}
+	}
+	.project-next-wrapper {
+		height: tick(5);
+	}
+	.inner {
+		@extend %vm;
+		.right {
+			padding: 0;
+		}
+
+	}
  
 }
 
 .profile-list {
-
-	@include mq($from: lg) {
+	.icon:before {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	@include mq($from: xl) {
 		display: inline-block;
 		width: 25%;
 	}
@@ -51,5 +150,49 @@
   		list-style: none;
   	}
   }
+
+}
+
+
+.profile-maps {
+ 	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.profile-maps > div  {
+	width: 100%;
+	height: 100%;
+	background-color: transparent !important;
+}
+
+.profile-overlay {
+  	position: absolute;
+	width: 100%;
+	height: 100%;
+ 	background-color: rgba(16,16,16,0.6);
+}
+
+.profile-contact {
+ 		display: inline-block;
+ 
+	.icon:before {
+		padding-left: 0;
+		margin-left: 0;
+	}
+ 	 
+  	padding:2rem 3rem 0 0;
+  
+ 
+ 	small {
+ 		display: block;
+ 	}
+	a {
+
+		 
+ 
+	}
+
+ 
 
 }

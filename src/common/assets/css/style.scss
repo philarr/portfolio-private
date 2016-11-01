@@ -42,7 +42,7 @@ $mq-breakpoints: (
   layoutpad: 1600px
 );
  
- //$mq-show-breakpoints: (sm, md, lg, xl);
+//$mq-show-breakpoints: (sm, md, lg, xl);
 
 /*
  * Common extends
@@ -54,17 +54,17 @@ $mq-breakpoints: (
 @mixin left-column-content() {
   @extend %xs-24;
   @extend %sm-24;
-  @extend %md-7;
+  @extend %md-24;
   @extend %lg-7;
   @extend %xl-7;
 }
 
 @mixin right-column-block() {
-  @extend %md-offset-2;
-  @extend %xl-offset-2;
+  @extend %lg-offset-2;
+ 
   @extend %xs-24;
   @extend %sm-24;
-  @extend %md-15;
+  @extend %md-24;
   @extend %lg-15;
   @extend %xl-15;
  }
@@ -90,7 +90,6 @@ $mq-breakpoints: (
 @import 'partials/profile';
 @import 'partials/next';
 @import 'partials/footer';
-@import 'partials/contact';
 
 
   

@@ -1,17 +1,19 @@
 import React from 'react';
 
-const Footer = ({ email, github, linkedin, twitter }) => (
+const Footer = ({ email, github, linkedin, twitter, phone }) => (
 	<footer>
 		<div className="footer-wrapper">
 			<div className="inner">
-				<div className="footer-left">
-					<a href={ 'mailto:' + email } className="icon mail">{ email }</a>
+				<div className="left">
+ 					<p className="sublabel">Get in touch!</p>
 	 			</div>
- 				<div className="footer-right">
- 					<a href={ github } target="_blank">Github</a>&nbsp;/&nbsp;
-					<a href={ linkedin } target="_blank">LinkedIn</a>&nbsp;/&nbsp;
-					<a href={ twitter } target="_blank">Twitter</a>
-					 
+ 				<div className="right">
+					<p className="icon mail"><a href={ 'mailto:' + email }>{ email }</a></p>
+					<p className="icon phone label">{ phone }</p>
+ 					<p className="icon more">
+	 					<a href={ github } target="_blank">Github</a>&nbsp;/&nbsp;
+						<a href={ linkedin } target="_blank">LinkedIn</a> 
+					</p>
  				</div>
 	 		</div>
 	 	</div>
