@@ -443,3 +443,15 @@ decorators, icons, shorthands
       transform: rotate(359deg);
     }
   }
+
+  @keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-5%, 0, 0) scale(decimal-floor(1 * 15.5/24, 2));
+  }
+
+  to {
+    opacity: 1;
+ 
+  }
+}
