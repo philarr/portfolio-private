@@ -13,7 +13,7 @@ import { ReduxAsyncConnect } from 'redux-connect'
  
 /* Load client assets */
 import './common/assets/css/style.scss';
-import 'react-fastclick';
+ 
 
 const store = configureStore(window._initialState);
 const mountNode = document.getElementById('app');

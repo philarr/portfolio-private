@@ -7,22 +7,25 @@
  
   @include mq($from: lg) { height: tick(6);}
   @include mq($from: xl) { height: tick(7);}
- 
+  @include mq($from: layout) { height: tick(8);}
   .projects-item-details {
    height: tick(5);
  
   @include mq($from: lg) { height: tick(6);}
   @include mq($from: xl) { height: tick(7);}
- 
+  @include mq($from: layout) { height: tick(8);}
  
   
     /* Overwrite previous mobile :active settings */
     &:active {
       .projects-item-image:nth-child(2) {     
-        transform:  scale(1 * 21/24);
-        @include mq($from: sm) {
-         transform:  scale(1 * 17.5/24);
-       }
+       transform: scale(0.9);
+      @include mq($from: sm) {
+        transform: scale(0.87);
+      }
+      @include mq($from: xl) {
+        transform: scale(0.8);
+      }
      }
    }
    .projects-item-image {
@@ -267,11 +270,11 @@ figure {
   position: relative;
   overflow: hidden;
   background-color: rgba(0,0,0,0.1);
-  margin-bottom: 0;
+  margin-bottom: tick(0.5);
   padding: 0 6% tick() 6%;
   @extend %row;
-  &:first-child {
-   margin-bottom: tick(0.5);
+  &:last-child {
+    margin-bottom: 0;
   }
  
 

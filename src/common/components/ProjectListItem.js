@@ -37,10 +37,10 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
 				</div>
  
 			</div>
-			<div className="projects-item-bottom">
+			<div className="projects-item-bottom"> 
 				<div className="inner">
 					<Link to={ '/case/' + uid } className="projects-item-view icon eye rect">View Case</Link>
-					<a href={ url } target="_blank" className="projects-item-view icon web rect">Visit website</a> 
+					<a href={ url } target="_blank" className={ 'projects-item-view icon web rect' + (url ? '' : ' inactive') }>Visit website</a>
 				</div> 
 			</div>
 		</Element>

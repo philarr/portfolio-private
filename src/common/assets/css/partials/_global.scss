@@ -256,6 +256,15 @@ em {
 decorators, icons, shorthands
 */
 
+
+a.icon.inactive {
+  &:before {
+     color: rgba(255,255,255,0.1);
+  }
+  color: rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
 .icon {
   display: inline-block;
 } 
@@ -399,6 +408,8 @@ decorators, icons, shorthands
 .shadow-5 { @include shadow(5); }
 
 
+
+// Animation keyframes
 
 @keyframes fadeInUp {
   from {
