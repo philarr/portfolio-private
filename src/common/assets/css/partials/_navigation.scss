@@ -133,6 +133,7 @@ nav.active {
     width: 100%;  
   }
   @include mq($from: md, $until: layoutpad) {
+
     width:  45%;
   }
   @include mq($until: layoutpad) {
@@ -168,6 +169,7 @@ nav.active {
 
 
     .nav-links {
+      @include shadow(5);
       background-color: #404040;
       transition: transform 350ms;
       transform: none;
@@ -179,7 +181,7 @@ nav.active {
       height: 100%;
       overflow-x: hidden;
       overflow-y: auto;
-      
+
       .nav-contact {
         border-top: 1px solid rgba(0,0,0,0.05);
         background-color: rgba(0,0,0,0.05);

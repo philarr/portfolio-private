@@ -173,7 +173,7 @@
             "display":{  
                 "front":{  
                     "caption":"XIVDPS",
-                    "src":"1.jpg",
+                    "src":"xivdps-1.jpg",
                     "size": [1245, 992]
                 },
                 "secondary":{  
@@ -182,7 +182,7 @@
                     "size": [1245, 992]
                 }
             },
-            "overview":"XIVDPS gathers live data from Final Fantasy 14 by actively reading the game memory space. Players can review their performance by viewing the aggregated results. Game movements is also tracked and can be replayed to provide a bird's eye view of a battle.",
+            "overview":"XIVDPS gathers live data from Final Fantasy 14 by actively reading the game memory space. Players can review their performance by viewing the aggregated results. Game movements is also tracked and can be replayed to provide a bird's eye view of a battle.\\nThe game does not officially expose a public API for add-ons so research is necessary to understand its memory structure and mechanics.",
             "components":{  
                 "subtitle":"Each component works in tandem to create a flow of information.",
                 "list":[  
@@ -231,14 +231,34 @@
                 "subtitle":"Interface is designed to accommodate the different analytic features.",
                 "list":[  
                     {  
-                        "caption":"Landing Page",
-                        "src":"1.jpg",
+                        "caption":"Summary Page",
+                        "src":"xivdps-5.jpg",
+                        "size": [1245, 917]
+                    },
+                    {  
+                        "caption":"Side Comparison",
+                        "src":"xivdps-1.jpg",
                         "size": [1245, 992]
                     },
                     {  
-                        "caption":"About Page",
-                        "src":"1.jpg",
-                        "size": [1245, 992]
+                        "caption":"Usage Timeline",
+                        "src":"xivdps-2.jpg",
+                        "size": [1245, 1122]
+                    },
+                    {  
+                        "caption":"Individual Actions",
+                        "src":"xivdps-3.jpg",
+                        "size": [1245, 1154]
+                    },
+                    {  
+                        "caption":"Action Replay",
+                        "src":"xivdps-4.jpg",
+                        "size": [1245, 917]
+                    },
+                    {  
+                        "caption":"Language Settings",
+                        "src":"xivdps-6.jpg",
+                        "size": [1245, 1055]
                     }
                 ]
             }
