@@ -16,13 +16,16 @@ import ReactGA from 'react-ga';
 import './common/assets/css/style.scss';
 
 /* Google analytics */
-ReactGA.initialize('UA-86788925-1');
-history.listen(function(location) {
-    ReactGA.set({ 
-    	page: location.pathname 
-    });
-    ReactGA.pageview(location.pathname);
-});
+if (process.env.NODE_ENV === "production") {
+	ReactGA.initialize('UA-86788925-1');
+	history.listen(function(location) {
+	    ReactGA.set({ 
+	    	page: location.pathname 
+	    });
+	    ReactGA.pageview(location.pathname);
+	});
+}
+ 
 
 /* Grab rendered store and dom */
 const store = configureStore(window._initialState);
