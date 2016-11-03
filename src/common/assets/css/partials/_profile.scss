@@ -24,9 +24,17 @@
  	width: tick(13);
 	
 	@include mq($from: md) {
-		left: 6%;
+		left: 0;
+		margin: auto;
+		width: 425px;
 		right: 0;
 	} 
+
+	@include mq($from: lg) {
+		left: 6%;
+		right: 0;
+		width: tick(13);
+	}
  	@include mq($from: layout) {
 		left: 0;
 		right: 0;
@@ -67,13 +75,13 @@
  		.right {
  			position: relative;
  			height: tick(6);
- 	 	z-index: 3;
+ 	 		z-index: 3;
  		 	animation-duration: 1s;
 		    animation-name: fadeInUp;
 		    animation-fill-mode: both;
 		    padding: 0;
 		    h1 {
-		     
+
 			   	position: absolute;
 	 			bottom: tick();
 		    }

@@ -119,14 +119,14 @@
         @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
       }
       //Mockup bar
-      border-top: 1.4rem solid rgba(233,233,233,0.5);
+      border-top: 1.2em solid rgba(233,233,233,0.5);
       background-color: transparent;
       border-radius: 3px;
       &:before {
         display: block;
         position: absolute;
         content: '';
-        top: -0.8em;
+        top: -0.65em;
         left: 1em;
         width: 0.25em;
         height: 0.25em;
