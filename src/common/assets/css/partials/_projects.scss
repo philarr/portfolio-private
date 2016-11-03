@@ -183,13 +183,13 @@
   }
   .rect:after {
     @extend %icon;
-    padding: 0.75rem;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 0.25em;
+    position: relative;
+    top: 0.75rem;
     font-size: 1.5rem;
+    padding: 0.75rem;
+    margin: 0 0.5em;
     float: right;
-    content: 'add';
+    background-image: url('../svg/add.svg');
     transition: transform 350ms;
   }
 
@@ -228,13 +228,15 @@
     a {
       &:before {
         margin-right: 1rem;
+
       }
       &:after {
         transition: opacity 350ms;
         opacity: 0;
         float: right;
+        margin-top: 0.25em;
         margin-right: 0.25em;
-        content: 'arrow_forward';
+        background-image: url('../svg/arrow_forward.svg');
         @extend %icon;
       }
       &:hover {

@@ -259,7 +259,7 @@ decorators, icons, shorthands
 
 a.icon.inactive {
   &:before {
-     color: rgba(255,255,255,0.1);
+     opacity: 0.1;
   }
   color: rgba(255,255,255,0.1);
   pointer-events: none;
@@ -267,27 +267,32 @@ a.icon.inactive {
 
 .icon {
   display: inline-block;
+ 
 } 
 
 %icon {
-  direction: ltr;
-  font-family: 'Material Icons';
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+  content: '';
+  min-width: 1em;
+  min-height: 1em;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0.25em 0.2em;
+  vertical-align: middle;
+
 }
 
 .icon:before {
-  direction: ltr;
-  font-family: 'Material Icons';
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+  content: '';
+  min-width: 1em;
+  min-height: 1em;
   display: inline-block;
-  vertical-align: bottom;
-  margin: 0 0.25em;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0.25em 0.2em;
+  vertical-align: middle;
 }
 
 .icon:hover {
@@ -315,86 +320,79 @@ a.icon.inactive {
 }
 
 .icon-block:before {
-  direction: ltr;
-  font-family: 'Material Icons';
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-  transition: border 500ms;
+  content: '';
+  min-width: 1em;
+  min-height: 1em;
   display: inline-block;
-  color: #000000;
-  line-height: 1.6em;
-  width: 1.75em;
-  height: 1.75em;
-  vertical-align: bottom;
-  text-align: center;
-  margin-right: 0.5em;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0.25em 0.2em;
+  vertical-align: middle;
 }
 
 .up:before {
-  content: 'keyboard_arrow_up';
+  background-image: url('../svg/keyboard_arrow_up.svg');
 }
 .down:before {
-  content: 'keyboard_arrow_down';
+  background-image: url('../svg/keyboard_arrow_down.svg');
 }
 .arrowright:before {
-  content: 'keyboard_arrow_right';
+  background-image: url('../svg/keyboard_arrow_right.svg');
 }
 .close:before {
-  content: 'close';
+  background-image: url('../svg/close.svg');
 }
 .location:before {
-  content: 'location_on';
+  background-image: url('../svg/location_on.svg');
 }
 .workflow:before {
-  content: 'build';
+  background-image: url('../svg/build.svg');
 }
 .mail:before {
-  content: 'mail_outline';
+  background-image: url('../svg/mail_outline.svg');
 }
 .menu:before {
-  vertical-align: middle;
-  content: 'menu';
+  background-image: url('../svg/menu.svg');
 }
 .person:before {
-  content: 'account_circle';
+  background-image: url('../svg/account_circle.svg');
 }
 .eye:before {
-  content: 'remove_red_eye';
+  background-image: url('../svg/remove_red_eye.svg');
 }
 .web:before {
-  content: 'desktop_mac';
+  background-image: url('../svg/desktop_windows.svg');
 }
 .front-end:before {
-  content: 'star';
+  background-image: url('../svg/star.svg');
 }
 .desktop:before {
-  content: 'desktop_mac';
+  background-image: url('../svg/desktop_windows.svg');
 }
 .opennew:before {
-  content: 'open_in_new';
+  background-image: url('../svg/open_in_new.svg');
 }
 .work:before {
-  content: 'view_list';
+  background-image: url('../svg/view_list.svg');
 }
 .linkafter:after {
-  content: 'open_in_new';
+  background-image: url('../svg/open_in_new.svg');
 }
 .source:before {
-  content: 'code';
+  background-image: url('../svg/code.svg');
 }
 .more:before {
-  content: 'more_horiz';
+  background-image: url('../svg/more_horiz.svg');
 }
 .phone:before {
-  content: 'phone';
+  background-image: url('../svg/phone.svg');
 }
 .back-end:before {
-  content: 'storage';
+  background-image: url('../svg/storage.svg');
 }
 .clock:before {
-  content: 'access_time';
+  background-image: url('../svg/access_time.svg');
 }
 
 %vm {
