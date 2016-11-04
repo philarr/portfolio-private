@@ -374,7 +374,7 @@
             "name":"Tank Wars",
             "year":"2013",
             "type":"Game",
-            "url":"http://www.xivdps.com",
+            "url":"http://www.sfu.ca/~pmchung/tank-wars/",
             "source":"http://www.github.com/philarr/tank-wars",
             "desc":"HTML5 canvas game using object-oriented programming and visualisation techniques.",
             "tech":[  
@@ -396,34 +396,29 @@
                     "size": [800, 600]
                 }
             },
-            "overview":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a iaculis purus. Nam eget convallis ipsum, ac maximus lacus. Fusce a sapien pellentesque, aliquam nunc in, fermentum dui. Cras vitae dui erat. Cras luctus vel mi in molestie. Aenean ut feugiat neque. Duis dui tortor, efficitur eu nulla id, molestie tristique tellus. Aenean mattis mauris ipsum, vel commodo nunc luctus non.\\nMorbi sit amet hendrerit tellus, vitae facilisis ligula. Integer aliquam sagittis sem ac vulputate. Morbi fringilla purus eros, quis sollicitudin mauris laoreet ac. Nulla sed venenatis tellus. Nam eleifend enim nibh, ac viverra nisl varius lacinia. Sed venenatis molestie magna sed fringilla. Quisque sodales leo ac felis hendrerit blandit. Praesent elit eros, posuere eget pellentesque quis, sollicitudin nec purus.",
+            "overview":"Tank Wars is written in Processing (a Java subset language) and ran on the browser with Processing.js. The basis of this game is to learn fundamentals of object-oriented programming and visual rendering techniques. The architecture of the game is planned to allow quick addition of entities through 2D arrays. Since the map level is also drawn from arrays, the option for a map editor is also possible. Gameplay mechanics is also extendable from existing classes to create different enemy types.",
             "components":{  
-                "subtitle":"Each component works in tandem to create a flow of information.",
+                "subtitle":"",
                 "list":[  
                     {  
                         "name":"Controls",
                         "tech":[],
-                        "desc":"Highcharts was used to provide a beautiful visualsation to the data. It's a highly customizable charting library that allows me to create features specific to the game. GSAP was used as the animation library to power the replay feature. The website is available in English, Japanese, French and German by parsing game files for appropriate text strings and then stored in PHP's shared memory.\\nTwitter is integrated to provide update annoucements."
+                        "desc":"Tank Wars uses a common control mapping found in First Person Shooter games. With W/A/S/D keys, the player can control the movement of the tank, switch weapons and charge up its weapon with space bar. Mouse movement allows the player to control the rotation of the turret."
                     },
                     {  
-                        "name":"Camera",
+                        "name":"Camera & Dialogue",
                         "tech":[],
-                        "desc":"Highcharts was used to provide a beautiful visualsation to the data. It's a highly customizable charting library that allows me to create features specific to the game. GSAP was used as the animation library to power the replay feature. The website is available in English, Japanese, French and German by parsing game files for appropriate text strings and then stored in PHP's shared memory.\\nTwitter is integrated to provide update annoucements."
+                        "desc":"The point of view is fixated on the player. In order to create a story-telling scenario, triggers can force the camera control, allowing the game to decide what the player will see. Instance of the camera and dialogue object can be passed to entities, allowing scripted battles."
                     },
                     {  
-                        "name":"Map levels",
+                        "name":"Map & Entities",
                         "tech":[],
-                        "desc":"Highcharts was used to provide a beautiful visualsation to the data. It's a highly customizable charting library that allows me to create features specific to the game. GSAP was used as the animation library to power the replay feature. The website is available in English, Japanese, French and German by parsing game files for appropriate text strings and then stored in PHP's shared memory.\\nTwitter is integrated to provide update annoucements."
-                    },
-                    {  
-                        "name":"Unit pathing",
-                        "tech":[],
-                        "desc":"Highcharts was used to provide a beautiful visualsation to the data. It's a highly customizable charting library that allows me to create features specific to the game. GSAP was used as the animation library to power the replay feature. The website is available in English, Japanese, French and German by parsing game files for appropriate text strings and then stored in PHP's shared memory.\\nTwitter is integrated to provide update annoucements."
+                        "desc":"Every entity such as enemy tanks, moveable blocks, doors and switches are mapped onto a 2D array. Each render loop, checks are made to decide whether to render or not to ensure a smooth draw cycle. Collision is checked through accessing the object's surrounding indices."
                     },
                     {  
                         "name":"Boss scripting",
                         "tech":[],
-                        "desc":"Highcharts was used to provide a beautiful visualsation to the data. It's a highly customizable charting library that allows me to create features specific to the game. GSAP was used as the animation library to power the replay feature. The website is available in English, Japanese, French and German by parsing game files for appropriate text strings and then stored in PHP's shared memory.\\nTwitter is integrated to provide update annoucements."
+                        "desc":"By extending existing entity classes, enemy units can be heavily customized. A proof of concept is available in Boss.pde to showcase an enemy unit with different phases and ability to trigger dialogues."
                     }
                 ]
             },
