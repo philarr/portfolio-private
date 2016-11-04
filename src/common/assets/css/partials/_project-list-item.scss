@@ -91,7 +91,7 @@
       opacity: 1;
       z-index: 2;
       transition: transform 350ms, opacity 350ms;
-
+      float: left;
       //front page image
       &:nth-child(2) {
         @extend %xs-offset-3;

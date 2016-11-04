@@ -5,7 +5,7 @@ const IndexFooter = ({ subheading, heading, url, color}) => (
  
 		<div className="project-next">
 	 		<Link to={ url } className="project-next-wrapper">
-	 		
+	 
 				<div className="inner">
 					<div className="left">
 
