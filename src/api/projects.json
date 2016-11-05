@@ -7,12 +7,12 @@
         "twitter":"http://www.twitter.com/pmhc_",
         "email":"philip@pmhc.co",
         "cdn":"http://www.pmhc.co",
-        "phone": "604 781 9813"
+        "phone": "+1 604 781 9813"
     },
     "profile":{  
-        "title":"Through self-initiated projects, I had the opportunity to work from the perspective of multiple roles.",
-        "aboutme":"My passion for developing websites started since the days of geocities/homestead drag and drop. Unsatisfied with the limitations of the interface and customization features, I dived into HTML, picking up CSS/PHP/MySQL over the years. Since then I've grown interested in how new web technologies are incorporated in some of the most visited websites. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I'm always learning!\\nI am currently an Interactive Arts (B.Sc) student at Simon Fraser University.",
-        "skillset": [
+        "title":"I had the opportunity to work from the perspective of multiple roles through self-initiated projects.",
+        "aboutme":"I love making all kinds of things for the web, but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page on Geocities in 2000. Since then I have became very interested in how new web technologies are incorporated in some of the most visited websites in the world. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I am always learning!\\nI am currently an Interactive Arts (B.Sc) student at Simon Fraser University.",
+        "skill": [
             {
                 "type":"front-end",
                 "tech":[
@@ -31,16 +31,8 @@
                     "PHP",
                     "MySQL",
                     "Redis",
-                    "Apache",
-                    "Nginx"
-                ]
-            },
-            {
-                "type":"desktop",
-                "tech": [
-                    "C#.NET",
-                    "Visual Basic",
-                    "Processing"
+                    "Nginx",
+                    "Apache"
                 ]
             },
             {
@@ -51,7 +43,15 @@
                     "Webpack", 
                     "PostCSS"
                 ]
+            },
+            {
+                "type":"desktop",
+                "tech": [
+                    "C#.NET",
+                    "Processing"
+                ]
             }
+
         ],
         "mapOption":{  
             "key":"AIzaSyD1XSn4mO0TXODHhJ8epGNhU_WQ4koQYUY",
@@ -396,14 +396,14 @@
                     "size": [800, 600]
                 }
             },
-            "overview":"Tank Wars is written in Processing (a Java subset language) and ran on the browser with Processing.js. The basis of this game is to learn fundamentals of object-oriented programming and visual rendering techniques. The architecture of the game is planned to allow quick addition of entities through 2D arrays. Since the map level is also drawn from arrays, the option for a map editor is also possible. Gameplay mechanics is also extendable from existing classes to create different enemy types.",
+            "overview":"Tank Wars is written in Processing (a Java subset language) and ran on the browser with Processing.js. The basis of this game is to use the fundamentals of object-oriented programming and visual rendering techniques. The architecture of the game is planned to allow quick addition of entities through 2D arrays. Since the map level is also drawn from arrays, the option for a map editor is also possible. Gameplay mechanics is also extendable from existing classes to create different enemy types.",
             "components":{  
-                "subtitle":"",
+                "subtitle":"Scalability was the focus when designing the features.",
                 "list":[  
                     {  
                         "name":"Controls",
                         "tech":[],
-                        "desc":"Tank Wars uses a common control mapping found in First Person Shooter games. With W/A/S/D keys, the player can control the movement of the tank, switch weapons and charge up its weapon with space bar. Mouse movement allows the player to control the rotation of the turret."
+                        "desc":"Tank Wars uses a common control scheme found in First Person Shooter games. With W/A/S/D keys, the player can control the movement of the tank, switch weapons with R key and charge up its weapon with space bar. Mouse movement allows the player to control the rotation of the turret."
                     },
                     {  
                         "name":"Camera & Dialogue",
@@ -413,7 +413,7 @@
                     {  
                         "name":"Map & Entities",
                         "tech":[],
-                        "desc":"Every entity such as enemy tanks, moveable blocks, doors and switches are mapped onto a 2D array. Each render loop, checks are made to decide whether to render or not to ensure a smooth draw cycle. Collision is checked through accessing the object's surrounding indices."
+                        "desc":"Every entity such as enemy tanks, moveable blocks, doors and switches are mapped onto a 2D array. Each render loop, checks are made to decide whether to render or not to ensure a smooth draw cycle.\\nEntity collision is efficiently checked by accessing the object's surrounding indices for O(1) complexity."
                     },
                     {  
                         "name":"Boss scripting",

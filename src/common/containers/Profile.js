@@ -57,7 +57,7 @@ class Profile extends React.Component {
 			const { mapNode, location } = this.refs;
 			mapNode.appendChild(dom);
 	 		location.innerHTML = `${geo[2].address_components[1].short_name}, ${geo[2].address_components[3].short_name}`;
-			 google.maps.event.trigger(mapNode.children[0], 'resize');
+			google.maps.event.trigger(mapNode.children[0], 'resize');
 		});
 	}
 
@@ -89,7 +89,7 @@ class Profile extends React.Component {
 					<div className="profile">
 						<div className="inner">
 							<div className="left">
-								<h3 className="label">About me</h3>
+								<h3 className="label">My Profile</h3>
 							</div>
 							<div className="right">
 								<TextFormat>
@@ -97,34 +97,40 @@ class Profile extends React.Component {
 								</TextFormat>
 							</div>
 						</div>
+
+
 						<div className="inner">
 							<div className="left">
-								<h3 className="label">I have worked with</h3>
+								<h3 className="label">Languages & Frameworks</h3>
 							</div>
 							<div className="right">
-								{ profile.skillset.map((item, idx) => <ProfileList key={ idx } list={ item } />) }
+								{ profile.skill.map((item, idx) => <ProfileList key={ idx } list={ item } />) }
 							</div>
 						</div>
+ 
+
+
 		 				<div className="inner">
 							<div className="left">
 								<h3 className="label">Get in touch!</h3>
+			 
 							</div>
 							<div className="right">
-									<p>If you have any questions or opportunities for me, you can reach me via the following methods.</p>
-									<div className="profile-contact">
-										<small className="mail icon">E-MAIL</small>
-										<a href={ 'mailto:' + meta.email }>{ meta.email }</a>
-									</div>
-									<div className="profile-contact">
-										<small className="phone icon">PHONE</small>
-										<p className="label">{ meta.phone }</p>
-									</div>
-									<div className="profile-contact">
-										<small className="more icon">OTHER</small>
-										<a href={ meta.github } target="_blank">Github</a>&nbsp;/&nbsp;
-										<a href={ meta.linkedin } target="_blank">LinkedIn</a>
- 
-									</div>					
+								<p>If you have any questions or opportunities for me, you can reach me via the following methods.</p>
+								<div className="profile-contact">
+									<small className="mail icon">E-MAIL</small>
+									<a href={ 'mailto:' + meta.email }>{ meta.email }</a>
+								</div>
+								<div className="profile-contact">
+									<small className="phone icon">PHONE</small>
+									<p className="label">{ meta.phone }</p>
+								</div>
+								<div className="profile-contact">
+									<small className="more icon">OTHER</small>
+									<a href={ meta.github } target="_blank">Github</a>&nbsp;/&nbsp;
+									<a href={ meta.linkedin } target="_blank">LinkedIn</a>
+
+								</div>					
 							</div>
 						</div>
 			 		</div>

@@ -33,7 +33,7 @@ class ProjectCase extends React.Component {
 						<h1 className="label">{ name }<sup>{ year }</sup></h1>
 						<div>{ type }</div>
 						<div className="project-case-desc">
-							 <a href={ source } target="_blank" className="icon source">View source</a>
+							 <a href={ source } target="_blank" className="icon github">View source</a>
 							 <a href={ url } target="_blank" className={ 'icon web' + (url ? '' : ' inactive') }>Visit website</a>
 						</div>
 					</div>

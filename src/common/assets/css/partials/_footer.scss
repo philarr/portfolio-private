@@ -1,9 +1,16 @@
 footer {
+      display: none;
+     @include mq($from: md) {
+      display: inline-block;
+ 
+    }
+
   @extend %row;
   .footer-wrapper {
     transition: opacity 350ms ease-out, transform 350ms ease-out;
     backface-visibility: hidden; //promote layer to prevent repaint
-    background-color: #101010;
+    background-color: #151515;
+    border-top: 2px solid #171717;
     
  p {
   line-height: tick(0.75);
@@ -11,18 +18,9 @@ footer {
          line-height: tick();
       }
   }
-
- 
- 
- 
-     
+   
   }
-
-  .inner {
-  
  
- 
-  }
   @include mq($from: md) {
     position: fixed; 
     bottom: 0;
@@ -54,12 +52,12 @@ footer {
     padding: 0;
      p {
       padding: 0;
-      margin: 0 1rem 0 0;
+      margin: 0 2rem 0 0;
       font-size: 1rem;
-      display: none;
+     
      @include mq($from: md) {
-      display: inline-block;
-     font-size: 0.8rem;
+   
+      font-size: 0.8rem;
     }
       &:last-child {
         margin-right: 0;

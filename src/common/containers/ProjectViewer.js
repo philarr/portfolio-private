@@ -71,7 +71,7 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
 				<ProjectNext next={ projectList[1] } /> :
 				<IndexFooter
 					subheading="Read more about me"
-					heading="Through self-initiated projects, I had the opportunity to work from the perspective of multiple roles."
+					heading="I had the opportunity to work from the perspective of multiple roles through self-initiated projects."
 					url="/profile"
 				/> 
 			}

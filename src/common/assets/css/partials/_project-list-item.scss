@@ -181,8 +181,12 @@
     @extend %vm;
   }
 
-  .projects-item-view {  
-    width: 47%;
+  .projects-item-view {
+ 
+    // Usability improvement on touch device
+    user-select: none;
+ 
+    width: 50%;
     @include mq($from: sm) {
       width: auto;
     }
