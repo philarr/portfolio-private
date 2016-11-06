@@ -50,15 +50,16 @@ footer {
 
   .right, .left {
     padding: 0;
-     p {
+    p {
       padding: 0;
-      margin: 0 2rem 0 0;
+      margin: 0 1rem 0 0;
       font-size: 1rem;
-     
-     @include mq($from: md) {
-   
+      @include mq($from: md) {
       font-size: 0.8rem;
-    }
+      }
+      @include mq($from: lg) {
+         margin: 0 2rem 0 0;
+      }
       &:last-child {
         margin-right: 0;
       }

@@ -48,7 +48,7 @@ class Collapsible extends React.Component {
 		));
 		 
 		return (
-			<Reveal wrapper="ol" name="componentOl" activeClass="active">
+			<Reveal wrapper="ol" name={ Math.random().toString() } activeClass="active">
 				 { itemList } 
 			</Reveal>
 		);

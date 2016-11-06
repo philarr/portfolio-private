@@ -34,7 +34,8 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
 	
 	// Filter available case to id and the immediate next for ProjectNext
  	const projectList = id ? projects.filter((item, idx) => (item.uid === id || projects[idx-1] && projects[idx-1].uid === id)) : projects;
-	const projectItems = (id ? projectList.slice(0, 1) : projectList);
+ 	// If id is selected, take only the first item to be mapped
+	const projectsToShow = (id ? projectList.slice(0, 1) : projectList);
 
 	return (
 		<div >
@@ -43,7 +44,7 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
 				{ !id && <Hero /> || false}
 				<Element name="content" className="content">
 					{ 
-						projectItems.map( item => 
+						projectsToShow.map( item => 
 						<ProjectListItem 
 							key={ item.uid } 
 							cdn={ meta.cdn } 
@@ -51,22 +52,20 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
 							projectActive={ (item.uid === id) } 
 						/> )
 					}
-					{ 
+					{
+						//Show case when id is selected 
 						id ? (
 						cases ? 
 						<ProjectCase 
 							cdn={ meta.cdn } 
 							project={ projectList[0] } 
 							cases={ cases } 
-						/> :
-						<ErrorPage
-							type="404"
-							message="Case not found!"
-						/> ) : false
+						/> : false ) : false
 					}
 				</Element>	
 			</section>
 			{  
+				// Show the next project footer when id selected
 				id ? 
 				<ProjectNext next={ projectList[1] } /> :
 				<IndexFooter

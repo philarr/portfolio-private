@@ -7,7 +7,7 @@ import ProfileList from '../components/ProfileList';
 import TextFormat from '../components/TextFormat';
 import GoogleMaps from '../utils/GoogleMapsInstance';
 import GoogleMapsStyle from '../assets/vendor/GoogleMapsStyle';
-import { isMobile, formatTime } from '../utils';
+import { isMobile, formatTime, isDST } from '../utils';
  
 const mapAsync = [
 	{ promise: ({ store: { dispatch }}) => dispatch(getProfile()) }
@@ -21,27 +21,32 @@ const mapProps = ({ pmhc: { meta, profile }}) =>  ({
 class Profile extends React.Component {
 
 	constructor(props) {
+
 		super(props);
 		this.timer = false;
-		this.runTimer = this.runTimer.bind(this, this.props.profile.mapOption.utc);
+		
+		const date = new Date();
+
+		this.runClock = this.runClock.bind(this, isDST() ? 
+			this.props.profile.mapOption.utc - 1 : 
+			this.props.profile.mapOption.utc
+		);
+ 
 	}
 
-	runTimer(utc) {
+	runClock(utc) {
 		if (this.timer) {
 			const date = new Date();
-			this.refs.clock.innerHTML = formatTime(
-				date.getUTCHours() + utc, 
-				date.getUTCMinutes(), 
-				date.getUTCSeconds()
+			this.refs.clock.innerHTML = formatTime(utc
 			);
-			setTimeout(this.runTimer, 500);
+			setTimeout(this.runClock, 500);
 		}
 	}
- 
+
  	componentDidMount() {
 
  		this.timer = true;
- 		this.runTimer();
+ 		this.runClock();
 
 		GoogleMaps({ 
 			...this.props.profile.mapOption, 
@@ -74,9 +79,12 @@ class Profile extends React.Component {
 			<div>
 				<Helmet title={ Profile.displayName } />
 		 		<section >
-					<div className="profile-header">
-						<div className="profile-grid" />
-						<div className="profile-me" />
+			 		<div className="profile-animate-wrapper">
+						<div className="profile-bg" />
+			 		</div>
+					<div className="profile-grid"/>
+					<div className="profile-me" />
+	 				<div className="profile-title">
 						<div className="inner">
 							<div className="left">&nbsp;</div>
 							<div className="right">
@@ -85,7 +93,8 @@ class Profile extends React.Component {
 								</h1>
 							</div>
 						</div>
-			 		</div>
+	 				</div>
+
 					<div className="profile">
 						<div className="inner">
 							<div className="left">
@@ -97,7 +106,6 @@ class Profile extends React.Component {
 								</TextFormat>
 							</div>
 						</div>
-
 
 						<div className="inner">
 							<div className="left">

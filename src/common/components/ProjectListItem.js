@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Image from './Image';
-import { LazyImage } from 'react-scrollkit'
+import { Reveal, LazyImage } from 'react-scrollkit'
 
  
 const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, type, url, display }, projectActive, cdn }) => {
@@ -26,13 +26,15 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
 				</div>
  				<div className="projects-item-image" style={ projectGradient }>
  					<Image size={ display.front.size }>
-						<LazyImage 
-							src={ imagePath + display.front.src } 
+ 					<Reveal name={ uid } className="animated-before" activeClass="fadeInto">
+ 						<img src={ imagePath + display.front.src } 
 							alt={ name + ' - ' + display.front.caption } 
 							title={ name + ' - ' + display.front.caption } 
-							className="animated-before" 
-							activeClass="fadeInto" 
 						/>
+							 
+ 					</Reveal>
+ 
+					 
 					</Image>
 				</div>
  

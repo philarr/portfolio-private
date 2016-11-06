@@ -12,6 +12,31 @@
     height: tick(6);
 }
 
+.profile-title {
+
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+     .inner {
+ 		.right {
+ 			position: relative;
+ 			height: tick(6);
+ 	 		z-index: 3;
+ 		 	animation-duration: 1s;
+		    animation-name: fadeInUp;
+		    animation-fill-mode: both;
+		    padding: 0;
+		    h1 {
+			   	position: absolute;
+	 			bottom: tick();
+		    }
+ 		}
+ 	}	
+
+}
+
 .profile-me {
 	position: absolute;
 	top: tick(0.5);
@@ -46,36 +71,37 @@
 	animation-name: fadeInRight;
 	animation-fill-mode: both;
 	background-image: url('http://www.pmhc.co/images/profile/profile_1.png');
- 	 	
+  	
  
 }
 
- .profile-header {
+.profile-animate-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: tick(6);
+	overflow: hidden;
+}
+
+ .profile-bg {
+ 	transform-origin: center;
+	animation-duration: 1s;
+	animation-name: zoomIn;
+	animation-fill-mode: both;
+ 	transition: transform 500ms;
 	position: relative;
 	background-image: url('http://www.pmhc.co/images/profile/profile_bg.jpg');
 	background-position: 15%;
 	background-size: cover;
 	height: tick(6);
 	background-color: #202020;
- 	.inner {
- 		.right {
- 			position: relative;
- 			height: tick(6);
- 	 		z-index: 3;
- 		 	animation-duration: 1s;
-		    animation-name: fadeInUp;
-		    animation-fill-mode: both;
-		    padding: 0;
-		    h1 {
-			   	position: absolute;
-	 			bottom: tick();
-		    }
- 		}
- 	}
+ 
  }
 
 
 .profile {
+ 
 	position: relative;
 	z-index: 4;
 	background-color: #202020;
@@ -127,13 +153,13 @@
 	font-weight: 300;
 	display: inline-block;
 	vertical-align: top;
-	padding-right: 0.5rem;
+	padding-right: 1rem;
 
   ul {
   	margin: 0;
   	padding: 0;
   	li {
-  		border-bottom: 1px dotted rgba(255,255,255,0.09);  
+  		border-bottom: 1px dotted rgba(255,255,255,0.15);  
 		line-height: 320%;
 		list-style: none;
   	 }

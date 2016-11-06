@@ -11,7 +11,7 @@
     },
     "profile":{  
         "title":"I had the opportunity to work from the perspective of multiple roles through self-initiated projects.",
-        "aboutme":"I love making all kinds of things for the web, but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page on Geocities in 2000. Since then I have became very interested in how new web technologies are incorporated in some of the most visited websites in the world. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I am always learning!\\nI am currently an Interactive Arts (B.Sc) student at Simon Fraser University.",
+        "aboutme":"I love making all kinds of things for the web but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page on Geocities in 2000. Since then I have became very interested in how new web technologies are incorporated in some of the most visited websites in the world. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I am always learning!\\nI am currently an Interactive Arts (B.Sc) student at Simon Fraser University.",
         "skill": [
             {
                 "type":"front-end",
@@ -214,7 +214,7 @@
                             "MySQL",
                             "Redis"
                         ],
-                        "desc":"MySQL was chosen as the main database store due to the relational nature of its data. It also provides aggregation functions, perfect for the analytic features of the website.\\nRedis is used as a temporary store for incoming game data and primary cache layer for the website. Rendered HTML is cached in the store for a time period to prevent heavy hits to the MySQL database."
+                        "desc":"MySQL was selected as the primary database due to the relational nature of our data. It also provided aggregation functions, perfect for the analytic features of the website.\\nRedis is used as a temporary store for incoming game data and primary cache layer for the website. Rendered HTML is cached in the store for a time period to prevent heavy hits to the MySQL database."
                     },
                     {  
                         "name":"Website",

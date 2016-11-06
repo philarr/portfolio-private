@@ -5,7 +5,7 @@ const Footer = ({ email, github, linkedin, twitter, phone }) => (
 		<div className="footer-wrapper">
 			<div className="inner">
 				<div className="left">
- 					<p className="sublabel">Get in touch!</p>
+ 					<p><a href="#" target="_blank">My résumé <small className="icon pdf" /></a></p>
 	 			</div>
  				<div className="right">
 					<p className="icon mail"><a href={ 'mailto:' + email }>{ email }</a></p>

@@ -1,11 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import CSSTransition from './CSSTransition';
+ 
 import Navigation from './Navigation';
 import { asyncConnect } from 'redux-connect';
 import { bindActionCreators } from 'redux';
 import { getMeta } from '../actions';
-
 
 const mapAsync = [
 	{ promise: ({ store: { dispatch }}) => dispatch(getMeta()) }
@@ -16,7 +16,7 @@ const mapProps = (state) => ({
 })
  
 class App extends React.Component {
- 
+
 	componentWillUpdate ({ location: { pathname : nextPath }}) {	
 		if (this.props.location.pathname !== nextPath) {
 			window.scrollTo(0, 0);
@@ -24,7 +24,6 @@ class App extends React.Component {
 	}
  
 	render() {
- 
 		return ( 
 			<div>
 				<Helmet defaultTitle="Philip Chung" titleTemplate="%s - Philip Chung" />
@@ -32,6 +31,7 @@ class App extends React.Component {
 				<CSSTransition>
 					{ this.props.children }
 				</CSSTransition>
+				 
 			</div>
 		);	
 	} 

@@ -451,7 +451,7 @@ a.icon.inactive {
   }
 }
 
-  @keyframes spin {
+@keyframes spin {
     from {
       transform: rotate(0deg);
     }
@@ -460,7 +460,7 @@ a.icon.inactive {
     }
   }
 
-  @keyframes fadeInLeft {
+@keyframes fadeInLeft {
   from {
     opacity: 0;
     transform: translate3d(-5%, 0, 0) scale(decimal-floor(1 * 15.5/24, 2));
@@ -468,6 +468,16 @@ a.icon.inactive {
 
   to {
     opacity: 1;
+ 
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(1.25);
+  }
+
+  to {
+    transform: none;
  
   }
 }
