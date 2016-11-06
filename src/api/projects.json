@@ -262,7 +262,7 @@
                     }
                 ]
             }
-        },
+        }, 
         {  
             "uid":"eterna",
             "name":"Eterna",
@@ -369,84 +369,11 @@
                 ]
             }
         },
-        {  
-            "uid":"tank-wars",
-            "name":"Tank Wars",
-            "year":"2013",
-            "type":"Game",
-            "url":"http://www.sfu.ca/~pmchung/tank-wars/",
-            "source":"http://www.github.com/philarr/tank-wars",
-            "desc":"HTML5 canvas game using object-oriented programming and visualisation techniques.",
-            "tech":[  
-                "Processing"
-            ],
-            "color":[  
-                "#252629",
-                "#222222"
-            ],
-            "display":{  
-                "front":{  
-                    "caption":"Game menu",
-                    "src":"tank-wars-1.jpg",
-                    "size": [800, 600]
-                },
-                "secondary":{  
-                    "caption":"Gameplay",
-                    "src":"tank-wars-3.jpg",
-                    "size": [800, 600]
-                }
-            },
-            "overview":"Tank Wars is written in Processing (a Java subset language) and ran on the browser with Processing.js. The basis of this game is to use the fundamentals of object-oriented programming and visual rendering techniques. The architecture of the game is planned to allow quick addition of entities through 2D arrays. Since the map level is also drawn from arrays, the option for a map editor is also possible. Gameplay mechanics is also extendable from existing classes to create different enemy types.",
-            "components":{  
-                "subtitle":"Scalability was the focus when designing the features.",
-                "list":[  
-                    {  
-                        "name":"Controls",
-                        "tech":[],
-                        "desc":"Tank Wars uses a common control scheme found in First Person Shooter games. With W/A/S/D keys, the player can control the movement of the tank, switch weapons with R key and charge up its weapon with space bar. Mouse movement allows the player to control the rotation of the turret."
-                    },
-                    {  
-                        "name":"Camera & Dialogue",
-                        "tech":[],
-                        "desc":"The point of view is fixated on the player. In order to create a story-telling scenario, triggers can force the camera control, allowing the game to decide what the player will see. Instance of the camera and dialogue object can be passed to entities, allowing scripted battles."
-                    },
-                    {  
-                        "name":"Map & Entities",
-                        "tech":[],
-                        "desc":"Every entity such as enemy tanks, moveable blocks, doors and switches are mapped onto a 2D array. Each render loop, checks are made to decide whether to render or not to ensure a smooth draw cycle.\\nEntity collision is efficiently checked by accessing the object's surrounding indices for O(1) complexity."
-                    },
-                    {  
-                        "name":"Boss scripting",
-                        "tech":[],
-                        "desc":"By extending existing entity classes, enemy units can be heavily customized. A proof of concept is available in Boss.pde to showcase an enemy unit with different phases and ability to trigger dialogues."
-                    }
-                ]
-            },
-            "design":{  
-                "subtitle":"Inspiration from retro games was used to create the visuals.",
-                "list":[  
-                    {  
-                        "caption":"Game Menu",
-                         "src":"tank-wars-1.jpg",
-                        "size": [800, 600]
-                    },
-                    {  
-                        "caption":"Dialogue Box",
-                        "src":"tank-wars-2.jpg",
-                        "size": [800, 600]
-                    },
-                    {  
-                        "caption":"AI Target & Pathing",
-                        "src":"tank-wars-3.jpg",
-                        "size": [800, 600]
-                    }
-                ]
-            }
-        },
+ 
         {  
             "uid":"magister-crabs",
             "name":"Magister Crabs",
-            "year":"2011",
+            "year":"2013",
             "type":"Microsite",
             "url":"http://www.xivdps.com",
             "source":"http://www.github.com/philarr/portfolio-private",
@@ -528,6 +455,80 @@
                         "caption":"About Page",
                         "src":"magister.png",
                         "size": [1057, 927]
+                    }
+                ]
+            }
+        },
+        {  
+            "uid":"tank-wars",
+            "name":"Tank Wars",
+            "year":"2013",
+            "type":"Game",
+            "url":"http://www.sfu.ca/~pmchung/tank-wars/",
+            "source":"http://www.github.com/philarr/tank-wars",
+            "desc":"HTML5 canvas game using object-oriented programming and visualisation techniques.",
+            "tech":[  
+                "Processing"
+            ],
+            "color":[  
+                "#252629",
+                "#222222"
+            ],
+            "display":{  
+                "front":{  
+                    "caption":"Game menu",
+                    "src":"tank-wars-1.jpg",
+                    "size": [800, 600]
+                },
+                "secondary":{  
+                    "caption":"Gameplay",
+                    "src":"tank-wars-3.jpg",
+                    "size": [800, 600]
+                }
+            },
+            "overview":"Tank Wars is written in Processing (a Java subset language) and ran on the browser with Processing.js. The basis of this game is to use the fundamentals of object-oriented programming and visual rendering techniques. The architecture of the game is planned to allow quick addition of entities through 2D arrays. Since the map level is also drawn from arrays, the option for a map editor is also possible. Gameplay mechanics is also extendable from existing classes to create different enemy types.",
+            "components":{  
+                "subtitle":"Scalability was the focus when designing the features.",
+                "list":[  
+                    {  
+                        "name":"Controls",
+                        "tech":[],
+                        "desc":"Tank Wars uses a common control scheme found in First Person Shooter games. With W/A/S/D keys, the player can control the movement of the tank, switch weapons with R key and charge up its weapon with space bar. Mouse movement allows the player to control the rotation of the turret."
+                    },
+                    {  
+                        "name":"Camera & Dialogue",
+                        "tech":[],
+                        "desc":"The point of view is fixated on the player. In order to create a story-telling scenario, triggers can force the camera control, allowing the game to decide what the player will see. Instance of the camera and dialogue object can be passed to entities, allowing scripted battles."
+                    },
+                    {  
+                        "name":"Map & Entities",
+                        "tech":[],
+                        "desc":"Every entity such as enemy tanks, moveable blocks, doors and switches are mapped onto a 2D array. Each render loop, checks are made to decide whether to render or not to ensure a smooth draw cycle.\\nEntity collision is efficiently checked by accessing the object's surrounding indices for O(1) complexity."
+                    },
+                    {  
+                        "name":"Boss scripting",
+                        "tech":[],
+                        "desc":"By extending existing entity classes, enemy units can be heavily customized. A proof of concept is available in Boss.pde to showcase an enemy unit with different phases and ability to trigger dialogues."
+                    }
+                ]
+            },
+            "design":{  
+                "subtitle":"Inspiration from retro games was used to create the visuals.",
+                "list":[  
+                    {  
+                        "caption":"Game Menu",
+                         "src":"tank-wars-1.jpg",
+                        "size": [800, 600]
+                    },
+                    {  
+                        "caption":"Dialogue Box",
+                        "src":"tank-wars-2.jpg",
+                        "size": [800, 600]
+                    },
+                    {  
+                        "caption":"AI Target & Pathing",
+                        "src":"tank-wars-3.jpg",
+                        "size": [800, 600]
                     }
                 ]
             }
