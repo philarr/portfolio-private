@@ -42,7 +42,7 @@ class Hero extends React.Component {
 
     initHero(classStyle) {
         window.addEventListener('resize', this.debounceResize);
-        particlesJS('hero-particle', particlesJSON);
+        if (!isMobile()) particlesJS('hero-particle', particlesJSON);
 
         const { heroBg, heroExtra, heroScene, heroWrapper } = this.refs;
 

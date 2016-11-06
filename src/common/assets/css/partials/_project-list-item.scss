@@ -7,7 +7,7 @@
   background-position: top left;
   background-image: linear-gradient(to right, rgba(224,224,224, 0.02) 1px, transparent 2px), 
   linear-gradient(to bottom, rgba(224,224,224,0.02) 1px, transparent 2px);
-  @extend %row;
+ 
   overflow: hidden;
   position: relative; 
   height: tick(6);

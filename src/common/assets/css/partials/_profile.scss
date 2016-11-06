@@ -1,6 +1,6 @@
  
 .profile-grid {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -14,10 +14,11 @@
 
 .profile-title {
 
-	position: relative;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: tick(6);
 
      .inner {
  		.right {
@@ -58,9 +59,16 @@
 		width: tick(13);
 	}
  	@include mq($from: layout) {
+		left: 6%;
+		right: 0;
+	} 
+ 	@include mq($from: layoutpad) {
 		left: 0;
 		right: 0;
 	} 
+
+
+
 	background-size: 425px;
 	height: tick(6);
 	z-index: 2;
@@ -68,9 +76,9 @@
 	margin: auto;
 	background-repeat: no-repeat;
 	animation-duration: 1s;
-	animation-name: fadeInRight;
+	animation-name: fadeIn;
 	animation-fill-mode: both;
-	background-image: url('http://www.pmhc.co/images/profile/profile_1.png');
+	background-image: url('http://www.pmhc.co/images/profile/profile_2.png');
   	
  
 }
@@ -102,10 +110,12 @@
 
 .profile {
  
+    padding-top: tick(1);
+ 
 	position: relative;
 	z-index: 4;
 	background-color: #202020;
-	padding-top: tick(1);
+ 
  	.right {
  		padding-bottom: tick();
  	}

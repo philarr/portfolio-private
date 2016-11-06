@@ -5,6 +5,7 @@ import { LazyImage } from 'react-scrollkit';
 import Collapsible from './Collapsible';
 import TextFormat from './TextFormat';
  
+ 
 class ProjectCase extends React.Component {
 
 	render() {
@@ -64,12 +65,11 @@ class ProjectCase extends React.Component {
 	 
 					</div>
 					<div className="inner-full">
-						 
  						{ screenshots }
- 						 
 					</div>
 				</div>
 			</div>
+	 
 		);
 	}
 }

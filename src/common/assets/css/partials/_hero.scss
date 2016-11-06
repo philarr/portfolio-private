@@ -7,8 +7,11 @@ backface-visibility: hidden;
   height: 100vh;
   z-index: 2;
   display: table;
+  #hero-particle > canvas {
+ 
+  }
   .layer, .hero-msg > span, #hero-particle > canvas {
-    
+
     opacity: 0;
   }
  
