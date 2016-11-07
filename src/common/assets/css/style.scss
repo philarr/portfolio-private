@@ -76,12 +76,12 @@ $mq-breakpoints: (
 @import "bootstrap-sass/bootstrap-reboot";
 @import "bootstrap-sass/bootstrap-grid";
 @import 'partials/mixin';
-//@import 'partials/animate';
 
 /* 
  * Component styles
  */
 @import 'partials/global';
+@import 'partials/icons';
 @import 'partials/navigation';
 @import 'partials/csstransition';
 @import 'partials/hero';
