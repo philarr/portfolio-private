@@ -1,0 +1,144 @@
+a.icon.inactive {
+  &:before {
+     opacity: 0.1;
+  }
+  color: rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
+.icon {
+  display: inline-block;
+ 
+} 
+
+%icon {
+  content: '';
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0.25em 0.1em;
+  vertical-align: middle;
+
+}
+
+.icon:before {
+  content: '';
+  width: 1em;
+  height: 1em;
+
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0.25em 0.1em;
+  vertical-align: middle;
+}
+
+.icon:hover {
+  &:before {
+    transition: border 500ms;
+  }
+}
+.icon:before {
+  color: #FFFFFF;
+}
+
+
+.rect {
+  padding: 0.5rem;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  border: 1px solid rgba(255,255,255,0.1); 
+  border-left-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.05);
+  transition: color 350ms, background-color 350ms, transform 350ms;
+  &:hover {
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.15);
+    transition: color 350ms, background-color 350ms, transform 350ms;
+  }  
+}
+
+.icon-block:before {
+  content: '';
+  min-width: 1em;
+  min-height: 1em;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0.25em  ;
+  vertical-align: middle;
+}
+
+.up:before {
+  background-image: url('../svg/keyboard_arrow_up.svg');
+}
+.down:before {
+  background-image: url('../svg/keyboard_arrow_down.svg');
+}
+.arrowright:before {
+  background-image: url('../svg/keyboard_arrow_right.svg');
+}
+.close:before {
+  background-image: url('../svg/close.svg');
+}
+.location:before {
+  background-image: url('../svg/location_on.svg');
+}
+.workflow:before {
+  background-image: url('../svg/build.svg');
+}
+.mail:before {
+  background-image: url('../svg/mail_outline.svg');
+}
+.menu:before {
+  background-image: url('../svg/menu.svg');
+}
+.person:before {
+  background-image: url('../svg/account_circle.svg');
+}
+.eye:before {
+  background-image: url('../svg/remove_red_eye.svg');
+}
+.web:before {
+  background-image: url('../svg/desktop_windows.svg');
+}
+.front-end:before {
+  background-image: url('../svg/star.svg');
+}
+.desktop:before {
+  background-image: url('../svg/desktop_windows.svg');
+}
+.opennew:before {
+  background-image: url('../svg/open_in_new.svg');
+}
+.work:before {
+  background-image: url('../svg/view_list.svg');
+}
+.linkafter:after {
+  background-image: url('../svg/open_in_new.svg');
+}
+.source:before {
+  background-image: url('../svg/code.svg');
+}
+.more:before {
+  background-image: url('../svg/more_horiz.svg');
+}
+.phone:before {
+  background-image: url('../svg/phone.svg');
+}
+.back-end:before {
+  background-image: url('../svg/storage.svg');
+}
+.clock:before {
+  background-image: url('../svg/access_time.svg');
+}
+.github:before {
+  background-image: url('../svg/github.svg');
+}
+.pdf:before {
+  background-image: url('../svg/pdf.svg');
+}
