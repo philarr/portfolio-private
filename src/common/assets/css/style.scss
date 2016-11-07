@@ -73,8 +73,8 @@ $mq-breakpoints: (
  * Library
  */
 @import 'partials/mq';
-@import "bootstrap/bootstrap-reboot";
-@import "bootstrap/bootstrap-grid";
+@import "bootstrap-sass/bootstrap-reboot";
+@import "bootstrap-sass/bootstrap-grid";
 @import 'partials/mixin';
 //@import 'partials/animate';
 
