@@ -21,6 +21,9 @@
 	height: tick(6);
 
      .inner {
+     	 	.left { 
+ 		padding: 0;
+ 	}
  		.right {
  			position: relative;
  			height: tick(6);
@@ -30,8 +33,9 @@
 		    animation-fill-mode: both;
 		    padding: 0;
 		    h1 {
+		  
 			   	position: absolute;
-	 			bottom: tick();
+	 			bottom: tick(1);
 		    }
  		}
  	}	
@@ -69,7 +73,7 @@
 
 
 
-	background-size: 425px;
+	background-size: 450px;
 	height: tick(6);
 	z-index: 2;
 	background-position: left bottom;
@@ -78,7 +82,7 @@
 	animation-duration: 1s;
 	animation-name: fadeIn;
 	animation-fill-mode: both;
-	background-image: url('http://www.pmhc.co/images/profile/profile_2.png');
+	background-image: url('http://www.pmhc.co/images/profile/profile_6.png');
   	
  
 }
@@ -115,7 +119,7 @@
 	position: relative;
 	z-index: 4;
 	background-color: #202020;
- 
+
  	.right {
  		padding-bottom: tick();
  	}
@@ -139,13 +143,15 @@
 	}
 	.project-next-wrapper {
 		height: tick(5);
-	}
-	.inner {
-		@extend %vm;
-		.right {
-			padding: 0;
+		.inner {
+			@extend %vm;
+			.right {
+				margin-top: 0;
+				padding: 0;
+			}
 		}
 	}
+
 }
 
 .profile-list {

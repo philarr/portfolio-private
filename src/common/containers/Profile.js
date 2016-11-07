@@ -149,7 +149,7 @@ class Profile extends React.Component {
 	 					<div className="profile-overlay" />
 					<div className="inner">
 						<div className="left">
-							<h3 className="label">Currently living in</h3>
+							<h3 className="label">My location</h3>
 						</div>
 						<div className="right">
 
