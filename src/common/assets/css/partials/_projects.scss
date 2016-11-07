@@ -4,14 +4,14 @@
   background-image: linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 2px), 
   linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 2px);
   height: tick(5);
- 
-  @include mq($from: lg) { height: tick(6);}
+  
+  @include mq($from: md) { height: tick(6);}
   @include mq($from: xl) { height: tick(7);}
   @include mq($from: layout) { height: tick(8);}
   .projects-item-details {
    height: tick(5);
  
-  @include mq($from: lg) { height: tick(6);}
+  @include mq($from: md) { height: tick(6);}
   @include mq($from: xl) { height: tick(7);}
   @include mq($from: layout) { height: tick(8);}
  
@@ -57,7 +57,8 @@
       @include mq($from: sm) {
         transform: scale(1);
       }
-      @include mq($from: md) {
+  
+      @include mq($from: lg) {
         transform: scale(0.9);
       }
       @include mq($from: xl) {

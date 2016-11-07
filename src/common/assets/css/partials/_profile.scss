@@ -79,11 +79,12 @@
 	background-position: left bottom;
 	margin: auto;
 	background-repeat: no-repeat;
+		transform-origin: center;
 	animation-duration: 1s;
-	animation-name: fadeIn;
+	animation-name: zoomIn;
 	animation-fill-mode: both;
 	background-image: url('http://www.pmhc.co/images/profile/profile_6.png');
-  	
+  	 
  
 }
 

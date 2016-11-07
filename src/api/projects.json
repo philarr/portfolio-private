@@ -389,12 +389,12 @@
             "display":{  
                 "front":{  
                     "caption":"Magister Crabs",
-                    "src":"/magister.png",
+                    "src":"/magister.jpg",
                     "size": [1057, 927]
                 },
                 "secondary":{  
                     "caption":"Secondary Page",
-                    "src":"/magister.png",
+                    "src":"/magister.jpg",
                     "size": [1057, 927]
                 }
             },
@@ -448,12 +448,12 @@
                 "list":[  
                     {  
                         "caption":"Landing Page",
-                        "src":"magister.png",
+                        "src":"magister.jpg",
                         "size": [1057, 927]
                     },
                     {  
                         "caption":"About Page",
-                        "src":"magister.png",
+                        "src":"magister.jpg",
                         "size": [1057, 927]
                     }
                 ]
