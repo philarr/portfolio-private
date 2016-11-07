@@ -194,8 +194,6 @@ h1 {
   @include mq($until:xl) {
     font-size: 1.8rem;
   }
-
-
 }
 
 p {
@@ -258,79 +256,5 @@ em {
 %vm {
   @include vertical-align();
 }
-
-.shadow-1 { @include shadow(1); }
-.shadow-2 { @include shadow(2); }
-.shadow-3 { @include shadow(3); }
-.shadow-4 { @include shadow(4); }
-.shadow-5 { @include shadow(5); }
-
-
-
-// Animation keyframes
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 12px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translate3d(-12px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
  
-  }
 
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
-    }
-  }
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-5%, 0, 0) scale(decimal-floor(1 * 15.5/24, 2));
-  }
-
-  to {
-    opacity: 1;
- 
-  }
-}
-@keyframes zoomIn {
-  from {
-    transform: scale(1.25);
-  }
-
-  to {
-    transform: none;
- 
-  }
-}

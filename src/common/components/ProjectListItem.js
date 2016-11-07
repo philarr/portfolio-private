@@ -26,18 +26,14 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
 				</div>
  				<div className="projects-item-image" style={ projectGradient }>
  					<Image size={ display.front.size }>
- 					<Reveal name={ uid } className="animated-before" activeClass="fadeInto">
- 						<img src={ imagePath + display.front.src } 
-							alt={ name + ' - ' + display.front.caption } 
-							title={ name + ' - ' + display.front.caption } 
-						/>
-							 
- 					</Reveal>
- 
-					 
+	 					<Reveal name={ uid } className="animated-before" activeClass="fadeInto">
+	 						<img src={ imagePath + display.front.src } 
+								alt={ name + ' - ' + display.front.caption } 
+								title={ name + ' - ' + display.front.caption } 
+							/>
+	 					</Reveal>
 					</Image>
 				</div>
- 
 			</div>
 			<div className="projects-item-bottom"> 
 				<div className="inner">

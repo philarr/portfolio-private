@@ -20,8 +20,7 @@ class Result {
 		if (res.constructor !== Array) res = [res];
 		return {
 			meta: {
-				...this.meta,
-				nav: this.projects.map(({ uid, name, year, color }) => ({ uid, name, year, color }))
+				...this.meta
 			},
 			result: res
 		};
@@ -29,10 +28,6 @@ class Result {
  
 	getProfile() {
 		return this.output([this.profile]);
-	}
-
-	getContact() {
-		return this.output([this.contact]);
 	}
 
 	getProjectListing() {

@@ -17,10 +17,7 @@ api.get('/profile', (req, res) => {
 	res.status(200).json(result.getProfile());
 });
 
-api.get('/contact', (req, res) => {
-	res.status(200).json(result.getContact());
-});
-
+ 
 api.get('/case', (req, res) => {
 	res.status(200).json(result.getProjectListing());
 });

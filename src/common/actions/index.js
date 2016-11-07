@@ -99,26 +99,6 @@ export function getProfile() {
 	      })
     };
 };
-
-export function getContact() {
-	return (dispatch, getState) => {  
- 
- 		// Check if result exists in store
-		if (Object.keys(getState().pmhc.contact).length > 0) {
-			return Promise.resolve();
-		}
-
-		return FETCH_API('/api/contact')
-	      .then(({ meta, result }) => {
-	      	if (result.length > 0) {
-		      	dispatch({
-		      		type: 'FETCH_CONTACT',
-                    result
-		      	}); 
-	      	}
-	      })
-    };
-};
  
 export function toggleMenu() {
 	return {

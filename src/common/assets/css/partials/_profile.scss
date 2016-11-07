@@ -29,6 +29,7 @@
  			height: tick(6);
  	 		z-index: 3;
  		 	animation-duration: 1s;
+ 		 	animation-delay: 150ms;
 		    animation-name: fadeInUp;
 		    animation-fill-mode: both;
 		    padding: 0;
@@ -79,9 +80,10 @@
 	background-position: left bottom;
 	margin: auto;
 	background-repeat: no-repeat;
-		transform-origin: center;
+	transform-origin: center;
+  		 	animation-delay: 150ms;
 	animation-duration: 1s;
-	animation-name: zoomIn;
+	animation-name: zoomFadeIn;
 	animation-fill-mode: both;
 	background-image: url('http://www.pmhc.co/images/profile/profile_6.png');
   	 
@@ -102,7 +104,6 @@
 	animation-duration: 1s;
 	animation-name: zoomIn;
 	animation-fill-mode: both;
- 	transition: transform 500ms;
 	position: relative;
 	background-image: url('http://www.pmhc.co/images/profile/profile_bg.jpg');
 	background-position: 15%;

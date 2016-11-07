@@ -6,7 +6,6 @@
 const DEFAULT_STATE = {
     meta: {}, 
     profile: {},
-    contact: {},
     projects: [], 
     cases: {},
     environment: {
@@ -26,11 +25,6 @@ export default (state = DEFAULT_STATE, action) => {
             return {
                 ...state,
                 'profile': action.result[0]
-            };
-        case 'FETCH_CONTACT':
-            return {
-                ...state,
-                'contact': action.result[0]
             };
 		case 'FETCH_PROJECT': 
             return { 

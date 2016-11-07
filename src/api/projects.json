@@ -11,7 +11,7 @@
     },
     "profile":{  
         "title":"I had the opportunity to work from the perspective of multiple roles through self-initiated projects.",
-        "aboutme":"I love making all kinds of things for the web but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page on Geocities in 2000. Since then I have became very interested in how new web technologies are incorporated in some of the most visited websites in the world. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I am always learning!\\nI am currently an Interactive Arts (B.Sc) student at Simon Fraser University.",
+        "aboutme":"I love making all kinds of things for the web but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page as a child. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I am always learning!\\nMy time as an Interactive Arts student at Simon Fraser University has shown me the importance of user experience and interface design and I aim to incorporate it into my decision process during any development work.",
         "skill": [
             {
                 "type":"front-end",
@@ -107,7 +107,7 @@
                         "desc":"React.js was the modern framework chosen to build this portfolio. Compared to other heavy frameworks like Angular, React allowed me to start with a simple view library and the option to add functionalities from its rich ecosystem as needed.\\nRedux is used to store predictive UI state and fetched data."
                     },
                     {  
-                        "name":"Server-Side Rendering",
+                        "name":"Server Rendering",
                         "tech":[  
                             "Node.js", "Express", "Nginx"
                         ],
