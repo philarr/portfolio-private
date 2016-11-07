@@ -9,8 +9,7 @@ backface-visibility: hidden;
   display: table;
  
   .layer, .hero-msg > span, #hero-particle > canvas {
-    transform-origin: center;
-    transform: scale(1.25);
+
     opacity: 0;
   }
  
