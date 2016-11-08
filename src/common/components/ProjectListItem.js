@@ -4,7 +4,7 @@ import Image from './Image';
 import { Reveal, LazyImage } from 'react-scrollkit'
 
  
-const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, type, url, display }, projectActive, cdn }) => {
+const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, type, url, display, background }, projectActive, cdn }) => {
 
 	const projectTech = tech.map((t, idx) => (<span key={ idx }>{ t }</span>)); 
  	const projectClass = projectActive ? 'projects-item active' : 'projects-item';
@@ -15,6 +15,7 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
 
 	return (		 	 
  		<div name={ uid } className={ projectClass } style={ projectBackground }>
+ 			{ projectActive && display.background ? <div className="projects-item-bg" style={ { backgroundImage: 'url(\'' + display.background + '\')' } } /> : false }
 			<div className="projects-item-details">
  				<div className="projects-item-overview">
 					<div className="projects-item-title">{ name }<sup>{ year }</sup></div>
@@ -27,7 +28,8 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
  				<div className="projects-item-image" style={ projectGradient }>
  					<Image size={ display.front.size }>
 	 					<Reveal name={ uid } className="animated-before" activeClass="fadeInto">
-	 						<img src={ imagePath + display.front.src } 
+	 						<img 
+	 							src={ imagePath + display.front.src } 
 								alt={ name + ' - ' + display.front.caption } 
 								title={ name + ' - ' + display.front.caption } 
 							/>

@@ -1,11 +1,9 @@
 //case study active state
 
 .projects-item.active { 
-  background-image: linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 2px), 
-  linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 2px);
+    border-top: none;
+  border-bottom: none;
   height: tick(5);
-    background-size: tick(1) tick(1);
-  background-position: top left;
  
  
   @include mq($from: md) { height: tick(6);}
@@ -22,11 +20,17 @@
     /* Overwrite previous mobile :active settings */
     &:active {
       .projects-item-image:nth-child(2) {     
-       transform: scale(0.9);
+       transform: scale(1);
+       font-size: 0.75rem;
       @include mq($from: sm) {
-        transform: scale(0.87);
+        transform: scale(1);
+      }
+  
+      @include mq($from: lg) {
+        transform: scale(0.9);
       }
       @include mq($from: xl) {
+         font-size: 1rem;
         transform: scale(0.8);
       }
      }
@@ -39,9 +43,28 @@
 .projects-item-overview, .projects-item-bottom > .inner {
   display: none;
 }
+
+.projects-item-bg {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+         animation-duration: 1.25s;
+    animation-name: zoomFadeIn;
+    animation-fill-mode: both;
+    transform: none;
+}
+
 .projects-item-bottom {
   height: 100%;
-  background-color: rgba(26,26,26,0.5);
+  background-color: rgba(26,26,26,0.6);
+  background-image: linear-gradient(to right, rgba(230,230,230,0.02) 1px, transparent 2px), 
+  linear-gradient(to bottom, rgba(230,230,230,0.02) 1px, transparent 2px);
+    background-size: tick(1) tick(1);
+  background-position: top left;
+ 
 }
 
   .projects-item-image {
@@ -54,19 +77,23 @@
       float: left;
       width: 100%;
       transform-origin: top center;
-       transform: scale(1);
-       font-size: 0.75rem;
-
+      transform: scale(1);
+      font-size: 0.75rem;
+      animation-name: fadeIn;
+      animation-duration: 1.25s;
+      animation-fill-mode: both;
       @include mq($from: sm) {
         transform: scale(1);
       }
-  
+
       @include mq($from: lg) {
         transform: scale(0.9);
+        animation-name: zoomInEnd;
       }
       @include mq($from: xl) {
-         font-size: 1rem;
+        font-size: 1rem;
         transform: scale(0.8);
+        animation-name: zoomInEnd;
       }
     }
     /*
@@ -263,8 +290,8 @@
   background-color: rgba(26,26,26,0.35);
   background-size: tick(1) tick(1);
   background-position: top left;
-  background-image: linear-gradient(to right, rgba(229,230,230, 0.02) 1px, transparent 2px), 
-  linear-gradient(to bottom, rgba(230,230,230,0.02) 1px, transparent 2px);
+  background-image: linear-gradient(to right, rgba(222,222,222, 0.02) 1px, transparent 2px), 
+  linear-gradient(to bottom, rgba(222,222,222,0.02) 1px, transparent 2px);
 }
 
 

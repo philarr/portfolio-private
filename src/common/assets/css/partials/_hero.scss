@@ -8,9 +8,13 @@ backface-visibility: hidden;
   z-index: 2;
   display: table;
  
-  .layer, #hero-particle > canvas {
-    transform: scale(1.5);
+  .layer, .hero-msg > span, #hero-particle > canvas {
+    transform: scale(1.25);
     opacity: 0;
+  }
+
+  .hero-grid {
+    transform: none;
   }
 
    .hero-msg > span, .hero-bottom {
@@ -18,9 +22,6 @@ backface-visibility: hidden;
   }
 
  
-  .hero-grid {
-    opacity: 1;
-  }
 
 
   &.active {
@@ -42,7 +43,9 @@ backface-visibility: hidden;
       transform: none;
       opacity: 1;
       transition: opacity 350ms, transform 1.25s;
+      transform-origin: center;
     }
+ 
     .hero-msg > span {
       transform: none;
       opacity: 1;
@@ -148,7 +151,7 @@ backface-visibility: hidden;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    background-color: rgba(38,41,48,0.25);
+    background-color: rgba(38,41,48,0.35);
     background-size: tick(1) tick(1);
     background-position: top left;
     background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 2px), 

@@ -102,13 +102,13 @@ class Hero extends React.Component {
             <div className={ heroClass }>
                 <div id="hero-canvas">
                     <div ref="heroScene" id="scene">
-                        <div className="layer hero-bg" ref="heroBg" data-depth="0.20" />
-                        <div className="layer" id="hero-particle" ref="heroParticle" data-depth="0.20" />
-                        <div className="layer hero-text" ref="heroText" data-depth="0.35">
+                        <div className="layer hero-bg" ref="heroBg"  />
+                        <div className="layer" id="hero-particle" ref="heroParticle"  />
+                        <div className="layer hero-text" ref="heroText">
                             <div className="hero-text-left">P&ndash;</div>
                         </div>
-                        <div className="layer hero-grid" data-depth="0" />
-                        <div className="layer hero-extra" ref="heroExtra" data-depth="0.5" />
+                        <div className="layer hero-grid" />
+                        <div className="layer hero-extra" ref="heroExtra" />
                     </div>
                 </div>  
                 <div ref="heroWrapper" className="hero-wrapper">

@@ -75,7 +75,20 @@
 
   to {
     opacity: 1;
-    transform: none;
+  
+ 
+  }
+}
+
+@keyframes zoomInEnd {
+  from {
+   
+    transform: scale(1);
+  }
+
+  to {
+     
+  
  
   }
 }

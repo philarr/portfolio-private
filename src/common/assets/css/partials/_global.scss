@@ -206,9 +206,11 @@ p {
     font-size: 17px;
   }
   @include mq($from: lg) {
+    font-size: 18px;
+  }
+  @include mq($from: xl) {
     font-size: 19px;
   }
-
  
   font-weight: 300;
   margin: 0 0 1rem;

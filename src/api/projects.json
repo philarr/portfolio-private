@@ -7,7 +7,7 @@
         "twitter":"http://www.twitter.com/pmhc_",
         "email":"philip@pmhc.co",
         "cdn":"http://www.pmhc.co",
-        "phone": "+1 604 781 9813"
+        "phone": "604 781 9813"
     },
     "profile":{  
         "title":"I had the opportunity to work from the perspective of multiple roles through self-initiated projects.",
@@ -69,7 +69,6 @@
             "name":"Portfolio",
             "year":"2016",
             "type":"Web Application",
-           
             "source":"http://www.github.com/philarr/portfolio-private",
             "desc":"The newest iteration of my personal portfolio using isomorphic React.",
             "tech":[  
@@ -84,6 +83,7 @@
                 "#21262E"
             ],
             "display":{  
+               "background": "http://pmhc.co/images/hero/mountain_night.jpg",
                 "front":{  
                     "caption":"Portfolio 2016",
                     "src":"pmhc1.jpg",
@@ -170,7 +170,8 @@
                 "#23252E",
                 "#1D212C"
             ],
-            "display":{  
+            "display":{
+                "background": "http://pmhc.co/images/hero/xivdps_.png",
                 "front":{  
                     "caption":"XIVDPS",
                     "src":"xivdps-1.jpg",
@@ -284,6 +285,7 @@
                 "#202020"
             ],
             "display":{  
+                "background": "http://pmhc.co/images/hero/eterna.jpg",
                 "front":{  
                     "caption":"Encounter Log",
                     "src":"eterna-3.jpg",
@@ -295,7 +297,7 @@
                     "size": [1407, 880]
                 }
             },
-            "overview":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a iaculis purus. Nam eget convallis ipsum, ac maximus lacus. Fusce a sapien pellentesque, aliquam nunc in, fermentum dui. Cras vitae dui erat. Cras luctus vel mi in molestie. Aenean ut feugiat neque. Duis dui tortor, efficitur eu nulla id, molestie tristique tellus. Aenean mattis mauris ipsum, vel commodo nunc luctus non.\\nMorbi sit amet hendrerit tellus, vitae facilisis ligula. Integer aliquam sagittis sem ac vulputate. Morbi fringilla purus eros, quis sollicitudin mauris laoreet ac. Nulla sed venenatis tellus. Nam eleifend enim nibh, ac viverra nisl varius lacinia. Sed venenatis molestie magna sed fringilla. Quisque sodales leo ac felis hendrerit blandit. Praesent elit eros, posuere eget pellentesque quis, sollicitudin nec purus.",
+            "overview":"Morbi sit amet hendrerit tellus, vitae facilisis ligula. Integer aliquam sagittis sem ac vulputate. Morbi fringilla purus eros, quis sollicitudin mauris laoreet ac. Nulla sed venenatis tellus. Nam eleifend enim nibh, ac viverra nisl varius lacinia. Sed venenatis molestie magna sed fringilla. Quisque sodales leo ac felis hendrerit blandit. Praesent elit eros, posuere eget pellentesque quis, sollicitudin nec purus.",
             "components":{  
                 "subtitle":"Each component works in tandem to create a flow of information.",
                 "list":[  
@@ -305,21 +307,6 @@
                             "C#"
                         ],
                         "desc":"A lightweight plugin for Advanced Combat Tracker to collect logged data."
-                    },
-                    {  
-                        "name":"ABBC",
-                        "tech":[  
-                            "Node.js"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    },
-                    {  
-                        "name":"Database",
-                        "tech":[  
-                            "MySQL",
-                            "Redis"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     },
                     {  
                         "name":"Website",
@@ -386,7 +373,8 @@
                 "#1A2D33",
                 "#1A2D33"
             ],
-            "display":{  
+            "display":{
+                "background": "http://pmhc.co/images/hero/magister_.jpg",  
                 "front":{  
                     "caption":"Magister Crabs",
                     "src":"/magister.jpg",
