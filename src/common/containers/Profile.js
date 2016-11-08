@@ -131,7 +131,7 @@ class Profile extends React.Component {
 								</div>
 								<div className="profile-contact">
 									<small className="phone icon">PHONE</small>
-									<p className="label">{ meta.phone }</p>
+									<a href={ 'tel:' + meta.phone }>{ meta.phone }</a>
 								</div>
 								<div className="profile-contact">
 									<small className="more icon">OTHER</small>

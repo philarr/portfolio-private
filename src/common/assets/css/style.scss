@@ -42,7 +42,7 @@ $mq-breakpoints: (
   layoutpad: 1600px
 );
  
-//$mq-show-breakpoints: (sm, md, lg, xl);
+$mq-show-breakpoints: (sm, md, lg, xl, layout, layoutpad);
 
 /*
  * Common extends
