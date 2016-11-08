@@ -8,7 +8,7 @@ let particles, parallax, particlesJSON;
 /* client asset */
 if ( process.env.CanUseDom ) {
     particles = require('particles.js');
-    parallax = require('../assets/vendor/parallax.js');
+    //parallax = require('../assets/vendor/parallax.js');
     particlesJSON = require('../assets/json/particles.json');
 }
 
@@ -42,19 +42,25 @@ class Hero extends React.Component {
 
     initHero(classStyle) {
         window.addEventListener('resize', this.debounceResize);
-        if (!isMobile()) particlesJS('hero-particle', particlesJSON);
+        particlesJS('hero-particle', particlesJSON);
 
         const { heroBg, heroExtra, heroScene, heroWrapper } = this.refs;
 
         heroBg.style.backgroundImage = 'url('+ this.heroImages[0] + ')';
         heroExtra.style.backgroundImage = 'url(' + this.heroImages[1] + ')';
-        this.parallax = new Parallax(heroScene, {
-            listenTo: heroWrapper,
-            relativeInput: true,
-            clipRelativeInput: true,
-            limitX: 100,
-            limitY: 100
-        });
+
+        /*
+        setTimeout(() => {
+            this.parallax = new Parallax(heroScene, {
+                listenTo: heroWrapper,
+                relativeInput: true,
+                clipRelativeInput: true,
+                limitX: 100,
+                limitY: 100
+            });
+        }, 1251);
+        */
+
         this.setSize();
         this.setState({ 
             loaded: true
@@ -74,8 +80,8 @@ class Hero extends React.Component {
             return;
         }
         this.screenWidth = w;
-        heroBg.style.width = (w + 150) + 'px';
-        heroBg.style.height = (h + 150) + 'px';
+        heroBg.style.width = (w ) + 'px';
+        heroBg.style.height = (h ) + 'px';
         heroExtra.style.width = (w + 150) + 'px';
         heroParticle.style.width = (w + 150) + 'px';
         heroParticle.style.height = ((h * 0.33) + 150) + 'px';
@@ -83,7 +89,7 @@ class Hero extends React.Component {
 
     componentWillUnmount() {
         this._isMounted = false;
-        if (this.parallax) this.parallax.disable();
+       // if (this.parallax) this.parallax.disable();
         if (this.debounce) clearTimeout(this.debounce); 
         window.removeEventListener('resize', this.debounceResize); 
     }
