@@ -3,7 +3,9 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var nodeExternals = require('webpack-node-externals');
 var config = require('./webpack.config.js');
+
 var autoprefixer = require('autoprefixer');
+var mqpacker = require("css-mqpacker");
 
 var loaders = [
       { /* Babel */
@@ -57,7 +59,7 @@ module.exports = [
   module: {
     loaders: loaders,
   },
- postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+ postcss: [ autoprefixer({ browsers: ['last 2 versions'] }), mqpacker({ sort: true }) ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },
