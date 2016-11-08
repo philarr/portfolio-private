@@ -77,24 +77,23 @@ class Profile extends React.Component {
 
 		return (
 			<div>
-				<Helmet title={ Profile.displayName } />
+				<Helmet title="Profile" />
 		 		<section >
 			 		<div className="profile-animate-wrapper">
 						<div className="profile-bg" />
-			 		</div>
-					<div className="profile-grid"/>
-					<div className="profile-me" />
-	 				<div className="profile-title">
-						<div className="inner">
-							<div className="left">&nbsp;</div>
-							<div className="right">
-								<h1 className="label">
-									{ profile.title }
-								</h1>
+						<div className="profile-grid"/>
+						<div className="profile-me" />
+		 				<div className="profile-title">
+							<div className="inner">
+								<div className="left">&nbsp;</div>
+								<div className="right">
+									<h1 className="label">
+										{ profile.title }
+									</h1>
+								</div>
 							</div>
-						</div>
-	 				</div>
-
+		 				</div>
+					</div>
 					<div className="profile">
 						<div className="inner">
 							<div className="left">

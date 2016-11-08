@@ -9,7 +9,7 @@ const Footer = ({ email, github, linkedin, twitter, phone }) => (
 	 			</div>
  				<div className="right">
 					<p className="icon mail"><a href={ 'mailto:' + email }>{ email }</a></p>
-					<p className="icon phone label">{ phone }</p>
+					<p className="icon phone label"><a href={ 'tel:' + phone }>{ phone }</a></p>
  					<p className="icon more">
 	 					<a href={ github } target="_blank">Github</a>&nbsp;/&nbsp;
 						<a href={ linkedin } target="_blank">LinkedIn</a> 
