@@ -87,7 +87,7 @@
                 "front":{  
                     "caption":"Portfolio 2016",
                     "src":"pmhc1.jpg",
-                    "size": [1903, 2043]
+                    "size": [1903, 1431]
                 },
                 "secondary":{  
                     "caption":"Secondary Page",
@@ -136,7 +136,7 @@
                     {  
                         "caption":"Landing Page",
                         "src":"pmhc1.jpg",
-                        "size": [1903, 2043]
+                        "size": [1903, 1431]
                     },
                     {  
                         "caption":"Responsive Menu",

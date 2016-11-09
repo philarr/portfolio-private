@@ -79,19 +79,23 @@ body {
     &.push .project-next .project-next-wrapper,
     &.push footer .footer-wrapper {
       transition: opacity 350ms ease-out, transform 350ms ease-out;
-      transform: translateX(100%);
     }
  }
- @include mq($from: md, $until: layoutpad) {
-    &.push section,   
-    &.push .menu-overlay, 
-    &.push .project-next .project-next-wrapper,
-    &.push footer .footer-wrapper {
-      transform: translateX(45%) ;
+       
+  &.push section,   
+  &.push .menu-overlay, 
+  &.push .project-next .project-next-wrapper,
+  &.push footer .footer-wrapper {
+    @include mq($until: md) {
+      transform: translateX(100%);
+    }
+    @include mq($from: md, $until: layoutpad) {
+      transform: translateX(45%);
     }
   }
 }
-
+ 
+ 
 section {
   @extend %row;
   background-color: #272727;

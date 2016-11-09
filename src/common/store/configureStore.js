@@ -16,7 +16,7 @@ import thunk from 'redux-thunk'
     	// apply thunk and reduxdevtools
      	compose(
      		applyMiddleware(thunk),
-     		typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+     		process.env.NODE_ENV === "development" && typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
      	)
     );
     return store;
