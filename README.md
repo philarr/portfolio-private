@@ -18,18 +18,20 @@ Check out webpack config for the loaders available.
 ##File structure
 - /
   - src
-    - server
+    - api
     - common
       - actions
       - assets
       - components
+      - containers
       - reducers
       - routes
       - store
+      - utils
 
-##NPM commands
+##npm commands
 `npm run start-dev` Starts server in development mode (Using babel-register hook, HMRE etc.)
 
 `npm run build` Compiles all files in `/src` to `/build` with babel-cli & Pack up `client.js` bundle into `/build/dist`
 
-`npm run deploy` Starts production server from `/build/server/server.js`
+`npm run deploy` Starts production server from `/build/server.js`
