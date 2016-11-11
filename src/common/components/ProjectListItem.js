@@ -4,10 +4,10 @@ import Image from './Image';
 import { Reveal, LazyImage } from 'react-scrollkit'
 
  
-const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, type, url, display, background }, projectActive, cdn }) => {
+const ProjectListItem = ({ item: { tech, uid, color, desc, name, year, type, url, display, background }, active, cdn }) => {
 
 	const projectTech = tech.map((t, idx) => (<span key={ idx }>{ t }</span>)); 
- 	const projectClass = projectActive ? 'projects-item active' : 'projects-item';
+ 	const projectClass = active ? 'projects-item active' : 'projects-item';
  	const projectBackground = {'backgroundColor': color[0] };
  	const projectGradient = { background: 'linear-gradient(to bottom, '+ color[0] +' 0%,'+ color[1] +' 60%)' };
 
@@ -15,7 +15,7 @@ const ProjectListItem = ({ projectItem: { tech, uid, color, desc, name, year, ty
 
 	return (		 	 
  		<div name={ uid } className={ projectClass } style={ projectBackground }>
- 			{ projectActive && display.background ? <div className="projects-item-bg" style={ { backgroundImage: 'url(\'' + display.background + '\')' } } /> : false }
+ 			{ active && display.background ? <div className="projects-item-bg" style={ { backgroundImage: 'url(\'' + display.background + '\')' } } /> : false }
 			<div className="projects-item-details">
  				<div className="projects-item-overview">
 					<div className="projects-item-title">{ name }<sup>{ year }</sup></div>

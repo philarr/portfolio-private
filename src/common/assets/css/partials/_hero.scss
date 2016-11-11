@@ -1,6 +1,6 @@
 /* Hero Component */
 .hero {
-backface-visibility: hidden;
+  backface-visibility: hidden;
   background-color: #222428;
   position: relative;
   width: 100%;
@@ -19,22 +19,6 @@ backface-visibility: hidden;
 
    .hero-msg > span, .hero-bottom {
     opacity: 0;
-  }
-
- 
-
-
-  &.active {
-    .layer, .hero-msg > span, #hero-particle > canvas {
-
-      opacity: 1;
-    }
-    #hero-particle > canvas, .hero-bg, .hero-extra {
-      transition-delay: 1s;
-    }
-    .hero-msg > span {
-       transform: none;
-    }
   }
 
 

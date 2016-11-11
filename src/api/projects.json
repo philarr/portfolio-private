@@ -157,7 +157,7 @@
             "year":"2015",
             "type":"Web Application",
             "url":"http://www.xivdps.com",
-            "source":"http://www.github.com/philarr/portfolio-private",
+            "source":"http://www.github.com/philarr/xivdps-web",
             "desc":"Game data collection and analysis tool consisting of multiple components across different platforms.",
             "tech":[  
                 "PHP",
@@ -173,7 +173,7 @@
             "display":{
                 "background": "http://pmhc.co/images/hero/xivdps_.png",
                 "front":{  
-                    "caption":"XIVDPS",
+                    "caption":"Data Visualization",
                     "src":"xivdps-1.jpg",
                     "size": [1245, 992]
                 },
@@ -183,7 +183,7 @@
                     "size": [1245, 992]
                 }
             },
-            "overview":"XIVDPS gathers live data from Final Fantasy 14 by actively reading the game memory space. Players can review their performance by viewing the aggregated results. Game movements is also tracked and can be replayed to provide a bird's eye view of a battle.\\nThe game does not officially expose a public API for add-ons so research is necessary to understand its memory structure and mechanics.",
+            "overview":"XIVDPS gathers dynamic data from game application into aggregated results. With the data visualized, players review their performance and game movements on the website.\\nThe game does not officially expose a public API for add-ons so additional steps is necessary to understand the application's memory structure and mechanics. This project spans across area of desktop, back-end and front-end.",
             "components":{  
                 "subtitle":"Each component works in tandem to create a flow of information.",
                 "list":[  
@@ -260,193 +260,16 @@
                         "caption":"Language Settings",
                         "src":"xivdps-6.jpg",
                         "size": [1245, 1055]
-                    }
-                ]
-            }
-        }, 
-        {  
-            "uid":"eterna",
-            "name":"Eterna",
-            "year":"2014",
-            "type":"Web Application",
-            "url":"http://eterna.pmhc.co",
-            "source":"http://www.github.com/philarr/portfolio-private",
-            "desc":"Website for a small gaming community with a lightweight C# plugin and membership tracker.",
-            "tech":[  
-                "PHP",
-                "MySQL",
-                "C#",
-                "Javascript",
-                "HTML",
-                "CSS"
-            ],
-            "color":[  
-                "#28221e",
-                "#202020"
-            ],
-            "display":{  
-                "background": "http://pmhc.co/images/hero/eterna.jpg",
-                "front":{  
-                    "caption":"Encounter Log",
-                    "src":"eterna-3.jpg",
-                    "size": [1407, 952]
-                },
-                "secondary":{  
-                    "caption":"Viewing encounter",
-                    "src":"eterna-2.jpg",
-                    "size": [1407, 880]
-                }
-            },
-            "overview":"Morbi sit amet hendrerit tellus, vitae facilisis ligula. Integer aliquam sagittis sem ac vulputate. Morbi fringilla purus eros, quis sollicitudin mauris laoreet ac. Nulla sed venenatis tellus. Nam eleifend enim nibh, ac viverra nisl varius lacinia. Sed venenatis molestie magna sed fringilla. Quisque sodales leo ac felis hendrerit blandit. Praesent elit eros, posuere eget pellentesque quis, sollicitudin nec purus.",
-            "components":{  
-                "subtitle":"Each component works in tandem to create a flow of information.",
-                "list":[  
-                    {  
-                        "name":"Plugin",
-                        "tech":[  
-                            "C#"
-                        ],
-                        "desc":"A lightweight plugin for Advanced Combat Tracker to collect logged data."
                     },
                     {  
-                        "name":"Website",
-                        "tech":[  
-                            "HTML",
-                            "CSS",
-                            "PHP",
-                            "Javascript"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    }
-                ]
-            },
-            "design":{  
-                "subtitle":"Game visuals are used to engage its visitor.",
-                "list":[  
-                    {  
-                        "caption":"Landing Page",
-                        "src":"eterna-6.jpg",
-                        "size": [1407, 1044]
-                    },
-                    {  
-                        "caption":"Application Form",
-                        "src":"eterna-1.jpg",
-                        "size": [1407, 955]
-                    },
-                    {  
-                        "caption":"Team Page",
-                        "src":"eterna-2.jpg",
-                        "size": [1407, 880]
-                    },
-                    {  
-                        "caption":"Encounter Log",
-                        "src":"eterna-3.jpg",
-                        "size": [1407, 952]
-                    },
-                    {  
-                        "caption":"Viewing Encounter",
-                        "src":"eterna-4.jpg",
-                        "size": [1407, 880]
-                    },
-                    {  
-                        "caption":"View Player",
-                        "src":"eterna-5.jpg",
-                        "size": [1407, 880]
+                        "caption":"Component Architecture",
+                        "src":"xivdps_flow.png",
+                        "size": [695, 570]
                     }
                 ]
             }
         },
- 
-        {  
-            "uid":"magister-crabs",
-            "name":"Magister Crabs",
-            "year":"2013",
-            "type":"Microsite",
-            "url":"http://www.xivdps.com",
-            "source":"http://www.github.com/philarr/portfolio-private",
-            "desc":"A simple brochure-style website for a business based in Richmond, BC.",
-            "tech":[  
-                "HTML",
-                "CSS"
-            ],
-            "color":[  
-                "#1A2D33",
-                "#1A2D33"
-            ],
-            "display":{
-                "background": "http://pmhc.co/images/hero/magister_.jpg",  
-                "front":{  
-                    "caption":"Magister Crabs",
-                    "src":"/magister.jpg",
-                    "size": [1057, 927]
-                },
-                "secondary":{  
-                    "caption":"Secondary Page",
-                    "src":"/magister.jpg",
-                    "size": [1057, 927]
-                }
-            },
-            "overview":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a iaculis purus. Nam eget convallis ipsum, ac maximus lacus. Fusce a sapien pellentesque, aliquam nunc in, fermentum dui. Cras vitae dui erat. Cras luctus vel mi in molestie. Aenean ut feugiat neque. Duis dui tortor, efficitur eu nulla id, molestie tristique tellus. Aenean mattis mauris ipsum, vel commodo nunc luctus non.\\nMorbi sit amet hendrerit tellus, vitae facilisis ligula. Integer aliquam sagittis sem ac vulputate. Morbi fringilla purus eros, quis sollicitudin mauris laoreet ac. Nulla sed venenatis tellus. Nam eleifend enim nibh, ac viverra nisl varius lacinia. Sed venenatis molestie magna sed fringilla. Quisque sodales leo ac felis hendrerit blandit. Praesent elit eros, posuere eget pellentesque quis, sollicitudin nec purus.",
-            "components":{  
-                "subtitle":"Each component works in tandem to create a flow of information.",
-                "list":[  
-                    {  
-                        "name":"Plugin",
-                        "tech":[  
-                            "C#"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    },
-                    {  
-                        "name":"Server",
-                        "tech":[  
-                            "Node.js"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    },
-                    {  
-                        "name":"Worker",
-                        "tech":[  
-                            "Node.js"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    },
-                    {  
-                        "name":"Database",
-                        "tech":[  
-                            "MySQL",
-                            "Redis"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    },
-                    {  
-                        "name":"Website",
-                        "tech":[  
-                            "HTML",
-                            "CSS",
-                            "PHP",
-                            "Javascript"
-                        ],
-                        "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    }
-                ]
-            },
-            "design":{  
-                "subtitle":"Each component works in tandem to create a flow of information.",
-                "list":[  
-                    {  
-                        "caption":"Landing Page",
-                        "src":"magister.jpg",
-                        "size": [1057, 927]
-                    },
-                    {  
-                        "caption":"About Page",
-                        "src":"magister.jpg",
-                        "size": [1057, 927]
-                    }
-                ]
-            }
-        },
+
         {  
             "uid":"tank-wars",
             "name":"Tank Wars",
@@ -454,7 +277,7 @@
             "type":"Game",
             "url":"http://www.sfu.ca/~pmchung/tank-wars/",
             "source":"http://www.github.com/philarr/tank-wars",
-            "desc":"HTML5 canvas game using object-oriented programming and visualisation techniques.",
+            "desc":"HTML5 canvas game using object-oriented programming and visualization techniques.",
             "tech":[  
                 "Processing"
             ],

@@ -1,22 +1,14 @@
 //case study active state
 
 .projects-item.active { 
-    border-top: none;
+  border-top: none;
   border-bottom: none;
-  height: tick(5);
- 
- 
-  @include mq($from: md) { height: tick(6);}
-  @include mq($from: xl) { height: tick(7);}
-  @include mq($from: layout) { height: tick(8);}
+  min-height: tick(4);
+  height: auto;
+  max-height: tick(7.5);
+
   .projects-item-details {
-   height: tick(5);
- 
-  @include mq($from: md) { height: tick(6);}
-  @include mq($from: xl) { height: tick(7);}
-  @include mq($from: layout) { height: tick(8);}
- 
-  
+   height: auto;
     /* Overwrite previous mobile :active settings */
     &:active {
       .projects-item-image:nth-child(2) {     
@@ -45,30 +37,32 @@
 }
 
 .projects-item-bg {
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-         animation-duration: 1.25s;
-    animation-name: zoomFadeIn;
-    animation-fill-mode: both;
-    transform: none;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 1.25s;
+  animation-name: zoomFadeIn;
+  animation-fill-mode: both;
+  transform: none;
 }
 
 .projects-item-bottom {
   height: 100%;
   background-color: rgba(26,26,26,0.6);
-  background-image: linear-gradient(to right, rgba(230,230,230,0.02) 1px, transparent 2px), 
-  linear-gradient(to bottom, rgba(230,230,230,0.02) 1px, transparent 2px);
-    background-size: tick(1) tick(1);
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 2px), 
+  linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 2px);
+  background-size: tick(1) tick(1);
   background-position: top left;
  
 }
 
   .projects-item-image {
     z-index: 3;
+ 
+ 
     &:nth-child(2) {
       top: tick(1.25);
       margin: 0;
@@ -76,49 +70,27 @@
       position: relative;
       float: left;
       width: 100%;
-      transform-origin: top center;
+      transform-origin: center top;
       transform: scale(1);
       font-size: 0.75rem;
       animation-name: fadeIn;
       animation-duration: 1.25s;
       animation-fill-mode: both;
-      @include mq($from: sm) {
-        transform: scale(1);
-      }
-
+ 
       @include mq($from: lg) {
         transform: scale(0.9);
         animation-name: zoomInEnd;
       }
       @include mq($from: xl) {
         font-size: 1rem;
-        transform: scale(0.8);
+        transform: scale(0.85);
         animation-name: zoomInEnd;
       }
-    }
-    /*
-    &:nth-child(3) {
-      animation-delay: 500ms;
-      animation-duration: 1.5s;
-      animation-name: fadeInLeft;
-      animation-fill-mode: both;
-
-      @include shadow(5);
-      top: tick(2);
-      width: 100%;
-      transform-origin: top left;
-      transform:  scale(1 * 17.5/24);
-      @include mq($from: sm) {
-        transform: scale(1 * 13.5/24);
-      }
-      @include mq($from: md) {
-        top: tick(2.5);
-      }
       @include mq($from: layout) {
-        margin-left: 0;
+        transform: scale(0.8);
       }
+
     }
-    */
   }
 }
 
@@ -304,7 +276,12 @@ figure {
   &:last-child {
     margin-bottom: 0;
   }
- 
+
+  @include mq($from: md) {
+   padding: 0  tick(0.5) tick(0.5)  tick(0.5);
+  }
+
+
   @include mq($from: xl) {
     padding: tick() tick(2) tick() 0;
     figcaption {
@@ -333,7 +310,11 @@ figure {
     @include shadow(6);
   }
 
-
-
+  img[src*="flow"] {
+    background-color: #202127;
+    width: 100%;
+    height: 100%;
+    padding: 9%;
+  }
 
  }

@@ -5,7 +5,6 @@ import { LazyImage } from 'react-scrollkit';
 import Collapsible from './Collapsible';
 import TextFormat from './TextFormat';
  
- 
 class ProjectCase extends React.Component {
 
 	render() {
@@ -26,7 +25,6 @@ class ProjectCase extends React.Component {
 				</Image>
 			</figure>
 		));
-	 
 		return (
 			<div className="projects-case" style={ { backgroundColor: color[0] } }>
 				<div className="inner">
@@ -41,9 +39,7 @@ class ProjectCase extends React.Component {
 					<div className="right">
 						<h2 className="label">{ desc }</h2>
 				 		<div className="project-case-desc">
-					 		<TextFormat>
-					 			{ overview }
-					 		</TextFormat>
+					 		<TextFormat>{ overview }</TextFormat>
 				 		</div>
 					</div>
 				</div>
@@ -57,16 +53,14 @@ class ProjectCase extends React.Component {
 							<Collapsible items={ components.list } />
 						</div>
 					</div>
+ 
 					<div className="inner">
 						<div className="left">
 							<h3 className="label">Design & Interface &ndash;</h3>
  							<p>{ design.subtitle }</p>
 						</div>
-	 
 					</div>
-					<div className="inner-full">
- 						{ screenshots }
-					</div>
+					<div className="inner-full">{ screenshots }</div>
 				</div>
 			</div>
 	 

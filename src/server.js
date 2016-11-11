@@ -16,7 +16,7 @@ import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
 import api from './api';
 
 const $ = Express();
-let css = '';
+
 // DEV IMPORTS
 // ================================================
 
@@ -34,7 +34,6 @@ if (process.env.NODE_ENV !== 'production') {
   $.use(require('webpack-hot-middleware')(compiler));
 }
 else {
-  css = '<link rel="stylesheet" type="text/css" href="/static/app.css" />';
   $.use(Compression());
 }
 
@@ -72,7 +71,13 @@ $.get('*', (req, res) => {
 
         let head = Helmet.rewind();
 
-        res.status(200).send(renderHTML(ReactDOM, JSON.stringify(store.getState()), css, head));
+        res.status(200).send(renderHTML(
+          ReactDOM, 
+          JSON.stringify(store.getState()), 
+          process.env.NODE_ENV !== "production" ? '' : 
+          '<link rel="stylesheet" type="text/css" media="screen" href="/static/app.css" />', 
+          head
+        ));
 
       })
     }
@@ -81,7 +86,7 @@ $.get('*', (req, res) => {
 
 
 $.listen(process.env.PORT, process.env.HOST);
-console.log("😎 PMHC.co started @ "+ process.env.HOST + ":"+ process.env.PORT +". (" + process.env.NODE_ENV + ")");
+console.log("😎 PMHC.co started @ "+ process.env.HOST + ":"+ process.env.PORT +" (" + process.env.NODE_ENV + ")");
 
 // INITIAL TEMPLATE
 // ================================================
@@ -92,14 +97,15 @@ Check out my github to see the unbundled code! => github.com/philarr/portfolio
 <html lang="en">
   <head>
     ${head.title.toString()}
-    <meta charset="UTF-8">
-    <meta name="author" content="Philip Chung">
+    <meta charset="UTF-8" />
+    <meta name="author" content="Philip Chung" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://use.typekit.net/ivy1pbs.js"></script>
     <script>try{Typekit.load({async:true});}catch(e){}</script> 
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
     ${css}
   </head>
   <body>

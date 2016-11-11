@@ -42,14 +42,14 @@ const ProjectViewer = ({ children, projects, cases, meta, location, params: { id
 			{ id && <Helmet title={ projectList[0].name } /> }
 			<section>
 				{ !id && <Hero /> || false}
-				<Element name="content" className="content">
+					<Element name="content" className="content">
 					{ 
 						projectsToShow.map( item => 
 						<ProjectListItem 
 							key={ item.uid } 
 							cdn={ meta.cdn } 
-							projectItem={ item } 
-							projectActive={ (item.uid === id) } 
+							item={ item } 
+							active={ (item.uid === id) } 
 						/> )
 					}
 					{
