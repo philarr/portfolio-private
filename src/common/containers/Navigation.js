@@ -48,7 +48,7 @@ class Navigation extends React.Component {
 	  				<li><Link to="/profile" onClick={ closeMenu } className="icon person">Profile</Link></li>
  
 					<div className="nav-contact">
-						<a href="#" target="_blank">My résumé <small><div className="icon pdf" /></small></a> 
+						<a href="http://www.pmhc.co/images/Philip_Chung_resume.pdf" target="_blank">My résumé <small><div className="icon pdf" /></small></a> 
 						<hr />
 						<p className="sublabel icon mail"><a href={ 'mailto:' + email }>{ email }</a></p>
 						<p className="sublabel icon phone"><a href={ 'tel:' + phone }>{ phone }</a></p>

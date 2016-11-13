@@ -6,7 +6,7 @@
   "scripts": {
     "start-dev": "cross-env NODE_ENV=development webpack --watch --config webpack.dev.server.config.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js -p",
-    "deploy": "cross-env NODE_ENV=production node ./build/server.js"
+    "deploy": "cross-env NODE_ENV=production forever start ./build/server.js"
   },
   "author": "Philip Chung",
   "license": "ISC",

@@ -5,7 +5,7 @@ const Footer = ({ email, github, linkedin, twitter, phone }) => (
 		<div className="footer-wrapper">
 			<div className="inner">
 				<div className="left">
- 					<p><a href="#" target="_blank">My résumé <small className="icon pdf" /></a></p>
+ 					<p><a href="http://www.pmhc.co/images/Philip_Chung_resume.pdf" target="_blank">My résumé <small className="icon pdf" /></a></p>
 	 			</div>
  				<div className="right">
 					<p className="icon mail"><a href={ 'mailto:' + email }>{ email }</a></p>

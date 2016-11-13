@@ -125,7 +125,7 @@
                         "tech":[  
                             "CSS"
                         ],
-                        "desc":"The loading of image assets is delayed until it is within the browser's viewport to prevent unnecessary download. In order to prevent sudden page jump when loaded images are inserted into the page, pre-emptive padding of the image's container is done by calculating the aspect ratio."
+                        "desc":"Website is viewable in all devices with consideration for usability in mobile devices."
                     }
 
                 ]
