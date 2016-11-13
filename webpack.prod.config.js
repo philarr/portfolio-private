@@ -59,7 +59,7 @@ module.exports = [
   module: {
     loaders: loaders,
   },
- postcss: [ autoprefixer({ browsers: ['last 2 versions'] }), mqpacker({ sort: true }) ],
+ postcss: [ autoprefixer({ browsers: ['last 2 versions'] }), mqpacker() ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },
