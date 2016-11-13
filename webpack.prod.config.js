@@ -15,7 +15,8 @@ var loaders = [
       },
       { /* Extract/Style/CSS/Sass load */
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass'), 
+        /* disable css-loader's autoprefixer https://github.com/webpack/css-loader/issues/281 */
+        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss-loader!sass'), 
         exclude: [/node_modules/]
       },
       { test: /\.png$/, loader: "file-loader" },
@@ -59,7 +60,7 @@ module.exports = [
   module: {
     loaders: loaders,
   },
- postcss: [ autoprefixer({ browsers: ['ie >= 9', 'last 3 versions'] }), mqpacker() ],
+ postcss: [ autoprefixer({ browsers: ['ie 9', 'last 2 versions'] }), mqpacker() ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },
@@ -102,7 +103,7 @@ module.exports = [
   module: {
     loaders: loaders,
   },
- postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+ postcss: [ autoprefixer({ browsers: ['ie 9', 'last 2 versions'] }) ],
  resolve: {
    extensions: ['', '.js', '.es6', '.jsx', '.scss']
  },
