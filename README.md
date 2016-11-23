@@ -10,9 +10,8 @@ This can serve as a React boilerplate for future projects.
   - WebpackDevServer Middleware
   - Hot module replacement
   - ReduxDevTools
-- Webpack-isomorphic-tools (coming soon)
 
-Check out webpack config for the loaders available.
+Check out webpack configs for the loaders available.
 
 
 ##File structure
@@ -27,10 +26,12 @@ Check out webpack config for the loaders available.
       - reducers
       - routes
       - store
-      - utils
+      - utils      
 
 ##npm commands
-`npm run start-dev` Starts server in development mode (Using babel-register hook, HMRE etc.)
+`npm run start-dev` Start watcher for server files
+
+`node ./src/server.dev.js` Start webpack-dev-server for client files
 
 `npm run build` Compiles all files in `/src` to `/build` with babel-cli & Pack up `client.js` bundle into `/build/dist`
 
