@@ -30,21 +30,21 @@ footer {
   }
 
   .left {
-  @extend %xs-24;
-  @extend %sm-24;
-  @extend %md-4;
-  @extend %lg-6;
-  @extend %xl-7;
+    @extend %xs-24;
+    @extend %sm-24;
+    @extend %md-4;
+    @extend %lg-5;
+    @extend %xl-7;
   }
 
   .right {
-    @extend %md-offset-2;
- 
-  @extend %xs-24;
-  @extend %sm-24;
-  @extend %md-18;
-  @extend %lg-16;
-  @extend %xl-15;
+    @extend %md-offset-1;
+    @extend %lg-offset-2;
+    @extend %xs-24;
+    @extend %sm-24;
+    @extend %md-18;
+    @extend %lg-17;
+    @extend %xl-15;
   }
 
 

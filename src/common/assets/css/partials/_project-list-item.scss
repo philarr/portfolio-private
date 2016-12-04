@@ -112,7 +112,7 @@
           top: tick(0.75);
           transform: scale((1 * 18/24)); 
         }
-        @include mq($from: lg) {      transform: scale((1 * 18/24)); }
+        @include mq($from: lg) {      transform: scale((1 * 15/24)); }
         @include mq($from: xl) {      transform: scale((1 * 13/24)); }
         @include mq($from: layout) {  transform: scale((1 * 16/24)); }  
       }
