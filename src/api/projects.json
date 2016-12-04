@@ -11,7 +11,7 @@
     },
     "profile":{  
         "title":"I had the opportunity to work from the perspective of multiple roles through self-initiated projects.",
-        "aboutme":"I love making all kinds of things for the web but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page as a child. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and genuine interest in this field to succeed. I am always learning!\\nMy time as an Interactive Arts student at Simon Fraser University has shown me the importance of user experience and interface design and I aim to incorporate it into my decision process during any development work.",
+        "aboutme":"I love making all kinds of things for the web but my favourite projects are designing and developing web applications! I became strongly engaged in this field after creating my first web page as a child. As the web has become increasingly fast paced with new frameworks and standards released every year, I have recognized the importance of humility and geniune interest in this field to succeed. I am always learning!\\nMy time as an Interactive Arts student at Simon Fraser University has shown me the importance of user experience and interface design and I aim to incorporate it into my decision process during any development work.",
         "skill": [
             {
                 "type":"front-end",
@@ -64,73 +64,6 @@
   
     },
     "projects":[  
-{  
-            "uid":"newsapp",
-            "name":"NewsApp",
-            "year":"2016",
-            "type":"Web Application",
-            "source":"http://www.github.com/philarr/angular-comment-system",
-            "desc":"Reddit clone built with custom design.",
-            "tech":[  
-                "AngularJS"
-            ],
-            "color":[  
-                "#282828",
-                "#282828"
-            ],
-            "display":{  
-                "front":{  
-                    "caption":"NewsApp",
-                    "src":"1.png",
-                    "size": [1920, 2412]
-                }
-            },
-            "overview":"This project was the result of my initiative to learn modern front-end tools and frameworks. The Node.js ecosystem and Javascript as an universal language has streamlined my workflow by allowing the creation of reusable code.\\nA boilerplate is now also available for my future React.js projects.",
-            "components":{  
-                "subtitle":"Built in ES6, transpiled to ES5 with Babel and bundled into a single file with Webpack.",
-                "list":[  
-                    {  
-                        "name":"Single-Page App",
-                        "tech":[  
-                            "React.js", "Redux"
-                        ],
-                        "desc":"React.js was the modern framework chosen to build this portfolio. Compared to other heavy frameworks like Angular, React allowed me to start with a simple view library and the option to add functionalities from its rich ecosystem as needed.\\nRedux is used to store predictive UI state and fetched data."
-                    },
-                    {  
-                        "name":"Server Rendering",
-                        "tech":[  
-                            "Node.js", "Express", "Nginx"
-                        ],
-                        "desc":"Built with Express on Node.js, the server pre-fetches data and renders React components into HTML on first visit to decrease load times and improve SEO by allowing web crawlers to view a full rendered page. It also serves as an API endpoint for the React client.\\nNginx is used as a reverse proxy for the Node application to balance load and serve static images."
-                    },
-                     {  
-                        "name":"Deferred Loading",
-                        "tech":[  
-                            "Javascript"
-                        ],
-                        "desc":"The loading of image assets is delayed until it is within the browser's viewport to prevent unnecessary download. In order to prevent sudden page jump when loaded images are inserted into the page, pre-emptive padding of the image's container is done by calculating the aspect ratio."
-                    },
-                     {  
-                        "name":"Responsive Design",
-                        "tech":[  
-                            "CSS"
-                        ],
-                        "desc":"Website is viewable in all devices with consideration for usability in mobile devices."
-                    }
-
-                ]
-            },
-            "design":{  
-                "subtitle":"Responsive experience with engaging CSS effects while maintaining a simple flow of navigation between pages.",
-                "list":[  
-                    {  
-                        "caption":"Landing Page",
-                        "src":"1.png",
-                        "size": [1920, 2412]
-                    }
-                ]
-            }
-        },
         {  
             "uid":"portfolio-2016",
             "name":"Portfolio",
