@@ -127,10 +127,10 @@ section {
   margin: auto;
   color: #b5b5b5;
   padding: 0 6% 0 6%;
-  @include mq($from: md) { padding: 0 tick(1); }
-  @include mq($from: lg) { padding: 0 tick(1); }
-  @include mq($from: layout) {  padding: 0 tick(0.5); }
-    @include mq($from: layoutpad) {  padding: 0; }
+  @include mq($from: md) { padding: 0 tick(1.5); }
+  @include mq($from: lg) { padding: 0 tick(1.5); }
+  @include mq($from: layout) {  padding: 0 tick(1); }
+  @include mq($from: layoutpad) {  padding: 0; }
 }
 .left {
   @include left-column-content();
