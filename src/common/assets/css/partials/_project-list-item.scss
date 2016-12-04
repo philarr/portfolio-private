@@ -59,8 +59,8 @@
       @extend %xs-14;
       @extend %sm-10;
       @extend %md-9;
-      @extend %lg-9;
-      @extend %xl-6;
+      @extend %lg-8;
+      @extend %xl-7;
       height: tick(4);
       color: #A0A2A4;
     }
@@ -95,8 +95,8 @@
         @extend %xs-offset-3;
         @extend %sm-offset-12;
         @extend %md-offset-11;
-        @extend %lg-offset-10;
-        @extend %xl-offset-7;
+        @extend %lg-offset-9;
+        @extend %xl-offset-8;
         @include shadow(4);
         top: tick(1.25);
        
@@ -114,7 +114,7 @@
         }
         @include mq($from: lg) {      transform: scale((1 * 18/24)); }
         @include mq($from: xl) {      transform: scale((1 * 13/24)); }
-        @include mq($from: layout) {  transform: scale((1 * 15/24)); }  
+        @include mq($from: layout) {  transform: scale((1 * 16/24)); }  
       }
       //Mockup bar
       border-top: 1.2em solid rgba(211,211,211,0.5);
