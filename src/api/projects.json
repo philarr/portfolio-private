@@ -2,7 +2,7 @@
     "meta":{  
         "name":"PMHC.co",
         "version":"1",
-        "github":"http://www.github.com/philarr",
+        "github":"http://www.github.com/pmchung",
         "linkedin":"https://www.linkedin.com/in/pmhcco",
         "twitter":"http://www.twitter.com/pmhc_",
         "email":"philip@pmhc.co",
@@ -69,7 +69,7 @@
             "name":"Portfolio",
             "year":"2016",
             "type":"Web Application",
-            "source":"http://www.github.com/philarr/portfolio-private",
+            "source":"http://www.github.com/pmchung/portfolio-private",
             "desc":"The newest iteration of my personal portfolio using isomorphic React.",
             "tech":[  
                 "React",
@@ -157,7 +157,7 @@
             "year":"2015",
             "type":"Web Application",
             "url":"http://www.xivdps.com",
-            "source":"http://www.github.com/philarr/xivdps-web",
+            "source":"http://www.github.com/pmchung/xivdps-web",
             "desc":"Game data collection and analysis tool consisting of multiple components across different platforms.",
             "tech":[  
                 "PHP",
@@ -276,7 +276,7 @@
             "year":"2013",
             "type":"Game",
             "url":"http://www.sfu.ca/~pmchung/tank-wars/",
-            "source":"http://www.github.com/philarr/tank-wars",
+            "source":"http://www.github.com/pmchung/tank-wars",
             "desc":"HTML5 canvas game using object-oriented programming and visualization techniques.",
             "tech":[  
                 "Processing"
