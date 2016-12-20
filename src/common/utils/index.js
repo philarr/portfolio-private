@@ -29,16 +29,9 @@ export function formatTime(utc) {
 }
 
 export function isDST() {
-
-	const date = new Date();
-	const month = date.getUTCMonth();
-	const day = date.getUTCDate();
-	const dow =  date.getUTCDay();
-
-	if (month < 3 || month > 11) { return false; }
-	if (month > 3 && month < 11) { return true; }
-	const previousSunday = day - dow;
-	if (month === 3) { return previousSunday >= 8; }
-	return previousSunday <= 0;
+    const date = new Date();
+    var jan = new Date(date.getFullYear(),0,1);
+    var jul = new Date(date.getFullYear(),6,1);
+    return Math.min(jan.getTimezoneOffset(),jul.getTimezoneOffset()) == date.getTimezoneOffset(); 
 }
 

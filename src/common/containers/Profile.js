@@ -28,8 +28,8 @@ class Profile extends React.Component {
         const date = new Date();
 
         this.runClock = this.runClock.bind(this, isDST() ? 
-            this.props.profile.mapOption.utc - 1 : 
-            this.props.profile.mapOption.utc
+            this.props.profile.mapOption.utc  : 
+            this.props.profile.mapOption.utc - 1
         );
  
     }
